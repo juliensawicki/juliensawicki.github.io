@@ -392,6 +392,7 @@ body {
     color: inherit;
     box-shadow: var(--shadow);
     text-align: center;
+    cursor: pointer;
 }
 
 .portfolio-item:hover {
@@ -559,3 +560,4 @@ body {
         margin-bottom: 15px;
     }
 }
+
