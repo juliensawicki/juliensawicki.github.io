@@ -309,26 +309,6 @@ body {
     left: 0;
 }
 
-/* Bouton de téléchargement du CV */
-.btn-download {
-    display: inline-block;
-    background: var(--primary);
-    color: var(--white);
-    padding: 12px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 20px;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow);
-}
-
-.btn-download:hover {
-    background: var(--secondary);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(255, 107, 55, 0.3);
-}
-
 /* ===== COMPÉTENCES ===== */
 .skills-grid {
     display: grid;
@@ -579,4 +559,3 @@ body {
         margin-bottom: 15px;
     }
 }
-
