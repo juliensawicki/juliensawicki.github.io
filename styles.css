@@ -357,3 +357,103 @@ body {
     color: var(--text-soft);
     border-top: 1px solid var(--border);
 }
+
+
+/* ===== Contact Section ===== */
+#contact .container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.contact-item {
+    background: var(--bg-card);
+    padding: 25px 20px;
+    border-radius: 14px;
+    width: 160px; /* un peu plus large pour lisibilité */
+    text-align: center;
+    color: var(--text-main);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.contact-item i {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    margin-top: 5px;
+    font-size: 0.95rem;
+    color: var(--text-soft);
+}
+
+/* ===== Mentions légales Section ===== */
+#mentions .container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.mentions-content {
+    background: var(--bg-card);
+    border-radius: 14px;
+    padding: 30px 25px;
+    border: 1px solid var(--border);
+    line-height: 1.7;
+    color: var(--text-soft);
+    transition: box-shadow 0.3s ease;
+}
+
+.mentions-content:hover {
+    box-shadow: var(--shadow);
+}
+
+.mentions-content h3 {
+    color: var(--secondary);
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.mentions-content p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.mentions-content a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.mentions-content a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Scroll offset pour navbar fixe ===== */
+.section {
+    scroll-margin-top: 90px; /* décale le scroll pour ne pas cacher le titre sous la navbar */
+}
+
+/* ===== Responsive adjustments ===== */
+@media (max-width: 600px) {
+    .contact-item {
+        width: 45%; /* deux colonnes sur mobile */
+    }
+    .mentions-content {
+        padding: 20px 15px;
+    }
+}
+
