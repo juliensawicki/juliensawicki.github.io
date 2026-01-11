@@ -283,33 +283,4 @@ body {
     border-top: 1px solid var(--border);
 }
 
-.mentions-content {
-    max-width: 800px;
-    margin: auto;
-    color: var(--text-soft);
-    line-height: 1.8;
-}
-
-.mentions-content h3 {
-    font-size: 1.2rem;
-    color: var(--text-main);
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-}
-
-.mentions-content p {
-    margin-top: 10px;
-    font-size: 0.95rem;
-    color: var(--text-soft);
-}
-
-.mentions-content a {
-    color: var(--primary);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.mentions-content a:hover {
-    color: var(--secondary);
-}
+.mentions-content
