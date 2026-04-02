@@ -3,150 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JULIEN SAWICKI | DOSSIER TECHNIQUE DÉTAILLÉ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>S.JULIEN | DOSSIER D'EXPERTISE TECHNIQUE</title>
+    
+    <!-- Fonts de haute précision -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES ET DESIGN SYSTEM --- */
+        :root {
+            --bg-black: #030303;
+            --surface: #0a0a0c;
+            --accent-red: #ff334b;
+            --accent-orange: #ff8c00;
+            --accent-pink: #ec4899;
+            --text-main: #ffffff;
+            --text-dim: #888880;
+            --border: rgba(255, 255, 255, 0.07);
+            --gradient: linear-gradient(135deg, var(--accent-red), var(--accent-orange));
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        /* --- RESET ET FONDATION --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+        /* --- EFFETS DE FOND --- */
+        .noise {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.03; pointer-events: none; z-index: 1000;
+        }
+
+        .glow-sphere {
+            position: fixed; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(255, 51, 75, 0.05) 0%, transparent 70%);
+            border-radius: 50%; pointer-events: none; z-index: 0;
+            transform: translate(-50%, -50%);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 30px 0; border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100;
+        }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1rem; letter-spacing: 2px; font-family: var(--font-mono); }
+        .logo span { color: var(--accent-red); }
+        .sys-status { font-size: 0.7rem; color: var(--text-dim); display: flex; align-items: center; gap: 8px; }
+        .pulse { width: 6px; height: 6px; background: #00ff41; border-radius: 50%; box-shadow: 0 0 10px #00ff41; animation: blink 2s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        /* --- HERO --- */
+        header { padding: 120px 0 80px; }
+        .pre-title { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-orange); letter-spacing: 4px; margin-bottom: 20px; }
+        h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; line-height: 1; letter-spacing: -4px; }
+        .gradient-txt { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-desc { max-width: 700px; font-size: 1.2rem; color: var(--text-dim); margin-top: 30px; font-weight: 300; }
+
+        /* --- GRID DES COMPÉTENCES --- */
+        .skills-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; margin-bottom: 100px; }
+        
+        .skill-card {
+            background: var(--surface); border: 1px solid var(--border);
+            padding: 40px; position: relative; border-radius: 4px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .skill-card:hover { border-color: var(--accent-red); transform: translateY(-5px); }
+
+        .full-width { grid-column: span 12; border-left: 4px solid var(--accent-red); }
+        .half-width { grid-column: span 6; border-left: 4px solid var(--accent-orange); }
+        
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; }
+        .ue-tag { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); }
+        .level-badge { font-size: 0.65rem; font-weight: 800; padding: 4px 12px; border: 1px solid var(--border); border-radius: 50px; text-transform: uppercase; }
+
+        h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; letter-spacing: -1px; }
+        .bilan-global { font-size: 1.1rem; margin-bottom: 40px; color: var(--text-main); font-weight: 400; border-bottom: 1px solid var(--border); padding-bottom: 30px; }
+
+        .details-flex { display: flex; gap: 40px; }
+        .detail-col { flex: 1; }
+        h3 { font-size: 0.8rem; color: var(--accent-orange); letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
+        
+        ul { list-style: none; }
+        li { margin-bottom: 15px; font-size: 0.9rem; color: var(--text-dim); position: relative; padding-left: 20px; }
+        li::before { content: "→"; position: absolute; left: 0; color: var(--accent-red); }
+
+        .vigilance li::before { content: "!"; color: var(--accent-orange); }
+
+        /* --- FOOTER --- */
+        footer { padding: 60px 0; border-top: 1px solid var(--border); text-align: center; }
+        .footer-txt { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); letter-spacing: 3px; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .half-width, .full-width { grid-column: span 12; }
+            .details-flex { flex-direction: column; gap: 30px; }
+        }
+    </style>
 </head>
-<body class="dark-mode">
+<body>
 
-    <div class="custom-cursor"></div>
-    <div class="noise-overlay"></div>
+    <div class="noise"></div>
+    <div class="glow-sphere" id="cursor-glow"></div>
 
-    <nav class="top-nav">
-        <div class="container-full">
-            <div class="nav-content">
-                <div class="brand">J.SAWICKI<span class="dot">.</span>SYSTEMS</div>
-                <div class="system-time" id="clock">00:00:00</div>
-                <div class="status-badge"><span class="pulse"></span> ANALYSE OPÉRATIONNELLE</div>
+    <nav>
+        <div class="container nav-flex">
+            <div class="logo">SAWICKI<span>.</span>SYSTEMS</div>
+            <div class="sys-status">
+                <div class="pulse"></div> 
+                <span id="timestamp">DOSSIER_TECH_INITIALISÉ</span>
             </div>
         </div>
     </nav>
 
-    <main class="main-wrapper">
-        <header class="hero-header">
-            <div class="container">
-                <h1 class="reveal-text">Audit de Compétences <br><span class="gradient-text">Réseaux & Télécoms.</span></h1>
-                <p class="hero-sub">Analyse granulaire des unités d'enseignement — Session 2026</p>
-            </div>
+    <main class="container">
+        <header>
+            <p class="pre-title">// ARCHITECTURE SYSTÈME 2026</p>
+            <h1>Audit Global des <br><span class="gradient-txt">Compétences Techniques.</span></h1>
+            <p class="hero-desc">Transformation des acquis académiques en expertise opérationnelle. Analyse granulaire des capacités en développement logiciel, infrastructures réseaux et physique appliquée.</p>
         </header>
 
-        <section class="grid-layout">
-            <div class="container">
-                
-                <!-- NAVIGATION DES COMPÉTENCES -->
-                <div class="tabs-control">
-                    <button class="tab-btn active" data-target="ue13">UE 1.3 : LOGICIEL</button>
-                    <button class="tab-btn" data-target="ue12">UE 1.2 : SIGNAL</button>
-                    <button class="tab-btn" data-target="ue11">UE 1.1 : INFRA</button>
+        <section class="skills-grid">
+            
+            <!-- UE 1.3 : DÉVELOPPEMENT (BASÉ SUR NOTES 18+) -->
+            <article class="skill-card full-width">
+                <div class="card-header">
+                    <span class="ue-tag">UNIT_0x13</span>
+                    <span class="level-badge" style="color:var(--accent-red); border-color:var(--accent-red);">Expertise Dominante</span>
                 </div>
-
-                <!-- CONTENU DYNAMIQUE -->
-                <div class="content-display">
-                    
-                    <!-- BLOC UE 1.3 -->
-                    <article id="ue13" class="tab-content active">
-                        <div class="analysis-grid">
-                            <div class="main-column">
-                                <div class="expert-label">PILIER DOMINANT // SCORE EXCELLENCE</div>
-                                <h2>Ingénierie Logicielle & Data Analytics</h2>
-                                <p class="bilan-text">
-                                    Basé sur une moyenne de 18/20 en programmation et SAÉ 1.5, ce pôle constitue le cœur réacteur du profil. 
-                                    La capacité à automatiser des processus réseaux via le code (Python/C) et à traiter des flux massifs de données 
-                                    (Data Analysis) place Julien dans le top percentile des experts techniques.
-                                </p>
-                                
-                                <div class="pros-cons">
-                                    <div class="box pro">
-                                        <h3>POINTS FORTS</h3>
-                                        <ul>
-                                            <li>Conception algorithmique complexe et optimisée.</li>
-                                            <li>Maîtrise du pipeline ETL (Extract, Transform, Load) en Data Science.</li>
-                                            <li>Scripting système avancé sous environnements critiques Linux.</li>
-                                        </ul>
-                                    </div>
-                                    <div class="box con">
-                                        <h3>POINTS DE VIGILANCE</h3>
-                                        <ul>
-                                            <li>Intégration de tests unitaires systématiques pour les projets d'envergure.</li>
-                                            <li>Exploration des frameworks Big Data (Spark/Hadoop) pour l'échelle industrielle.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- BLOC UE 1.2 -->
-                    <article id="ue12" class="tab-content">
-                        <div class="analysis-grid">
-                            <div class="main-column">
-                                <div class="expert-label">SOCLE SCIENTIFIQUE // MAÎTRISE THÉORIQUE</div>
-                                <h2>Physique du Signal & Télécommunications</h2>
-                                <p class="bilan-text">
-                                    Avec un socle solide (moyenne 13.5/20), l'expertise se concentre sur la compréhension fine des couches physiques. 
-                                    C'est la capacité à garantir l'intégrité de la donnée avant même son traitement logiciel.
-                                </p>
-                                <div class="pros-cons">
-                                    <div class="box pro">
-                                        <h3>POINTS FORTS</h3>
-                                        <ul>
-                                            <li>Analyse spectrale et modélisation des signaux analogiques/numériques.</li>
-                                            <li>Calcul précis de bilans de liaison (Fibre Optique, Cuivre, Hertzien).</li>
-                                        </ul>
-                                    </div>
-                                    <div class="box con">
-                                        <h3>POINTS DE VIGILANCE</h3>
-                                        <ul>
-                                            <li>Pratique accrue sur les instruments de mesure (Analyseurs de spectre).</li>
-                                            <li>Approfondissement des techniques de multiplexage avancées.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- BLOC UE 1.1 -->
-                    <article id="ue11" class="tab-content">
-                        <div class="analysis-grid">
-                            <div class="main-column">
-                                <div class="expert-label">SÉCURITÉ & INFRASTRUCTURE // SOCLE OPÉRATIONNEL</div>
-                                <h2>Architectures Réseaux & Cybersécurité</h2>
-                                <p class="bilan-text">
-                                    Une maîtrise opérationnelle des protocoles IP et de la sécurité des systèmes (moyenne 12.8/20). 
-                                    Focus sur la résilience et la fiabilité des échanges inter-sites.
-                                </p>
-                                <div class="pros-cons">
-                                    <div class="box pro">
-                                        <h3>POINTS FORTS</h3>
-                                        <ul>
-                                            <li>Configuration d'équipements actifs (Switching/Routing L2-L3).</li>
-                                            <li>Application des protocoles d'hygiène et de sécurité informatique.</li>
-                                        </ul>
-                                    </div>
-                                    <div class="box con">
-                                        <h3>POINTS DE VIGILANCE</h3>
-                                        <ul>
-                                            <li>Routage dynamique à grande échelle (BGP/OSPF).</li>
-                                            <li>Virtualisation réseau et SDN (Software Defined Networking).</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
+                <h2>Ingénierie Logicielle & Data Analytics</h2>
+                <p class="bilan-global">
+                    Domaine d'excellence absolue. La maîtrise de l'algorithmie et du traitement de données (SAÉ 1.5) place ce profil au niveau ingénieur junior. 
+                    Capacité critique à transformer une problématique métier en solution logicielle optimisée, scalable et automatisée.
+                </p>
+                <div class="details-flex">
+                    <div class="detail-col">
+                        <h3>Points de Force</h3>
+                        <ul>
+                            <li><strong>Développement Bas-Niveau (C) :</strong> Gestion rigoureuse de la mémoire et optimisation des cycles CPU.</li>
+                            <li><strong>Intelligence des Données :</strong> Pipeline complet d'analyse (Extraction, Parsing, Visualisation Statistique).</li>
+                            <li><strong>Automatisation UNIX :</strong> Scripting Bash avancé pour la gestion d'infrastructures serveurs Linux.</li>
+                        </ul>
+                    </div>
+                    <div class="detail-col">
+                        <h3>Vigilance Technique</h3>
+                        <ul class="vigilance">
+                            <li><strong>Frameworks :</strong> Extension nécessaire vers des architectures Cloud (Docker/Kubernetes).</li>
+                            <li><strong>Standardisation :</strong> Industrialisation des tests unitaires sur les projets complexes.</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            </article>
+
+            <!-- UE 1.2 : PHYSIQUE (BASÉ SUR NOTES 13+) -->
+            <article class="skill-card half-width">
+                <div class="card-header">
+                    <span class="ue-tag">UNIT_0x12</span>
+                    <span class="level-badge">Maîtrise Scientifique</span>
+                </div>
+                <h2>Sciences du Signal & Télécoms</h2>
+                <p class="bilan-global">
+                    Compréhension fine des couches physiques. Capacité à modéliser mathématiquement l'intégrité des flux de données sur supports hertzien et optique.
+                </p>
+                <div class="details-flex">
+                    <div class="detail-col">
+                        <h3>Points de Force</h3>
+                        <ul>
+                            <li>Analyse spectrale et transformées mathématiques.</li>
+                            <li>Calculs de bilans de liaison complexes.</li>
+                        </ul>
+                    </div>
+                    <div class="detail-col">
+                        <h3>Vigilance</h3>
+                        <ul class="vigilance">
+                            <li>Approfondir la modulation numérique avancée.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- UE 1.1 : RESEAUX (BASÉ SUR NOTES 12+) -->
+            <article class="skill-card half-width">
+                <div class="card-header">
+                    <span class="ue-tag">UNIT_0x11</span>
+                    <span class="level-badge">Socle Opérationnel</span>
+                </div>
+                <h2>Infrastructures & Cybersécurité</h2>
+                <p class="bilan-global">
+                    Mise en œuvre des standards industriels de communication. Maîtrise des protocoles de routage et de l'hygiène informatique sécurisée.
+                </p>
+                <div class="details-flex">
+                    <div class="detail-col">
+                        <h3>Points de Force</h3>
+                        <ul>
+                            <li>Configuration d'équipements actifs (Switch/Routeur).</li>
+                            <li>Segmentation VLAN et adressage IPv4/IPv6.</li>
+                        </ul>
+                    </div>
+                    <div class="detail-col">
+                        <h3>Vigilance</h3>
+                        <ul class="vigilance">
+                            <li>Routage dynamique à large échelle (BGP/OSPF).</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
         </section>
     </main>
 
-    <footer class="system-footer">
+    <footer>
         <div class="container">
-            <p>© 2026 JULIEN SAWICKI — SYSTÈME D'AUDIT TECHNIQUE — TOUS DROITS RÉSERVÉS</p>
+            <p class="footer-txt">JULIEN SAWICKI // DOCUMENT_ID: 2026_PRO_CONFIDENTIAL</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Dynamisme de l'interface
+        document.addEventListener('DOMContentLoaded', () => {
+            const glow = document.getElementById('cursor-glow');
+            const timestamp = document.getElementById('timestamp');
+
+            // 1. Suivi de la souris (Effet de lumière)
+            document.addEventListener('mousemove', (e) => {
+                glow.style.left = e.clientX + 'px';
+                glow.style.top = e.clientY + 'px';
+            });
+
+            // 2. Horloge temps réel (Aspect console)
+            setInterval(() => {
+                const now = new Date();
+                timestamp.innerText = `STATUS_LOG: ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()} — OPÉRATIONNEL`;
+            }, 1000);
+
+            // 3. Animation d'apparition des cartes au scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.skill-card').forEach(card => {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(30px)";
+                card.style.transition = "all 0.8s ease-out";
+                observer.observe(card);
+            });
+        });
+    </script>
 </body>
 </html>
