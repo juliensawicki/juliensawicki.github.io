@@ -3,158 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julien Sawicki | Portfolio Ingénierie R&T</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>Julien Sawicki | Ingénierie Réseaux & Télécoms</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">JS<span>.</span></div>
+            <div class="logo">JS<span class="dot">.</span></div>
             <div class="nav-links">
-                <a href="#cv">Parcours</a>
-                <a href="#competences">Expertise & Notes</a>
-                <a href="#contact" class="btn-nav">Contact</a>
+                <a href="#expertises">Expertises</a>
+                <a href="#parcours">Parcours</a>
+                <a href="#contact" class="btn-contact">Me contacter</a>
             </div>
         </div>
     </nav>
 
-    <header class="header">
+    <header class="hero">
         <div class="container">
-            <div class="badge-row">
-                <span class="badge">Disponibilité 2026</span>
-                <span class="badge-outline">BUT R&T @ IUT Béthune</span>
+            <div class="status-badge">
+                <span class="pulse"></span> Disponible pour projets 2026
             </div>
-            <h1>Profil Technique en <br><span class="gradient-text">Réseaux & Télécoms.</span></h1>
-            <p class="subtitle">Analyse rigoureuse de données, développement logiciel et mathématiques du signal. Étudiant en Bachelor Universitaire de Technologie.</p>
+            <h1>Architecte de solutions <br><span class="gradient-text">Réseaux & Systèmes.</span></h1>
+            <p class="hero-subtitle">Étudiant en BUT Réseaux & Télécoms spécialisé dans l'analyse de données, le développement logiciel et l'ingénierie du signal.</p>
         </div>
     </header>
 
-    <section id="competences" class="section bg-light">
+    <section id="expertises" class="section">
         <div class="container">
-            <h2 class="section-tag">Bilan de Compétences</h2>
-            
-            <div class="skills-stack">
+            <h2 class="section-title">Bilan de Compétences Techniques</h2>
 
-                <!-- UE 11 -->
-                <div class="skill-card" onclick="toggleSkill(this)">
-                    <div class="skill-header">
-                        <div class="ue-meta">
-                            <span class="ue-id">UE11</span>
-                            <h3>Administrer les réseaux et l'Internet</h3>
+            <div class="stack">
+
+                <!-- UE 13 : Le point fort -->
+                <div class="card active" onclick="toggleCard(this)">
+                    <div class="card-header">
+                        <div class="header-info">
+                            <span class="id-tag">UNITÉ D'EXPERTISE 13</span>
+                            <h3>Ingénierie Logicielle & Data Science</h3>
                         </div>
-                        <div class="ue-stats">
-                            <div class="stat">
-                                <span class="stat-label">Moyenne</span>
-                                <span class="stat-value">09.55</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-label">Rang</span>
-                                <span class="stat-value">52/57</span>
-                            </div>
-                        </div>
+                        <span class="level-badge high">Niveau Avancé</span>
                     </div>
-                    <div class="skill-body">
-                        <div class="skill-content">
-                            <p class="summary"><strong>Bilan :</strong> Phase d'initiation aux logiques d'administration. Bien que les résultats techniques soient en cours de consolidation, l'approche théorique est activement travaillée.</p>
-                            <table class="resource-table">
-                                <thead><tr><th>Ressource</th><th>Note</th><th>Coef</th></tr></thead>
-                                <tbody>
-                                    <tr><td>R1.01 Initiation aux réseaux</td><td class="note-low">03.31</td><td>4</td></tr>
-                                    <tr><td>R1.03 Réseaux locaux & équipements</td><td class="note-low">05.00</td><td>2</td></tr>
-                                    <tr><td>R1.11 Éléments de Culture & Com.</td><td>10.17</td><td>5</td></tr>
-                                </tbody>
+                    <div class="card-body">
+                        <p class="analysis">Maîtrise complète du cycle de développement. Capacité démontrée à concevoir des outils d'automatisation performants et à traiter des flux de données massifs pour l'aide à la décision.</p>
+                        <div class="table-container">
+                            <table class="skill-table">
+                                <tr>
+                                    <td class="skill-name">Programmation Fondamentale</td>
+                                    <td class="skill-desc">Conception algorithmique avancée, gestion de la mémoire et optimisation de scripts en environnement de production.</td>
+                                </tr>
+                                <tr>
+                                    <td class="skill-name">Data Management</td>
+                                    <td class="skill-desc">Extraction, parsing et analyse statistique de datasets. Automatisation des rapports techniques.</td>
+                                </tr>
+                                <tr>
+                                    <td class="skill-name">Environnement Linux</td>
+                                    <td class="skill-desc">Administration système, gestion des droits, et scripting Shell (Bash) pour l'automatisation infrastructurelle.</td>
+                                </tr>
+                                <tr>
+                                    <td class="skill-name">Technologies Web</td>
+                                    <td class="skill-desc">Compréhension des protocoles HTTP/S et déploiement d'interfaces de présentation de données.</td>
+                                </tr>
                             </table>
                         </div>
                     </div>
                 </div>
 
-                <!-- UE 12 -->
-                <div class="skill-card" onclick="toggleSkill(this)">
-                    <div class="skill-header">
-                        <div class="ue-meta">
-                            <span class="ue-id highlight">UE12</span>
-                            <h3>Connecter les entreprises et les usagers</h3>
+                <!-- UE 12 : Signal et Physique -->
+                <div class="card" onclick="toggleCard(this)">
+                    <div class="card-header">
+                        <div class="header-info">
+                            <span class="id-tag">UNITÉ D'EXPERTISE 12</span>
+                            <h3>Physique du Signal & Transmissions</h3>
                         </div>
-                        <div class="ue-stats">
-                            <div class="stat">
-                                <span class="stat-label">Moyenne</span>
-                                <span class="stat-value">10.54</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-label">Rang</span>
-                                <span class="stat-value">42/57</span>
-                            </div>
-                        </div>
+                        <span class="level-badge medium">Expertise Théorique</span>
                     </div>
-                    <div class="skill-body">
-                        <div class="skill-content">
-                            <div class="top-scores">
-                                <div class="score-card">
-                                    <span>Mathématiques du Signal</span>
-                                    <strong>16.50</strong>
-                                </div>
-                                <div class="score-card">
-                                    <span>Maths des Transmissions</span>
-                                    <strong>14.33</strong>
-                                </div>
-                            </div>
-                            <p class="summary"><strong>Bilan :</strong> Excellente aptitude en mathématiques appliquées. La compréhension des supports physiques (R1.05) et du signal est le socle de mon profil ingénierie.</p>
-                            <table class="resource-table">
-                                <thead><tr><th>Ressource</th><th>Note</th><th>Coef</th></tr></thead>
-                                <tbody>
-                                    <tr class="high"><td>R1.13 Mathématiques du signal</td><td>16.50</td><td>9</td></tr>
-                                    <tr class="high"><td>R1.14 Mathématiques des transmissions</td><td>14.33</td><td>9</td></tr>
-                                    <tr><td>R1.05 Supports de transmission</td><td>11.50</td><td>8</td></tr>
-                                    <tr><td>R1.04 Électronique analogique</td><td>09.44</td><td>8</td></tr>
-                                    <tr><td>SAÉ13 Découvrir un disp. de transmission</td><td>09.40</td><td>33</td></tr>
-                                </tbody>
+                    <div class="card-body">
+                        <p class="analysis">Solide socle scientifique permettant l'analyse des couches basses du modèle OSI. Aptitude à modéliser mathématiquement les supports de transmission complexes.</p>
+                        <div class="table-container">
+                            <table class="skill-table">
+                                <tr>
+                                    <td class="skill-name">Mathématiques du Signal</td>
+                                    <td class="skill-desc">Analyse spectrale, modélisation de signaux périodiques et traitement fréquentiel.</td>
+                                </tr>
+                                <tr>
+                                    <td class="skill-name">Supports de Transmission</td>
+                                    <td class="skill-desc">Étude des caractéristiques physiques des supports (Fibre, Cuivre, Hertzien) et calculs de bilans de liaison.</td>
+                                </tr>
+                                <tr>
+                                    <td class="skill-name">Électronique Analogique</td>
+                                    <td class="skill-desc">Compréhension des circuits de modulation, de filtrage et d'amplification du signal.</td>
+                                </tr>
                             </table>
                         </div>
                     </div>
                 </div>
 
-                <!-- UE 13 -->
-                <div class="skill-card" onclick="toggleSkill(this)">
-                    <div class="skill-header">
-                        <div class="ue-meta">
-                            <span class="ue-id excellence">UE13</span>
-                            <h3>Créer des outils et applications RT</h3>
+                <!-- UE 11 : Infrastructure -->
+                <div class="card" onclick="toggleCard(this)">
+                    <div class="card-header">
+                        <div class="header-info">
+                            <span class="id-tag">UNITÉ D'EXPERTISE 11</span>
+                            <h3>Administration Réseaux & Services</h3>
                         </div>
-                        <div class="ue-stats">
-                            <div class="stat">
-                                <span class="stat-label">Moyenne</span>
-                                <span class="stat-value excellence-text">14.20</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-label">Rang</span>
-                                <span class="stat-value">34/57</span>
-                            </div>
-                        </div>
+                        <span class="level-badge low">En Consolidation</span>
                     </div>
-                    <div class="skill-body">
-                        <div class="skill-content">
-                            <div class="top-scores green">
-                                <div class="score-card">
-                                    <span>SAÉ Traitement de données</span>
-                                    <strong>18.00</strong>
-                                </div>
-                                <div class="score-card">
-                                    <span>Programmation (R1.07)</span>
-                                    <strong>16.90</strong>
-                                </div>
-                            </div>
-                            <p class="summary"><strong>Bilan :</strong> Domaine de prédilection. Maîtrise avancée de l'algorithmie et des systèmes d'exploitation. Capacité démontrée à automatiser et traiter des données complexes.</p>
-                            <table class="resource-table">
-                                <thead><tr><th>Ressource</th><th>Note</th><th>Coef</th></tr></thead>
-                                <tbody>
-                                    <tr class="high"><td>SAÉ15 Traitement de données</td><td>18.00</td><td>28</td></tr>
-                                    <tr class="high"><td>R1.07 Fondamentaux de programmation</td><td>16.90</td><td>19</td></tr>
-                                    <tr class="high"><td>SAÉ14 Se présenter sur Internet</td><td>16.50</td><td>8</td></tr>
-                                    <tr class="high"><td>R1.08 Bases des Systèmes d'Exploitation</td><td>15.00</td><td>8</td></tr>
-                                    <tr><td>R1.10 Anglais Technique</td><td>12.79</td><td>5</td></tr>
-                                </tbody>
+                    <div class="card-body">
+                        <p class="analysis">Phase d'appropriation des architectures réseaux. Focus actuel sur la sécurisation des infrastructures et la compréhension approfondie des protocoles de routage.</p>
+                        <div class="table-container">
+                            <table class="skill-table">
+                                <tr>
+                                    <td class="skill-name">Architecture Réseaux</td>
+                                    <td class="skill-desc">Étude du modèle OSI et des protocoles de la suite TCP/IP. Configuration d'équipements actifs.</td>
+                                </tr>
+                                <tr>
+                                    <td class="skill-name">Hygiène Informatique</td>
+                                    <td class="skill-desc">Sensibilisation aux vecteurs d'attaque et mise en place de politiques de sécurité de premier niveau.</td>
+                                </tr>
+                                <tr>
+                                    <td class="skill-name">Anglais Technique</td>
+                                    <td class="skill-desc">Capacité à exploiter des documentations techniques internationales et à communiquer en environnement professionnel.</td>
+                                </tr>
                             </table>
                         </div>
                     </div>
@@ -166,14 +136,14 @@
 
     <footer class="footer">
         <div class="container">
-            <p>© 2026 Julien Sawicki — Ingénierie Réseaux & Télécoms</p>
+            <p>© 2026 Julien Sawicki — Futur Ingénieur Réseaux & Télécoms</p>
         </div>
     </footer>
 
     <script>
-        function toggleSkill(element) {
+        function toggleCard(element) {
             const isActive = element.classList.contains('active');
-            document.querySelectorAll('.skill-card').forEach(card => card.classList.remove('active'));
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
             if (!isActive) element.classList.add('active');
         }
     </script>
