@@ -1,145 +1,312 @@
-<script>
-    const auditData = {
-        ue13: {
-            title: "INGÉNIERIE LOGICIELLE & SYSTÈMES",
-            summary: "ANALYSE_S1 : Expertise dominante confirmée. Capacité critique de résolution algorithmique et maîtrise des environnements POSIX.",
-            items: [
-                {status: "high", res: "SAÉ 1.5 - Traitement de données", desc: "Expertise majeure. Capacité à concevoir un pipeline complet d'analyse, du parsing de fichiers bruts à la génération de statistiques visuelles automatisées."},
-                {status: "high", res: "R1.07 - Fondamentaux de la Programmation", desc: "Maîtrise avancée des structures de contrôle, de la gestion mémoire et de l'optimisation algorithmique."},
-                {status: "high", res: "R1.08 - Systèmes d'Exploitation", desc: "Compétence solide en environnement Linux. Scripting Bash et gestion des processus système."},
-                {status: "mid", res: "R1.09 - Technologies Web", desc: "Acquisition des bases HTML/CSS. Axe de développement identifié sur les frameworks dynamiques."}
-            ]
-        },
-        ue12: {
-            title: "SCIENCES APPLIQUÉES & MATHÉMATIQUES",
-            summary: "ANALYSE_S1 : Rigueur analytique élevée. Utilisation de l'abstraction mathématique pour la résolution de problématiques de transmission.",
-            items: [
-                {status: "high", res: "R1.13 - Mathématiques du Signal", desc: "Excellente maîtrise des outils de transformation et d'analyse spectrale. Capacité de modélisation supérieure."},
-                {status: "high", res: "R1.14 - Mathématiques des Transmissions", desc: "Compréhension fine des probabilités et calculs appliqués aux flux de données numériques."},
-                {status: "mid", res: "R1.05 - Supports de Transmission", desc: "Connaissance opérationnelle des médias physiques (fibre, cuivre, hertzien) et de leurs contraintes de propagation."}
-            ]
-        },
-        ue11: {
-            title: "RÉSEAUX & INFRASTRUCTURES",
-            summary: "ANALYSE_S1 : Capacité opérationnelle de déploiement. Maintenance et sécurisation des flux de données en environnement LAN.",
-            items: [
-                {status: "mid", res: "R1.03 - Réseaux Locaux & Équipements", desc: "Compétence opérationnelle sur la configuration de switchs et la segmentation de réseaux (VLAN)."},
-                {status: "mid", res: "R1.06 - Architecture des Systèmes", desc: "Compréhension des interactions matérielles et logicielles au sein des infrastructures numériques."},
-                {status: "mid", res: "R1.01 - Initiation aux Réseaux", desc: "Maîtrise des protocoles fondamentaux du modèle OSI et de l'adressage IP."}
-            ]
-        }
-    };
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.JULIEN | DOSSIER D'EXPERTISE TECHNIQUE</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    // --- EFFET DE DECRYPTAGE (SCRAMBLE) ---
-    class TextScrambler {
-        constructor(el) {
-            this.el = el;
-            this.chars = '!<>-_\\/[]{}—=+*^?#________';
-            this.update = this.update.bind(this);
+    <style>
+        :root {
+            --bg-black: #030303;
+            --surface: #0a0a0c;
+            --accent-red: #ff334b;
+            --accent-orange: #ff8c00;
+            --text-main: #ffffff;
+            --text-dim: #888888;
+            --border: rgba(255, 255, 255, 0.07);
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
-        setText(newText) {
-            const oldText = this.el.innerText;
-            const length = Math.max(oldText.length, newText.length);
-            const promise = new Promise((resolve) => this.resolve = resolve);
-            this.queue = [];
-            for (let i = 0; i < length; i++) {
-                const from = oldText[i] || '';
-                const to = newText[i] || '';
-                const start = Math.floor(Math.random() * 40);
-                const end = start + Math.floor(Math.random() * 40);
-                this.queue.push({ from, to, start, end });
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: crosshair; }
+        
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+        /* --- EFFETS DE FOND --- */
+        .noise {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.03; pointer-events: none; z-index: 1000;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 30px 0; border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100;
+            background: rgba(3,3,3,0.8);
+        }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-family: var(--font-mono); letter-spacing: 2px; }
+        .logo span { color: var(--accent-red); }
+
+        /* --- HERO --- */
+        header { padding: 100px 0 60px; }
+        .pre-title { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-orange); letter-spacing: 4px; margin-bottom: 20px; }
+        h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; line-height: 0.9; letter-spacing: -4px; }
+        .gradient-txt { background: linear-gradient(135deg, var(--accent-red), var(--accent-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* --- GRID DES COMPÉTENCES --- */
+        .skills-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; margin-bottom: 100px; }
+        
+        .skill-card {
+            background: var(--surface); border: 1px solid var(--border);
+            padding: 40px; border-radius: 4px; grid-column: span 6;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative; overflow: hidden;
+        }
+        .skill-card:hover { border-color: var(--accent-red); transform: translateY(-5px); background: #0e0e11; }
+        .full-width { grid-column: span 12; border-left: 4px solid var(--accent-red); }
+
+        .ue-tag { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-orange); letter-spacing: 2px; }
+        h2 { font-size: 1.8rem; margin: 15px 0; font-weight: 700; letter-spacing: -1px; }
+        .cta-detail { font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent-red); margin-top: 20px; display: block; opacity: 0.7; }
+
+        /* --- MODAL SYSTEM --- */
+        .modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.98); z-index: 1000;
+            display: none; justify-content: center; align-items: center;
+            backdrop-filter: blur(15px);
+        }
+        .modal-content {
+            background: #0a0a0c; border: 1px solid var(--border);
+            width: 90%; max-width: 900px; padding: 60px; position: relative;
+            max-height: 90vh; overflow-y: auto; border-radius: 4px;
+        }
+        /* Scanline effect in modal */
+        .modal-content::after {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+            background: var(--accent-red); opacity: 0.1; pointer-events: none;
+            animation: scanline 4s linear infinite;
+        }
+        @keyframes scanline { 0% { top: 0; } 100% { top: 100%; } }
+
+        .close-btn { position: absolute; top: 30px; right: 30px; font-family: var(--font-mono); color: var(--accent-red); font-size: 0.8rem; text-decoration: none; }
+
+        .audit-item { 
+            border-bottom: 1px solid var(--border); padding: 25px 0; 
+            opacity: 0; transform: translateX(-20px); transition: all 0.5s ease-out;
+        }
+        .audit-item.show { opacity: 1; transform: translateX(0); }
+        
+        .status-tag { 
+            display: inline-block; padding: 2px 12px; border-radius: 50px; font-size: 0.6rem; 
+            font-family: var(--font-mono); border: 1px solid; margin-bottom: 12px; 
+        }
+        .status-high { color: #00ff41; border-color: #00ff41; }
+        .status-mid { color: var(--accent-orange); border-color: var(--accent-orange); }
+
+        .res-name { font-family: var(--font-mono); font-size: 0.95rem; color: #fff; display: block; margin-bottom: 5px; }
+        .res-desc { color: var(--text-dim); font-size: 0.9rem; display: block; max-width: 90%; }
+
+        @media (max-width: 768px) { .skill-card { grid-column: span 12; } .modal-content { padding: 30px; } }
+    </style>
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <nav>
+        <div class="container nav-flex">
+            <div class="logo">SAWICKI<span>.</span>SYSTEMS</div>
+            <div class="ue-tag" id="sys-clock">LOADING_SYSTEM...</div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <p class="pre-title">// ARCHITECTURE_LOGICIELLE_2026</p>
+            <h1>Audit Global des <br><span class="gradient-txt">Capacités Techniques.</span></h1>
+        </header>
+
+        <section class="skills-grid">
+            <!-- UE 1.3 -->
+            <article class="skill-card full-width" onclick="runAudit('ue13')">
+                <span class="ue-tag">Unit_0x13 — DÉVELOPPEMENT</span>
+                <h2 class="scramble-trigger">Ingénierie Logicielle & Systèmes</h2>
+                <p style="color:var(--text-dim)">Expertise en algorithmique avancée, automatisation de pipelines de données et administration UNIX.</p>
+                <span class="cta-detail"> [ CLIQUEZ POUR INITIALISER L'AUDIT ]</span>
+            </article>
+
+            <!-- UE 1.2 -->
+            <article class="skill-card" onclick="runAudit('ue12')">
+                <span class="ue-tag">Unit_0x12 — SIGNAL</span>
+                <h2 class="scramble-trigger">Sciences Appliquées</h2>
+                <p style="color:var(--text-dim)">Modélisation mathématique des flux et analyse spectrale des signaux numériques.</p>
+                <span class="cta-detail"> [ ANALYSE DÉTAILLÉE ]</span>
+            </article>
+
+            <!-- UE 1.1 -->
+            <article class="skill-card" onclick="runAudit('ue11')">
+                <span class="ue-tag">Unit_0x11 — RÉSEAUX</span>
+                <h2 class="scramble-trigger">Infrastructures & Services</h2>
+                <p style="color:var(--text-dim)">Déploiement d'architectures réseaux sécurisées et configuration d'équipements actifs.</p>
+                <span class="cta-detail"> [ ANALYSE DÉTAILLÉE ]</span>
+            </article>
+        </section>
+    </main>
+
+    <!-- MODAL STRUCTURE -->
+    <div id="modal-audit" class="modal" onclick="closeAudit()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <a href="#" class="close-btn" onclick="closeAudit()">TERMINER_SESSION [X]</a>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        // --- DATA HUB (Pas de notes, uniquement du qualitatif) ---
+        const auditData = {
+            ue13: {
+                title: "INGÉNIERIE LOGICIELLE & SYSTÈMES",
+                summary: "Analyse S1 : Expertise dominante. L'étudiant démontre une capacité critique à transformer des problématiques complexes en solutions algorithmiques optimisées.",
+                items: [
+                    {status: "high", res: "SAÉ 1.5 - Traitement de données", desc: "Expertise majeure. Conception de pipelines automatisés de parsing et visualisation statistique de flux bruts."},
+                    {status: "high", res: "R1.07 - Fondamentaux de la Programmation", desc: "Maîtrise avancée du C : gestion rigoureuse de la mémoire et optimisation des cycles d'exécution."},
+                    {status: "high", res: "R1.08 - Bases des Systèmes d'Exploitation", desc: "Maîtrise de l'environnement Linux/UNIX. Scripting Bash et automatisation de tâches d'administration."},
+                    {status: "mid", res: "R1.09 - Technologies Web", desc: "Compétences fondamentales en intégration. Axe d'évolution vers les architectures applicatives modernes."}
+                ]
+            },
+            ue12: {
+                title: "SCIENCES APPLIQUÉES & MATHÉMATIQUES",
+                summary: "Analyse S1 : Rigueur scientifique élevée. Capacité démontrée à utiliser l'outil mathématique pour sécuriser l'intégrité des transmissions.",
+                items: [
+                    {status: "high", res: "R1.13 - Mathématiques du Signal", desc: "Excellente maîtrise des transformées et de l'analyse spectrale. Capacité de modélisation mathématique supérieure."},
+                    {status: "high", res: "R1.14 - Mathématiques des Transmissions", desc: "Compréhension fine des calculs de probabilités appliqués aux flux de données numériques."},
+                    {status: "mid", res: "R1.05 - Supports de Transmission", desc: "Connaissance opérationnelle des contraintes physiques liées aux supports cuivre et fibre optique."}
+                ]
+            },
+            ue11: {
+                title: "RÉSEAUX & INFRASTRUCTURES",
+                summary: "Analyse S1 : Capacité opérationnelle. Mise en œuvre des standards industriels pour la segmentation et la sécurisation des flux locaux.",
+                items: [
+                    {status: "mid", res: "R1.03 - Réseaux Locaux & Équipements", desc: "Configuration de switchs et mise en œuvre de la segmentation VLAN pour l'isolation des flux."},
+                    {status: "mid", res: "R1.06 - Architecture des Systèmes", desc: "Analyse des interactions matérielles et compréhension des couches d'abstraction système."},
+                    {status: "mid", res: "R1.01 - Initiation aux Réseaux", desc: "Maîtrise du modèle OSI et des protocoles de base de l'Internet (IPv4/IPv6)."}
+                ]
             }
-            cancelAnimationFrame(this.frameRequest);
-            this.frame = 0;
-            this.update();
-            return promise;
-        }
-        update() {
-            let output = '';
-            let complete = 0;
-            for (let i = 0, n = this.queue.length; i < n; i++) {
-                let { from, to, start, end, char } = this.queue[i];
-                if (this.frame >= end) {
-                    complete++;
-                    output += to;
-                } else if (this.frame >= start) {
-                    if (!char || Math.random() < 0.28) {
-                        char = this.chars[Math.floor(Math.random() * this.chars.length)];
-                        this.queue[i].char = char;
+        };
+
+        // --- EFFECT: SCRAMBLE TEXT ---
+        class TextScrambler {
+            constructor(el) {
+                this.el = el;
+                this.chars = '!<>-_\\/[]{}—=+*^?#________';
+                this.update = this.update.bind(this);
+            }
+            setText(newText) {
+                const oldText = this.el.innerText;
+                const length = Math.max(oldText.length, newText.length);
+                const promise = new Promise((resolve) => this.resolve = resolve);
+                this.queue = [];
+                for (let i = 0; i < length; i++) {
+                    const from = oldText[i] || '';
+                    const to = newText[i] || '';
+                    const start = Math.floor(Math.random() * 40);
+                    const end = start + Math.floor(Math.random() * 40);
+                    this.queue.push({ from, to, start, end });
+                }
+                cancelAnimationFrame(this.frameRequest);
+                this.frame = 0;
+                this.update();
+                return promise;
+            }
+            update() {
+                let output = '';
+                let complete = 0;
+                for (let i = 0, n = this.queue.length; i < n; i++) {
+                    let { from, to, start, end, char } = this.queue[i];
+                    if (this.frame >= end) {
+                        complete++;
+                        output += to;
+                    } else if (this.frame >= start) {
+                        if (!char || Math.random() < 0.28) {
+                            char = this.chars[Math.floor(Math.random() * this.chars.length)];
+                            this.queue[i].char = char;
+                        }
+                        output += `<span style="color:var(--accent-red)">${char}</span>`;
+                    } else {
+                        output += from;
                     }
-                    output += `<span class="decrypt-txt">${char}</span>`;
+                }
+                this.el.innerHTML = output;
+                if (complete === this.queue.length) {
+                    this.resolve();
                 } else {
-                    output += from;
+                    this.frameRequest = requestAnimationFrame(this.update);
+                    this.frame++;
                 }
             }
-            this.el.innerHTML = output;
-            if (complete === this.queue.length) {
-                this.resolve();
-            } else {
-                this.frameRequest = requestAnimationFrame(this.update);
-                this.frame++;
-            }
         }
-    }
 
-    // --- LOGIQUE MODALE ---
-    function openAudit(ue) {
-        const modal = document.getElementById('modal-audit');
-        const body = document.getElementById('modal-body');
-        const data = auditData[ue];
-        
-        // Reset and show modal
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        // --- CLOCK ---
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('sys-clock').innerText = `SYSTEM_TIME: ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+        }
+        setInterval(updateClock, 1000);
 
-        // Construction du squelette
-        body.innerHTML = `
-            <p class="ue-tag" id="modal-tag">// INITIALISATION_AUDIT...</p>
-            <h2 id="modal-title" style="font-size:2.5rem; line-height:1; margin-bottom:20px;"></h2>
-            <p id="modal-summary" style="font-size:1.1rem; color:var(--text-main); margin-bottom:30px; border-bottom:1px solid var(--border); padding-bottom:30px;"></p>
-            <div class="audit-section" id="audit-items-container"></div>
-        `;
-
-        // Animation du titre et du résumé
-        const scramblerTitle = new TextScrambler(document.getElementById('modal-title'));
-        const scramblerSummary = new TextScrambler(document.getElementById('modal-summary'));
-        
-        scramblerTitle.setText(data.title);
-        setTimeout(() => scramblerSummary.setText(data.summary), 300);
-
-        // Animation "Stagger" des items
-        const container = document.getElementById('audit-items-container');
-        data.items.forEach((item, index) => {
-            const div = document.createElement('div');
-            div.className = 'audit-item';
-            div.innerHTML = `
-                <span class="status-tag ${item.status === 'high' ? 'status-high' : 'status-mid'}">
-                    ${item.status === 'high' ? 'NIVEAU_AVANCÉ' : 'ACQUIS_OPÉRATIONNEL'}
-                </span>
-                <span class="res-name">> ${item.res}</span>
-                <span class="res-desc">${item.desc}</span>
-            `;
-            container.appendChild(div);
+        // --- AUDIT CORE ---
+        function runAudit(ue) {
+            const modal = document.getElementById('modal-audit');
+            const body = document.getElementById('modal-body');
+            const data = auditData[ue];
             
-            // Apparition décalée
-            setTimeout(() => {
-                div.classList.add('show');
-            }, 600 + (index * 150));
-        });
-    }
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
 
-    function closeAudit() {
-        document.getElementById('modal-audit').style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
+            body.innerHTML = `
+                <p class="ue-tag">// INITIALISATION_AUDIT...</p>
+                <h2 id="m-title" style="font-size:2.5rem; line-height:1; margin-bottom:20px; min-height:60px;"></h2>
+                <p id="m-summary" style="font-size:1.1rem; color:var(--text-main); margin-bottom:30px; border-bottom:1px solid var(--border); padding-bottom:30px;"></p>
+                <div id="m-items"></div>
+            `;
 
-    // --- EFFET DE SURVOL DES CARTES ---
-    document.querySelectorAll('.skill-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            const title = card.querySelector('h2');
-            const originalText = title.innerText;
-            const scrambler = new TextScrambler(title);
-            scrambler.setText(originalText);
+            const scramblerTitle = new TextScrambler(document.getElementById('m-title'));
+            const scramblerSummary = new TextScrambler(document.getElementById('m-summary'));
+            
+            scramblerTitle.setText(data.title);
+            setTimeout(() => scramblerSummary.setText(data.summary), 400);
+
+            const container = document.getElementById('m-items');
+            data.items.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'audit-item';
+                div.innerHTML = `
+                    <span class="status-tag ${item.status === 'high' ? 'status-high' : 'status-mid'}">
+                        ${item.status === 'high' ? 'NIVEAU_AVANCÉ' : 'ACQUIS_OPÉRATIONNEL'}
+                    </span>
+                    <span class="res-name">> ${item.res}</span>
+                    <span class="res-desc">${item.desc}</span>
+                `;
+                container.appendChild(div);
+                setTimeout(() => div.classList.add('show'), 800 + (index * 150));
+            });
+        }
+
+        function closeAudit() {
+            document.getElementById('modal-audit').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // --- HOVER ANIMATION ---
+        document.querySelectorAll('.skill-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const title = card.querySelector('.scramble-trigger');
+                new TextScrambler(title).setText(title.innerText);
+            });
         });
-    });
-</script>
+    </script>
+</body>
+</html>
