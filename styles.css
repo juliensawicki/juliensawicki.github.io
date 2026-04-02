@@ -1,259 +1,166 @@
-/* ===== Reset & Base ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julien Sawicki | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-:root {
-    --bg-main: #0e1116;
-    --bg-card: #161b22;
-    --bg-soft: #1f2630;
-    --primary: #3ccfcf;      
-    --secondary: #2ab7b7;    
-    --text-main: #ffffff;
-    --text-soft: #b8b8b8;
-    --border: rgba(255, 255, 255, 0.08);
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
+<nav class="navbar">
+    <div class="container">
+        <a href="#home" class="logo">JS<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="#presentation">Profil</a></li>
+            <li><a href="#cv">Parcours</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
-html {
-    scroll-behavior: smooth;
-}
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Julien Sawicki</h1>
+        <p class="subtitle">Étudiant en Réseaux & Télécommunications</p>
+        <p class="hero-desc">Passionné par les infrastructures numériques, la programmation et la musique.</p>
+    </div>
+</section>
 
-body {
-    background-color: var(--bg-main);
-    color: #d6d6d6;
-    line-height: 1.7;
-    padding-top: 80px;
-}
+<section id="cv" class="section gray-bg">
+    <div class="container">
+        <h2 class="section-title">Parcours Professionnel</h2>
+        <div class="cv-card">
+            <div class="cv-header">
+                <h3>Julien Sawicki</h3>
+                <p>Formation BUT R&T | IUT de Béthune</p>
+            </div>
+            
+            <div class="cv-grid">
+                <div class="cv-col">
+                    <h4><i class="fas fa-graduation-cap"></i> Études</h4>
+                    <div class="cv-item">
+                        <span>2025 - 2028</span>
+                        <p><strong>BUT Réseaux et Télécommunications</strong><br>IUT de Béthune</p>
+                    </div>
+                    <div class="cv-item">
+                        <span>2018 - 2025</span>
+                        <p><strong>Baccalauréat Général</strong><br>Cité Scolaire L. Pasteur, Somain</p>
+                    </div>
+                </div>
+                <div class="cv-col">
+                    <h4><i class="fas fa-star"></i> Atouts Académiques</h4>
+                    <p>Excellents résultats en : <strong>Mathématiques, Anglais (C1), Communication et Programmation.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
+<section id="competences" class="section">
+    <div class="container">
+        <h2 class="section-title">Compétences BUT R&T</h2>
+        <p class="instruction">Cliquez sur une compétence pour voir les détails (points forts/faibles).</p>
+        
+        <div class="skills-stack">
+            <!-- Compétence 1 -->
+            <details class="skill-detail">
+                <summary>
+                    <div class="skill-summary-content">
+                        <h3>Administrer les réseaux et l'Internet</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </summary>
+                <div class="skill-expanded">
+                    <div class="grid-2">
+                        <div class="point-box plus">
+                            <h5><i class="fas fa-plus-circle"></i> Points forts</h5>
+                            <p>Bonne compréhension de l'architecture système et logique de programmation appliquée.</p>
+                        </div>
+                        <div class="point-box minus">
+                            <h5><i class="fas fa-minus-circle"></i> Difficultés</h5>
+                            <p>Approfondissement nécessaire sur les protocoles de routage complexes et l'administration pure.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
 
-/* ===== Navbar ===== */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(14, 17, 22, 0.95);
-    backdrop-filter: blur(12px);
-    z-index: 1000;
-    border-bottom: 1px solid var(--border);
-}
+            <!-- Compétence 2 -->
+            <details class="skill-detail">
+                <summary>
+                    <div class="skill-summary-content">
+                        <h3>Connecter les entreprises et les usagers</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </summary>
+                <div class="skill-expanded">
+                    <div class="grid-2">
+                        <div class="point-box plus">
+                            <h5><i class="fas fa-plus-circle"></i> Points forts</h5>
+                            <p>Capacité à analyser les besoins clients grâce à de bonnes bases en communication.</p>
+                        </div>
+                        <div class="point-box minus">
+                            <h5><i class="fas fa-minus-circle"></i> Difficultés</h5>
+                            <p>Notions d'électronique et supports de transmission physique encore en cours d'acquisition.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
 
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-}
+            <!-- Compétence 3 -->
+            <details class="skill-detail">
+                <summary>
+                    <div class="skill-summary-content">
+                        <h3>Créer des outils et applications informatiques</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </summary>
+                <div class="skill-expanded">
+                    <div class="grid-2">
+                        <div class="point-box plus">
+                            <h5><i class="fas fa-plus-circle"></i> Points forts</h5>
+                            <p>Très bons résultats en programmation (Python) et en développement Web.</p>
+                        </div>
+                        <div class="point-box minus">
+                            <h5><i class="fas fa-minus-circle"></i> Difficultés</h5>
+                            <p>Optimisation algorithmique avancée pour les gros volumes de données.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
 
-.logo {
-    color: var(--primary);
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-decoration: none;
-}
+<section id="contact" class="section gray-bg">
+    <div class="container text-center">
+        <h2 class="section-title">Me Contacter</h2>
+        <div class="contact-card">
+            <div class="contact-info">
+                <div class="c-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>07 67 37 44 25</p>
+                </div>
+                <div class="c-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>juliensawicki@gmail.com</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/julien-sawicki-2a675631a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/juliensawicki" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
 
-.nav-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-}
+<footer class="footer">
+    <p>© 2026 Julien Sawicki | <a href="#mentions">Mentions légales</a></p>
+</footer>
 
-.nav-links a {
-    color: var(--text-soft);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--primary);
-}
-
-/* ===== Hero Section ===== */
-.hero {
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: radial-gradient(circle at top, #1a2230, #0e1116);
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    color: var(--text-main);
-    margin-bottom: 15px;
-}
-
-.hero p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    color: var(--text-soft);
-}
-
-/* ===== Sections Global ===== */
-.section {
-    padding: 80px 0;
-    scroll-margin-top: 80px;
-}
-
-.section h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 50px;
-    color: var(--text-main);
-}
-
-.section h2::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: var(--primary);
-    margin: 15px auto 0;
-    border-radius: 2px;
-}
-
-/* ===== Présentation ===== */
-.presentation-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.info-item {
-    background: var(--bg-card);
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    border: 1px solid var(--border);
-    transition: 0.3s;
-}
-
-.info-item:hover { transform: translateY(-5px); border-color: var(--primary); }
-.info-item i { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
-
-/* ===== CV Section ===== */
-.cv-container {
-    background: var(--bg-card);
-    padding: 40px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-}
-
-.cv-title { margin-bottom: 30px; border-left: 4px solid var(--primary); padding-left: 20px; }
-.cv-section { margin-bottom: 30px; }
-.cv-section h4 { color: var(--primary); margin-bottom: 15px; text-transform: uppercase; font-size: 0.9rem; }
-.cv-item { margin-bottom: 15px; }
-.cv-item h5 { color: var(--text-main); }
-.cv-item p { font-size: 0.9rem; color: var(--text-soft); }
-
-/* ===== Compétences (Badges & Progress) ===== */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
-
-.skill-item {
-    background: var(--bg-card);
-    padding: 25px;
-    border-radius: 15px;
-    border: 1px solid var(--border);
-}
-
-.skill-item h3 { font-size: 1.1rem; margin-bottom: 15px; color: var(--text-main); }
-
-.progress-label { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 5px; }
-.progress-bar { height: 8px; background: var(--bg-soft); border-radius: 10px; overflow: hidden; }
-.progress { height: 100%; background: var(--primary); width: 0; transition: 1s ease-out; }
-
-.ue-details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 15px;
-}
-
-.badge {
-    background: rgba(60, 207, 207, 0.05);
-    color: var(--primary);
-    border: 1px solid rgba(60, 207, 207, 0.2);
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.75rem;
-}
-
-/* ===== Portfolio ===== */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.portfolio-item {
-    background: var(--bg-card);
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid var(--border);
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.portfolio-item:hover { background: var(--bg-soft); border-color: var(--primary); }
-
-/* ===== Contact ===== */
-.contact-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.contact-item {
-    background: var(--bg-card);
-    padding: 20px;
-    width: 120px;
-    text-align: center;
-    border-radius: 12px;
-    text-decoration: none;
-    color: var(--text-main);
-    border: 1px solid var(--border);
-    transition: 0.3s;
-}
-
-.contact-item:hover { border-color: var(--primary); transform: scale(1.05); }
-.contact-item i { font-size: 1.5rem; color: var(--primary); margin-bottom: 8px; display: block; }
-
-/* ===== Mentions & Footer ===== */
-.mentions-content {
-    background: var(--bg-card);
-    padding: 30px;
-    border-radius: 15px;
-    font-size: 0.9rem;
-}
-
-.mentions-content h3 { color: var(--primary); font-size: 1rem; margin-bottom: 10px; }
-
-.footer {
-    text-align: center;
-    padding: 40px 0;
-    font-size: 0.8rem;
-    color: var(--text-soft);
-    border-top: 1px solid var(--border);
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    .nav-links { display: none; } /* On cache le menu sur mobile pour simplifier */
-    .contact-grid { flex-wrap: wrap; }
-}
+</body>
+</html>
