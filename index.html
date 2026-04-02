@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Audit Compétences BUT RT</title>
+<title>Portfolio RT - Compétences</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
@@ -35,6 +35,7 @@ h1 {
 
 .grid {
     display:grid;
+    grid-template-columns:1fr;
     gap:30px;
 }
 
@@ -43,12 +44,6 @@ h1 {
     padding:30px;
     border-radius:10px;
     border:1px solid #222;
-    transition:0.3s;
-}
-
-.card:hover {
-    transform:translateY(-5px);
-    border-color:var(--accent);
 }
 
 h2 { margin-bottom:10px; }
@@ -56,7 +51,11 @@ h2 { margin-bottom:10px; }
 .summary {
     color:var(--dim);
     margin-bottom:20px;
-    line-height:1.6;
+    line-height:1.5;
+}
+
+.ac {
+    margin-top:20px;
 }
 
 .ac-item {
@@ -70,7 +69,6 @@ h2 { margin-bottom:10px; }
     border-radius:20px;
     margin-bottom:5px;
     display:inline-block;
-    font-weight:600;
 }
 
 .ok { color:var(--green); border:1px solid var(--green);}
@@ -88,119 +86,125 @@ h2 { margin-bottom:10px; }
 
 <div class="container">
 
-<h1>Audit des Compétences Techniques</h1>
+<h1>Audit des Compétences BUT RT</h1>
 
 <div class="grid">
 
 <!-- ADMINISTRER -->
 <div class="card">
-<h2>Administrer les réseaux et l’Internet</h2>
+<h2>Administrer les réseaux</h2>
 
 <div class="summary">
-Compétence en cours de structuration. Les fondamentaux des architectures réseaux et des systèmes sont assimilés, avec une bonne compréhension des interactions entre les couches et les services. L’étudiant démontre une aisance sur les environnements systèmes (Linux/UNIX) et leur administration de base.  
-Cependant, la mise en œuvre opérationnelle des réseaux (configuration d’équipements, segmentation, diagnostic) reste partielle. L’évolution attendue se situe dans la pratique terrain et la résolution de problématiques réelles.
+Compétence en cours d’acquisition. L’étudiant possède une compréhension correcte des architectures réseau et une très bonne maîtrise des systèmes d’exploitation (Linux). Cependant, les compétences pratiques en configuration d’équipements réseau (switch, VLAN) et en diagnostic restent insuffisantes. Le profil montre une base théorique solide mais nécessite un renforcement opérationnel pour atteindre les attentes professionnelles.
+</div>
+
+<div class="ac">
+
+<div class="ac-item">
+<span class="status mid">EN_COURS</span>
+AC11.02 - Comprendre l’architecture des réseaux  
+<div class="res">R1.02 (9) / R1.06 (9.75)</div>
 </div>
 
 <div class="ac-item">
-<span class="status mid">EN_COURS</span><br>
-AC11.02 — Architecture des réseaux  
-<div class="res">Compréhension des modèles réseau et des interactions systèmes</div>
+<span class="status ok">ACQUIS</span>
+AC11.04 - Systèmes d’exploitation  
+<div class="res">R1.08 (15)</div>
 </div>
 
 <div class="ac-item">
-<span class="status ok">ACQUIS</span><br>
-AC11.04 — Systèmes d’exploitation  
-<div class="res">Administration Linux, utilisation des outils système, scripting basique</div>
+<span class="status no">NON_ACQUIS</span>
+AC11.03 - Configurer réseau local  
+<div class="res">R1.03 (5) / SAÉ12 (10)</div>
 </div>
 
 <div class="ac-item">
-<span class="status no">NON_ACQUIS</span><br>
-AC11.03 — Configuration réseau local  
-<div class="res">Configuration d’équipements (switch, VLAN) à renforcer</div>
+<span class="status no">NON_ACQUIS</span>
+AC11.05 - Diagnostic réseau  
+<div class="res">SAÉ11 (9)</div>
 </div>
 
-<div class="ac-item">
-<span class="status no">NON_ACQUIS</span><br>
-AC11.05 — Diagnostic réseau  
-<div class="res">Identification et résolution de pannes encore limitées</div>
 </div>
-
 </div>
 
 <!-- CONNECTER -->
 <div class="card">
-<h2>Connecter les entreprises et les usagers</h2>
+<h2>Connecter les entreprises</h2>
 
 <div class="summary">
-Compétence maîtrisée sur le plan théorique. L’étudiant possède une excellente capacité d’analyse des signaux et des transmissions, lui permettant de comprendre les mécanismes fondamentaux des communications numériques.  
-La modélisation mathématique est bien intégrée et constitue un point fort du profil. La mise en œuvre concrète de solutions de connexion (réseaux, ToIP, accès) reste cependant à développer pour atteindre une maîtrise complète.
+Compétence globalement acquise sur le plan théorique. L’étudiant présente une excellente maîtrise des mathématiques du signal et des transmissions, lui permettant de comprendre en profondeur les mécanismes de communication. La partie pratique (déploiement réel de solutions réseau) reste cependant en retrait. Profil scientifique solide avec potentiel technique élevé.
+</div>
+
+<div class="ac">
+
+<div class="ac-item">
+<span class="status ok">ACQUIS</span>
+AC12.01 - Analyse de signaux  
+<div class="res">R1.13 (16.5)</div>
 </div>
 
 <div class="ac-item">
-<span class="status ok">ACQUIS</span><br>
-AC12.01 — Analyse de signaux  
-<div class="res">Maîtrise des outils mathématiques et de l’analyse spectrale</div>
+<span class="status ok">ACQUIS</span>
+AC12.02 - Modélisation transmissions  
+<div class="res">R1.14 (14.33)</div>
 </div>
 
 <div class="ac-item">
-<span class="status ok">ACQUIS</span><br>
-AC12.02 — Modélisation des transmissions  
-<div class="res">Compréhension des mécanismes de propagation et des flux</div>
+<span class="status mid">EN_COURS</span>
+AC12.03 - Supports transmission  
+<div class="res">R1.05 (11.5)</div>
 </div>
 
 <div class="ac-item">
-<span class="status mid">EN_COURS</span><br>
-AC12.03 — Supports de transmission  
-<div class="res">Connaissances des supports physiques en cours de consolidation</div>
+<span class="status no">NON_ACQUIS</span>
+AC12.04 - ToIP / mise en service  
+<div class="res">Non évalué concrètement</div>
 </div>
 
-<div class="ac-item">
-<span class="status no">NON_ACQUIS</span><br>
-AC12.04 — Mise en service (ToIP, accès)  
-<div class="res">Peu de mise en pratique réelle à ce stade</div>
 </div>
-
 </div>
 
 <!-- PROGRAMMER -->
 <div class="card">
-<h2>Programmer — Outils et applications RT</h2>
+<h2>Programmer</h2>
 
 <div class="summary">
-Compétence fortement maîtrisée et constituant le point fort du profil. L’étudiant est capable de concevoir des solutions algorithmiques efficaces, de traiter des données et d’automatiser des tâches complexes.  
-La maîtrise des systèmes renforce cette capacité à développer dans des environnements techniques réels. Le développement Web reste un axe d’amélioration, mais n’impacte pas la solidité globale du socle en programmation.
+Compétence fortement maîtrisée. L’étudiant se distingue par une excellente capacité en programmation et en traitement de données. Il est capable de concevoir des solutions efficaces, d’automatiser des tâches et de manipuler des données complexes. Les systèmes sont bien maîtrisés. Le développement Web reste un point faible à améliorer pour compléter le profil.
+</div>
+
+<div class="ac">
+
+<div class="ac-item">
+<span class="status ok">ACQUIS</span>
+AC13.02 - Programmation  
+<div class="res">R1.07 (16.9)</div>
 </div>
 
 <div class="ac-item">
-<span class="status ok">ACQUIS</span><br>
-AC13.02 — Programmation  
-<div class="res">Développement structuré, logique algorithmique solide</div>
+<span class="status ok">ACQUIS</span>
+AC13.03 - Algorithmique  
+<div class="res">SAÉ15 (18)</div>
 </div>
 
 <div class="ac-item">
-<span class="status ok">ACQUIS</span><br>
-AC13.03 — Algorithmique  
-<div class="res">Conception de solutions optimisées et traitement de données</div>
+<span class="status ok">ACQUIS</span>
+AC13.01 - Outils informatiques  
+<div class="res">Global UE13 (14.20)</div>
 </div>
 
 <div class="ac-item">
-<span class="status ok">ACQUIS</span><br>
-AC13.01 — Outils informatiques  
-<div class="res">Utilisation efficace des environnements de développement</div>
+<span class="status mid">EN_COURS</span>
+AC13.04 - Web  
+<div class="res">R1.09 (4)</div>
 </div>
 
 <div class="ac-item">
-<span class="status mid">EN_COURS</span><br>
-AC13.04 — Technologies Web  
-<div class="res">Bases présentes, développement à approfondir</div>
+<span class="status ok">ACQUIS</span>
+AC13.06 - Travail collaboratif  
+<div class="res">SAÉ14 (16.5)</div>
 </div>
 
-<div class="ac-item">
-<span class="status ok">ACQUIS</span><br>
-AC13.06 — Travail collaboratif  
-<div class="res">Capacité à s’intégrer dans un projet et produire en équipe</div>
 </div>
-
 </div>
 
 </div>
