@@ -3,191 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <meta name="description" content="Dossier de Compétences Détaillé - Julien Sawicki - Ingénierie des Systèmes et Réseaux">
-    <title>DOSSIER TECHNIQUE | JULIEN SAWICKI</title>
-    
-    <!-- Polices Premium -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>JULIEN SAWICKI | DOSSIER TECHNIQUE DÉTAILLÉ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-mode">
 
-    <!-- HEADER STRATÉGIQUE -->
-    <header class="main-header">
-        <div class="container">
-            <div class="header-grid">
-                <div class="profile-title">
-                    <h1>JULIEN <span class="highlight">SAWICKI</span></h1>
-                    <p class="subtitle">Spécialiste en Ingénierie des Systèmes de Communication</p>
-                </div>
-                <div class="document-info">
-                    <p>DOCUMENT RÉF : <strong>RT-2026-JS</strong></p>
-                    <p>STATUT : <strong>AUDIT DE COMPÉTENCES COMPLET</strong></p>
-                </div>
+    <div class="custom-cursor"></div>
+    <div class="noise-overlay"></div>
+
+    <nav class="top-nav">
+        <div class="container-full">
+            <div class="nav-content">
+                <div class="brand">J.SAWICKI<span class="dot">.</span>SYSTEMS</div>
+                <div class="system-time" id="clock">00:00:00</div>
+                <div class="status-badge"><span class="pulse"></span> ANALYSE OPÉRATIONNELLE</div>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- RÉSUMÉ EXÉCUTIF -->
-    <section class="executive-summary">
-        <div class="container">
-            <div class="glass-card">
-                <h2>RÉSUMÉ EXÉCUTIF DU PROFIL</h2>
-                <p>
-                    Ce dossier présente une analyse exhaustive des capacités techniques et théoriques développées lors du cursus Réseaux et Télécommunications. 
-                    Le profil de Julien Sawicki se distingue par une **prédominance marquée pour le développement logiciel et l'analyse de données**, 
-                    appuyée par une compréhension rigoureuse des couches basses et des infrastructures réseaux. 
-                    L'approche est orientée vers la résolution de problèmes complexes et l'automatisation systémique.
-                </p>
+    <main class="main-wrapper">
+        <header class="hero-header">
+            <div class="container">
+                <h1 class="reveal-text">Audit de Compétences <br><span class="gradient-text">Réseaux & Télécoms.</span></h1>
+                <p class="hero-sub">Analyse granulaire des unités d'enseignement — Session 2026</p>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- MATRICE DES COMPÉTENCES DÉTAILLÉE -->
-    <main class="skills-detailed">
-        <div class="container">
-
-            <!-- UE 1.3 : DÉVELOPPEMENT & DATA (LA FORCE MAJEURE) -->
-            <article class="ue-section major-skill" id="ue13">
-                <header class="ue-header">
-                    <div class="ue-meta">
-                        <span class="label">UNITÉ D'EXPERTISE 01</span>
-                        <h3>DÉVELOPPEMENT LOGICIEL & DATA ANALYTICS (UE 1.3)</h3>
-                    </div>
-                    <div class="global-status status-high">Niveau : Expertise Avancée</div>
-                </header>
-
-                <div class="bilan-global">
-                    <h4>BILAN GLOBAL SUR LA COMPÉTENCE</h4>
-                    <p>
-                        L'UE 1.3 représente le pilier central du profil. Avec des résultats d'excellence (notamment en SAÉ 1.5), Julien démontre une agilité rare dans la manipulation des langages de programmation et la gestion du cycle de vie de la donnée. 
-                        Cette compétence ne se limite pas à l'écriture de code, mais s'étend à la conception d'architectures applicatives capables de répondre à des problématiques de performance réseau et de traitement de flux massifs.
-                    </p>
+        <section class="grid-layout">
+            <div class="container">
+                
+                <!-- NAVIGATION DES COMPÉTENCES -->
+                <div class="tabs-control">
+                    <button class="tab-btn active" data-target="ue13">UE 1.3 : LOGICIEL</button>
+                    <button class="tab-btn" data-target="ue12">UE 1.2 : SIGNAL</button>
+                    <button class="tab-btn" data-target="ue11">UE 1.1 : INFRA</button>
                 </div>
 
-                <div class="points-grid">
-                    <div class="point-box strengths">
-                        <h5>POINTS FORTS & ACQUIS TECHNIQUES</h5>
-                        <ul>
-                            <li><strong>Maîtrise Algorithmique :</strong> Capacité à traduire des problèmes logiques complexes en algorithmes optimisés (C/Python). Focus sur la réduction de la complexité temporelle et spatiale.</li>
-                            <li><strong>Expertise Data (SAÉ 1.5) :</strong> Maîtrise complète du pipeline de données. Extraction via API ou fichiers bruts, nettoyage (data cleaning), transformation et visualisation statistique pour la prise de décision.</li>
-                            <li><strong>Scripting Système :</strong> Automatisation de l'administration sous Linux via Shell/Bash. Capacité à créer des workflows de maintenance autonomes.</li>
-                            <li><strong>Architecture Logicielle :</strong> Compréhension des design patterns fondamentaux et rigueur dans la structuration du code (Modularité, Portage, Documentation).</li>
-                        </ul>
-                    </div>
-                    <div class="point-box areas">
-                        <h5>POINTS DE VIGILANCE & AXES DE PROGRÈS</h5>
-                        <ul>
-                            <li><strong>Déploiement Continu (CI/CD) :</strong> Bien que la base de développement soit solide, l'exploration des pipelines automatisés de déploiement (Docker, GitLab CI) est un axe à approfondir pour le milieu industriel.</li>
-                            <li><strong>Paradigmes Avancés :</strong> Continuer à renforcer la programmation orientée objet pour des projets de très grande envergure.</li>
-                        </ul>
-                    </div>
+                <!-- CONTENU DYNAMIQUE -->
+                <div class="content-display">
+                    
+                    <!-- BLOC UE 1.3 -->
+                    <article id="ue13" class="tab-content active">
+                        <div class="analysis-grid">
+                            <div class="main-column">
+                                <div class="expert-label">PILIER DOMINANT // SCORE EXCELLENCE</div>
+                                <h2>Ingénierie Logicielle & Data Analytics</h2>
+                                <p class="bilan-text">
+                                    Basé sur une moyenne de 18/20 en programmation et SAÉ 1.5, ce pôle constitue le cœur réacteur du profil. 
+                                    La capacité à automatiser des processus réseaux via le code (Python/C) et à traiter des flux massifs de données 
+                                    (Data Analysis) place Julien dans le top percentile des experts techniques.
+                                </p>
+                                
+                                <div class="pros-cons">
+                                    <div class="box pro">
+                                        <h3>POINTS FORTS</h3>
+                                        <ul>
+                                            <li>Conception algorithmique complexe et optimisée.</li>
+                                            <li>Maîtrise du pipeline ETL (Extract, Transform, Load) en Data Science.</li>
+                                            <li>Scripting système avancé sous environnements critiques Linux.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="box con">
+                                        <h3>POINTS DE VIGILANCE</h3>
+                                        <ul>
+                                            <li>Intégration de tests unitaires systématiques pour les projets d'envergure.</li>
+                                            <li>Exploration des frameworks Big Data (Spark/Hadoop) pour l'échelle industrielle.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- BLOC UE 1.2 -->
+                    <article id="ue12" class="tab-content">
+                        <div class="analysis-grid">
+                            <div class="main-column">
+                                <div class="expert-label">SOCLE SCIENTIFIQUE // MAÎTRISE THÉORIQUE</div>
+                                <h2>Physique du Signal & Télécommunications</h2>
+                                <p class="bilan-text">
+                                    Avec un socle solide (moyenne 13.5/20), l'expertise se concentre sur la compréhension fine des couches physiques. 
+                                    C'est la capacité à garantir l'intégrité de la donnée avant même son traitement logiciel.
+                                </p>
+                                <div class="pros-cons">
+                                    <div class="box pro">
+                                        <h3>POINTS FORTS</h3>
+                                        <ul>
+                                            <li>Analyse spectrale et modélisation des signaux analogiques/numériques.</li>
+                                            <li>Calcul précis de bilans de liaison (Fibre Optique, Cuivre, Hertzien).</li>
+                                        </ul>
+                                    </div>
+                                    <div class="box con">
+                                        <h3>POINTS DE VIGILANCE</h3>
+                                        <ul>
+                                            <li>Pratique accrue sur les instruments de mesure (Analyseurs de spectre).</li>
+                                            <li>Approfondissement des techniques de multiplexage avancées.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- BLOC UE 1.1 -->
+                    <article id="ue11" class="tab-content">
+                        <div class="analysis-grid">
+                            <div class="main-column">
+                                <div class="expert-label">SÉCURITÉ & INFRASTRUCTURE // SOCLE OPÉRATIONNEL</div>
+                                <h2>Architectures Réseaux & Cybersécurité</h2>
+                                <p class="bilan-text">
+                                    Une maîtrise opérationnelle des protocoles IP et de la sécurité des systèmes (moyenne 12.8/20). 
+                                    Focus sur la résilience et la fiabilité des échanges inter-sites.
+                                </p>
+                                <div class="pros-cons">
+                                    <div class="box pro">
+                                        <h3>POINTS FORTS</h3>
+                                        <ul>
+                                            <li>Configuration d'équipements actifs (Switching/Routing L2-L3).</li>
+                                            <li>Application des protocoles d'hygiène et de sécurité informatique.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="box con">
+                                        <h3>POINTS DE VIGILANCE</h3>
+                                        <ul>
+                                            <li>Routage dynamique à grande échelle (BGP/OSPF).</li>
+                                            <li>Virtualisation réseau et SDN (Software Defined Networking).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
-            </article>
-
-            <!-- UE 1.2 : PHYSIQUE & SIGNAL -->
-            <article class="ue-section" id="ue12">
-                <header class="ue-header">
-                    <div class="ue-meta">
-                        <span class="label">UNITÉ D'EXPERTISE 02</span>
-                        <h3>PHYSIQUE DU SIGNAL & TÉLÉCOMMUNICATIONS (UE 1.2)</h3>
-                    </div>
-                    <div class="global-status status-mid">Niveau : Maîtrise Théorique</div>
-                </header>
-
-                <div class="bilan-global">
-                    <h4>BILAN GLOBAL SUR LA COMPÉTENCE</h4>
-                    <p>
-                        Julien possède un socle scientifique robuste lui permettant de comprendre "ce qui se passe sur le câble ou dans l'air". Cette compétence est essentielle pour faire le pont entre le logiciel et le matériel. 
-                        La compréhension des phénomènes de propagation et de modulation lui permet d'intervenir sur des problématiques d'optimisation de débit et de qualité de service (QoS).
-                    </p>
-                </div>
-
-                <div class="points-grid">
-                    <div class="point-box strengths">
-                        <h5>POINTS FORTS & ACQUIS TECHNIQUES</h5>
-                        <ul>
-                            <li><strong>Analyse Spectrale :</strong> Compréhension approfondie du domaine fréquentiel, des transformées et de la modulation (AM, FM, Numérique).</li>
-                            <li><strong>Ingénierie des Supports :</strong> Capacité à évaluer les contraintes physiques des médias (Atténuation, Dispersion, Bruit) sur la fibre optique et le cuivre.</li>
-                            <li><strong>Mathématiques Appliquées :</strong> Utilisation d'outils mathématiques complexes pour résoudre des équations de propagation et de filtrage.</li>
-                        </ul>
-                    </div>
-                    <div class="point-box areas">
-                        <h5>POINTS DE VIGILANCE & AXES DE PROGRÈS</h5>
-                        <ul>
-                            <li><strong>Mise en Pratique Matérielle :</strong> Nécessité de multiplier les manipulations sur analyseurs de spectre et bancs de test pour transformer la théorie en réflexes opérationnels rapides.</li>
-                            <li><strong>Modélisation RF :</strong> Approfondir les connaissances sur les antennes et la propagation en milieu urbain dense.</li>
-                        </ul>
-                    </div>
-                </div>
-            </article>
-
-            <!-- UE 1.1 : RÉSEAUX & INFRA -->
-            <article class="ue-section" id="ue11">
-                <header class="ue-header">
-                    <div class="ue-meta">
-                        <span class="label">UNITÉ D'EXPERTISE 03</span>
-                        <h3>ARCHITECTURES RÉSEAUX & SÉCURITÉ (UE 1.1)</h3>
-                    </div>
-                    <div class="global-status status-mid">Niveau : Socle Opérationnel</div>
-                </header>
-
-                <div class="bilan-global">
-                    <h4>BILAN GLOBAL SUR LA COMPÉTENCE</h4>
-                    <p>
-                        La compétence Réseau est le terrain d'application principal. Julien maîtrise les fondamentaux de la commutation (Switching) et du routage (Routing). 
-                        Son profil montre une attention particulière à la sécurité et à l'organisation logique des réseaux, garantissant une infrastructure fiable et évolutive.
-                    </p>
-                </div>
-
-                <div class="points-grid">
-                    <div class="point-box strengths">
-                        <h5>POINTS FORTS & ACQUIS TECHNIQUES</h5>
-                        <ul>
-                            <li><strong>Protocoles de Communication :</strong> Maîtrise du modèle OSI et de la pile TCP/IP. Capacité à diagnostiquer des problèmes de connectivité via l'analyse de trames (Wireshark).</li>
-                            <li><strong>Services Réseaux :</strong> Configuration et gestion des services critiques tels que DHCP, DNS et les plans d'adressage IP (IPv4/IPv6).</li>
-                            <li><strong>Hygiène Informatique :</strong> Application des bonnes pratiques de sécurité (chiffrement, gestion des accès, firewalling de base).</li>
-                        </ul>
-                    </div>
-                    <div class="point-box areas">
-                        <h5>POINTS DE VIGILANCE & AXES DE PROGRÈS</h5>
-                        <ul>
-                            <li><strong>Protocoles de Routage Avancés :</strong> Le passage à la maîtrise des protocoles dynamiques complexes (OSPF, BGP) constitue la prochaine étape logique de sa progression.</li>
-                            <li><strong>Virtualisation Réseau :</strong> Développer des compétences sur les SDN (Software Defined Networking) pour lier sa force en programmation avec le réseau.</li>
-                        </ul>
-                    </div>
-                </div>
-            </article>
-
-        </div>
+            </div>
+        </section>
     </main>
 
-    <!-- SECTION TRANSVERSALE -->
-    <section class="transversal-skills">
+    <footer class="system-footer">
         <div class="container">
-            <h3>COMPÉTENCES TRANSVERSALES & SOFT SKILLS</h3>
-            <div class="transversal-grid">
-                <div class="skill-card">
-                    <h6>Communication Technique</h6>
-                    <p>Capacité à vulgariser des concepts complexes et à rédiger des documentations techniques claires en français et en anglais.</p>
-                </div>
-                <div class="skill-card">
-                    <h6>Gestion de Projet (SAÉ)</h6>
-                    <p>Expérience en travail collaboratif (Git) et respect des délais sur des livrables de haute importance.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER TERMINAL -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>[ FIN DU DOSSIER TECHNIQUE - 2026 ]</p>
-                <p>Authentifié par : <strong>Système d'Analyse Automatisée Gemini</strong></p>
-            </div>
+            <p>© 2026 JULIEN SAWICKI — SYSTÈME D'AUDIT TECHNIQUE — TOUS DROITS RÉSERVÉS</p>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
