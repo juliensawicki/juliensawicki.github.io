@@ -3,170 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julien Sawicki | Portfolio RT</title>
-    <!-- Google Fonts : Inter pour le côté tech/pro -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Julien Sawicki - Portfolio</title>
+    <!-- Police Google Fonts : Inter pour un rendu très net et professionnel -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav class="nav-minimal">
-    <div class="container-wide">
-        <a href="#" class="brand">J.SAWICKI</a>
-        <div class="nav-right">
-            <a href="#cv">Parcours</a>
-            <a href="#skills">Compétences</a>
-            <a href="#contact" class="btn-contact">Me contacter</a>
+    <!-- Navigation minimaliste -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Julien Sawicki.</div>
+            <div class="nav-links">
+                <a href="#cv">Parcours</a>
+                <a href="#competences">Expertise</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<header class="hero-split">
-    <div class="hero-text">
-        <span class="badge-new">Disponible pour alternance 2026</span>
-        <h1>Étudiant en Réseaux & <span class="text-gradient">Télécommunications</span></h1>
-        <p>IUT de Béthune. Spécialisé en programmation et déploiement d'infrastructures numériques.</p>
-        <div class="hero-stats">
-            <div class="stat"><strong>Anglais</strong><span>Niveau C1</span></div>
-            <div class="stat"><strong>Code</strong><span>Python / JS / Bash</span></div>
+    <!-- En-tête épuré -->
+    <header class="header">
+        <div class="container">
+            <h1>Profil technique en <br>Réseaux & Télécommunications.</h1>
+            <p class="subtitle">Spécialisé en développement d'outils, traitement de données et déploiement d'infrastructures. Étudiant à l'IUT de Béthune.</p>
         </div>
-    </div>
-</header>
+    </header>
 
-<section id="cv" class="section-cv">
-    <div class="container">
-        <h2 class="title-light">Expérience & Formation</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="time">2025 — 2028</div>
-                <div class="desc">
-                    <h3>BUT Réseaux et Télécommunications</h3>
-                    <p>IUT de Béthune • Apprentissage des architectures réseaux, virtualisation et sécurité.</p>
+    <!-- Section CV -->
+    <section id="cv" class="section">
+        <div class="container">
+            <h2 class="section-title">Curriculum Vitae</h2>
+            
+            <div class="cv-grid">
+                <!-- Formation -->
+                <div class="cv-column">
+                    <h3 class="column-title">Formation</h3>
+                    <div class="cv-item">
+                        <div class="cv-date">2025 — 2028</div>
+                        <div class="cv-content">
+                            <h4>BUT Réseaux et Télécommunications</h4>
+                            <p>IUT de Béthune. Formation approfondie en architectures réseaux, développement et télécommunications.</p>
+                        </div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-date">2018 — 2025</div>
+                        <div class="cv-content">
+                            <h4>Baccalauréat Général</h4>
+                            <p>Cité Scolaire Louis Pasteur, Somain.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profil & Atouts -->
+                <div class="cv-column">
+                    <h3 class="column-title">Profil & Langues</h3>
+                    <div class="cv-item">
+                        <div class="cv-content">
+                            <h4>Anglais Professionnel (Niveau C1)</h4>
+                            <p>Excellente maîtrise de l'anglais technique et de communication, indispensable pour la documentation et les standards internationaux.</p>
+                        </div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-content">
+                            <h4>Savoir-être (Soft Skills)</h4>
+                            <p>Aisance en communication professionnelle et rigueur mathématique.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="time">2025</div>
-                <div class="desc">
-                    <h3>Baccalauréat Général</h3>
-                    <p>Spécialités Scientifiques • Somain</p>
+        </div>
+    </section>
+
+    <!-- Section Compétences avec Accordéon au clic -->
+    <section id="competences" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Analyse des Compétences</h2>
+            <p class="instruction">Cliquez sur une compétence pour consulter le bilan détaillé.</p>
+
+            <div class="skills-container">
+                
+                <!-- Compétence 1 -->
+                <div class="skill-card" onclick="toggleSkill(this)">
+                    <div class="skill-header">
+                        <h3>Administrer les réseaux et l'Internet</h3>
+                    </div>
+                    <div class="skill-body">
+                        <div class="skill-content-inner">
+                            <p class="bilan-text"><strong>Bilan analytique :</strong> Je suis actuellement dans une phase d'acquisition des logiques fondamentales liées aux architectures systèmes. Si l'approche théorique des réseaux locaux et de la configuration des équipements actifs représente un défi que je relève activement, je m'appuie sur une méthode de travail rigoureuse pour structurer mes connaissances. Mon objectif à court terme est de consolider ces bases techniques pour gagner en autonomie sur l'administration d'infrastructures pures.</p>
+                            <div class="points-grid">
+                                <div class="point-col">
+                                    <span class="point-label">Points forts</span>
+                                    <p>Compréhension de l'architecture des systèmes numériques et rigueur d'apprentissage.</p>
+                                </div>
+                                <div class="point-col">
+                                    <span class="point-label">Axes d'amélioration</span>
+                                    <p>Maîtrise pratique de l'initiation aux réseaux et configuration des équipements locaux.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compétence 2 -->
+                <div class="skill-card" onclick="toggleSkill(this)">
+                    <div class="skill-header">
+                        <h3>Connecter les entreprises et les usagers</h3>
+                    </div>
+                    <div class="skill-body">
+                        <div class="skill-content-inner">
+                            <p class="bilan-text"><strong>Bilan analytique :</strong> C'est un domaine où ma logique scientifique s'exprime pleinement. Mes excellents résultats en mathématiques appliquées (signal et transmission) me permettent de comprendre très rapidement la théorie derrière le traitement des données. J'assimile facilement les principes des supports de transmission. L'application pratique sur l'électronique analogique et les dispositifs matériels est un axe sur lequel je concentre actuellement mes efforts pratiques.</p>
+                            <div class="points-grid">
+                                <div class="point-col">
+                                    <span class="point-label">Points forts</span>
+                                    <p>Excellente capacité d'abstraction mathématique (signaux et transmissions), compréhension des supports physiques, et communication technique en anglais.</p>
+                                </div>
+                                <div class="point-col">
+                                    <span class="point-label">Axes d'amélioration</span>
+                                    <p>Manipulation pratique des composants en électronique analogique et gestion globale de projet.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compétence 3 -->
+                <div class="skill-card" onclick="toggleSkill(this)">
+                    <div class="skill-header">
+                        <h3>Créer des outils et applications pour les RT</h3>
+                    </div>
+                    <div class="skill-body">
+                        <div class="skill-content-inner">
+                            <p class="bilan-text"><strong>Bilan analytique :</strong> Il s'agit de mon domaine d'excellence. Je démontre une forte appétence et de grandes facilités pour le développement logiciel et l'algorithmie. Je maîtrise les fondamentaux de la programmation, la manipulation des systèmes d'exploitation et excelle dans le traitement des données de manière automatisée. Si la théorie brute des technologies Web a pu demander un ajustement, ma capacité à livrer des projets concrets et fonctionnels (comme des portfolios et des scripts de traitement) prouve mon efficacité opérationnelle.</p>
+                            <div class="points-grid">
+                                <div class="point-col">
+                                    <span class="point-label">Points forts</span>
+                                    <p>Haut niveau en programmation, administration des OS, traitement de données complexes et réalisation de projets concrets.</p>
+                                </div>
+                                <div class="point-col">
+                                    <span class="point-label">Axes d'amélioration</span>
+                                    <p>Approfondissement de la théorie stricte des standards Web en amont du développement.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <h2>Me contacter</h2>
+                <p>Disponible pour échanger sur mon profil ou pour de futures opportunités.</p>
+                <div class="contact-details">
+                    <a href="mailto:juliensawicki@gmail.com" class="contact-link">juliensawicki@gmail.com</a>
+                    <a href="tel:+33767374425" class="contact-link">07 67 37 44 25</a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="skills" class="section-skills">
-    <div class="container">
-        <h2 class="title-center">Compétences Ciblées</h2>
-        <p class="subtitle-center">Cliquez sur une carte pour analyser les détails techniques.</p>
-        
-        <div class="skills-grid">
-            <!-- Skill 1 -->
-            <div class="skill-card" onclick="openModal('modal1')">
-                <div class="icon-box"><i class="fas fa-network-wired"></i></div>
-                <h3>Administrer les réseaux</h3>
-                <p>Gestion d'infrastructures et services Internet.</p>
-                <span class="link-more">Voir l'analyse →</span>
-            </div>
-
-            <!-- Skill 2 -->
-            <div class="skill-card" onclick="openModal('modal2')">
-                <div class="icon-box"><i class="fas fa-satellite-dish"></i></div>
-                <h3>Connecter les entreprises</h3>
-                <p>Déploiement de solutions usagers et télécoms.</p>
-                <span class="link-more">Voir l'analyse →</span>
-            </div>
-
-            <!-- Skill 3 -->
-            <div class="skill-card" onclick="openModal('modal3')">
-                <div class="icon-box"><i class="fas fa-code"></i></div>
-                <h3>Outils & Applications</h3>
-                <p>Développement logiciel dédié aux métiers RT.</p>
-                <span class="link-more">Voir l'analyse →</span>
-            </div>
+    <footer>
+        <div class="container">
+            <p>© 2026 Julien Sawicki. Portfolio professionnel.</p>
         </div>
-    </div>
-</section>
+    </footer>
 
-<section id="contact" class="section-contact">
-    <div class="contact-box">
-        <h2>Un projet ? Contactez-moi</h2>
-        <div class="contact-links">
-            <a href="mailto:juliensawicki@gmail.com" class="c-link"><i class="fas fa-envelope"></i> juliensawicki@gmail.com</a>
-            <a href="tel:+33767374425" class="c-link"><i class="fas fa-phone"></i> 07 67 37 44 25</a>
-        </div>
-    </div>
-</section>
+    <script>
+        // Script pour ouvrir/fermer les cartes de compétences au clic
+        function toggleSkill(element) {
+            const isActive = element.classList.contains('active');
+            
+            // Ferme toutes les cartes
+            document.querySelectorAll('.skill-card').forEach(card => {
+                card.classList.remove('active');
+            });
 
-<!-- MODALES (Détails Compétences) -->
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal1')">&times;</span>
-        <h3>Administration Réseaux</h3>
-        <div class="analysis-grid">
-            <div class="analysis-box strong">
-                <h4><i class="fas fa-check-circle"></i> Points Forts</h4>
-                <ul>
-                    <li>Logique mathématique appliquée au subnetting.</li>
-                    <li>Configuration rigoureuse des services.</li>
-                    <li>Rédaction de documentations techniques.</li>
-                </ul>
-            </div>
-            <div class="analysis-box weak">
-                <h4><i class="fas fa-exclamation-triangle"></i> Difficultés</h4>
-                <p>Apprentissage en cours sur les protocoles de routage dynamique complexes. Nécessite encore de la pratique sur les environnements multi-constructeurs.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="modal2" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal2')">&times;</span>
-        <h3>Connexion & Télécoms</h3>
-        <div class="analysis-grid">
-            <div class="analysis-box strong">
-                <h4><i class="fas fa-check-circle"></i> Points Forts</h4>
-                <ul>
-                    <li>Anglais technique (C1) pour les standards internationaux.</li>
-                    <li>Communication aisée avec les collaborateurs.</li>
-                </ul>
-            </div>
-            <div class="analysis-box weak">
-                <h4><i class="fas fa-exclamation-triangle"></i> Difficultés</h4>
-                <p>Sujet complexe : l'électronique de transmission. Je travaille sur la compréhension des couches physiques et des signaux complexes.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="modal3" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal3')">&times;</span>
-        <h3>Développement & Applications</h3>
-        <div class="analysis-grid">
-            <div class="analysis-box strong">
-                <h4><i class="fas fa-check-circle"></i> Points Forts</h4>
-                <ul>
-                    <li>Excellents résultats en programmation Python.</li>
-                    <li>Capacité d'automatisation des tâches récurrentes.</li>
-                    <li>Maîtrise des bases du Web (HTML/CSS/JS).</li>
-                </ul>
-            </div>
-            <div class="analysis-box weak">
-                <h4><i class="fas fa-exclamation-triangle"></i> Difficultés</h4>
-                <p>Parfois une volonté d'aller trop vite sur l'architecture globale avant de peaufiner les détails de l'interface.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-function openModal(id) { document.getElementById(id).style.display = "block"; }
-function closeModal(id) { document.getElementById(id).style.display = "none"; }
-window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
-</script>
-
+            // Ouvre la carte cliquée si elle n'était pas déjà ouverte
+            if (!isActive) {
+                element.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
