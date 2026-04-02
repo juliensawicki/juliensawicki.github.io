@@ -1,14 +1,15 @@
+/* Palette : Midnight Carbon & Neon Sunset */
 :root {
-    --bg-dark: #050505;
+    --bg-black: #050505;
     --bg-card: #0d0d0f;
-    --text-main: #ffffff;
-    --text-dim: #9ca3af;
+    --text-white: #ffffff;
+    --text-muted: #888891;
     --accent-red: #f43f5e;
     --accent-orange: #fb923c;
     --accent-pink: #ec4899;
-    --border: #1f1f23;
-    --gradient: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
-    --mono: 'JetBrains Mono', monospace;
+    --border-dim: #1f1f23;
+    --gradient-sunset: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
+    --font-mono: 'JetBrains Mono', monospace;
 }
 
 * {
@@ -20,11 +21,10 @@
 html { scroll-behavior: smooth; }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
+    background-color: var(--bg-black);
+    color: var(--text-white);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 .container {
@@ -33,15 +33,15 @@ body {
     padding: 0 24px;
 }
 
-/* Navbar */
+/* Navigation */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border);
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-dim);
 }
 
 .nav-container {
@@ -53,61 +53,53 @@ body {
 
 .logo {
     font-weight: 800;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     letter-spacing: -1px;
 }
 
-.logo .dot { color: var(--accent-red); }
+.logo span { color: var(--accent-red); }
 
-.nav-links {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
+.nav-links { display: flex; gap: 32px; align-items: center; }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-dim);
+    color: var(--text-muted);
     font-size: 0.9rem;
-    font-weight: 500;
     transition: color 0.3s;
 }
 
-.nav-links a:hover { color: var(--text-main); }
+.nav-links a:hover { color: var(--text-white); }
 
-.btn-contact {
-    background: var(--gradient);
+.btn-cta {
+    background: var(--gradient-sunset);
     color: white !important;
     padding: 8px 20px;
     border-radius: 8px;
-    font-weight: 600 !important;
+    font-weight: 600;
 }
 
-/* Hero Section */
-.hero {
-    padding: 180px 0 100px;
-    text-align: left;
-}
+/* Header */
+.hero { padding: 180px 0 100px; }
 
-.status-badge {
+.badge-status {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     background: #1a1a1e;
-    padding: 6px 16px;
+    padding: 6px 14px;
     border-radius: 99px;
     font-size: 0.8rem;
-    color: var(--text-dim);
-    margin-bottom: 30px;
-    border: 1px solid var(--border);
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    border: 1px solid var(--border-dim);
 }
 
-.pulse {
+.dot {
     width: 8px;
     height: 8px;
-    background: #10b981;
+    background: var(--accent-orange);
     border-radius: 50%;
-    box-shadow: 0 0 10px #10b981;
+    box-shadow: 0 0 10px var(--accent-orange);
 }
 
 h1 {
@@ -119,134 +111,146 @@ h1 {
 }
 
 .gradient-text {
-    background: var(--gradient);
+    background: var(--gradient-sunset);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.hero-subtitle {
+.subtitle {
     font-size: 1.2rem;
-    color: var(--text-dim);
+    color: var(--text-muted);
     max-width: 650px;
 }
 
-/* Section Competences */
-.section { padding: 80px 0; }
-.section-title {
-    font-family: var(--mono);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    color: var(--accent-orange);
+/* Section Expertises */
+.section { padding: 60px 0 120px; }
+
+.section-label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-pink);
     letter-spacing: 4px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
-.stack { display: flex; flex-direction: column; gap: 20px; }
+.stack { display: flex; flex-direction: column; gap: 16px; }
 
-.card {
+.skill-card {
     background: var(--bg-card);
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-dim);
     border-radius: 20px;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
 }
 
-.card:hover {
-    border-color: #3f3f46;
-    transform: translateY(-4px);
+.skill-card:hover {
+    border-color: #333338;
+    transform: translateY(-2px);
+}
+
+.skill-card.active {
+    border-color: var(--accent-red);
+    box-shadow: 0 20px 40px rgba(244, 63, 94, 0.1);
 }
 
 .card-header {
-    padding: 40px;
+    padding: 32px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.id-tag {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--accent-red);
+.ue-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-orange);
+    margin-bottom: 8px;
     display: block;
-    margin-bottom: 10px;
 }
 
-.level-badge {
-    padding: 6px 16px;
-    border-radius: 99px;
+.status-indicator {
     font-size: 0.75rem;
     font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 6px;
     text-transform: uppercase;
 }
 
-.level-badge.high { background: rgba(244, 63, 94, 0.1); color: var(--accent-red); border: 1px solid rgba(244, 63, 94, 0.2); }
-.level-badge.medium { background: rgba(251, 146, 60, 0.1); color: var(--accent-orange); border: 1px solid rgba(251, 146, 60, 0.2); }
-.level-badge.low { background: rgba(156, 163, 175, 0.1); color: var(--text-dim); border: 1px solid var(--border); }
+.status-indicator.high { background: rgba(244, 63, 94, 0.1); color: var(--accent-red); }
+.status-indicator.medium { background: rgba(251, 146, 60, 0.1); color: var(--accent-orange); }
+.status-indicator.low { background: rgba(136, 136, 145, 0.1); color: var(--text-muted); }
 
 .card-body {
     max-height: 0;
     opacity: 0;
-    padding: 0 40px;
+    overflow: hidden;
     transition: all 0.5s ease;
 }
 
-.card.active .card-body {
-    max-height: 800px;
+.skill-card.active .card-body {
+    max-height: 1000px;
     opacity: 1;
-    padding-bottom: 40px;
 }
 
-.card.active {
-    border-color: var(--accent-red);
-    box-shadow: 0 20px 40px rgba(244, 63, 94, 0.05);
+.content-wrapper {
+    padding: 0 40px 40px;
+    border-top: 1px solid var(--border-dim);
 }
 
-.analysis {
-    color: var(--text-dim);
-    margin-bottom: 30px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
+.analysis-text {
+    padding: 24px 0;
+    color: var(--text-muted);
+    font-size: 1.1rem;
 }
 
-.table-container { overflow-x: auto; }
-
-.skill-table {
+.detail-table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.skill-table td {
-    padding: 15px 0;
-    border-bottom: 1px solid var(--border);
+.detail-table th {
+    text-align: left;
+    padding: 12px 0;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-pink);
+    border-bottom: 1px solid var(--border-dim);
+}
+
+.detail-table td {
+    padding: 20px 0;
+    border-bottom: 1px solid #16161a;
     vertical-align: top;
 }
 
-.skill-name {
-    width: 30%;
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: var(--text-main);
+.detail-table td strong {
+    display: block;
+    color: var(--text-white);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
 }
 
-.skill-desc {
-    color: var(--text-dim);
+.detail-table td:last-child {
+    color: var(--text-muted);
     font-size: 0.9rem;
+    padding-left: 40px;
 }
 
 /* Footer */
 .footer {
     padding: 60px 0;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--border-dim);
     text-align: center;
-    color: var(--text-dim);
+    color: var(--text-muted);
     font-size: 0.8rem;
 }
 
-/* Mobile */
+/* Responsiveness */
 @media (max-width: 768px) {
     h1 { font-size: 2.5rem; }
-    .card-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-    .skill-name { width: 100%; display: block; margin-bottom: 5px; }
-    .skill-table td { display: block; }
+    .card-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .detail-table td:last-child { padding-left: 0; }
+    .detail-table td { display: block; width: 100%; }
 }
