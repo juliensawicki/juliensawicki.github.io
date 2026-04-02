@@ -1,212 +1,145 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAWICKI.SYSTEMS | AUDIT EXPERTISE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg-black: #030303;
-            --surface: #0a0a0c;
-            --accent-red: #ff334b;
-            --accent-orange: #ff8c00;
-            --accent-blue: #00d4ff;
-            --text-main: #ffffff;
-            --text-dim: #888888;
-            --border: rgba(255, 255, 255, 0.07);
-            --gradient: linear-gradient(135deg, var(--accent-red), var(--accent-orange));
-            --font-main: 'Plus Jakarta Sans', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: crosshair; }
-        body {
-            background-color: var(--bg-black);
-            color: var(--text-main);
-            font-family: var(--font-main);
-            overflow-x: hidden;
-        }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-
-        /* --- NAVIGATION --- */
-        nav {
-            padding: 25px 0; border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100;
-        }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; font-family: var(--font-mono); font-size: 0.9rem; }
-        .logo span { color: var(--accent-red); }
-
-        /* --- HERO --- */
-        header { padding: 80px 0 60px; }
-        h1 { font-size: clamp(2rem, 6vw, 4rem); font-weight: 800; letter-spacing: -3px; line-height: 1; }
-        .gradient-txt { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-        /* --- GRID --- */
-        .skills-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; padding-bottom: 100px; }
-        
-        .skill-card {
-            background: var(--surface); border: 1px solid var(--border);
-            padding: 30px; border-radius: 4px; transition: 0.3s;
-            grid-column: span 6; position: relative; overflow: hidden;
-        }
-        .skill-card:hover { border-color: var(--accent-red); background: #0f0f12; transform: scale(1.01); }
-        .full-width { grid-column: span 12; }
-
-        .ue-tag { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-orange); }
-        .rank { float: right; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); }
-        h2 { margin: 15px 0; font-size: 1.5rem; }
-        .score-bar { height: 2px; width: 100%; background: rgba(255,255,255,0.1); margin: 15px 0; position: relative; }
-        .score-fill { height: 100%; background: var(--accent-red); transition: 1s ease-out; }
-
-        /* --- MODAL SYSTEM --- */
-        .modal {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); z-index: 1000;
-            display: none; justify-content: center; align-items: center;
-            backdrop-filter: blur(10px);
-        }
-        .modal-content {
-            background: #0d0d0f; border: 1px solid var(--accent-red);
-            width: 90%; max-width: 800px; padding: 40px; border-radius: 8px;
-            max-height: 80vh; overflow-y: auto; position: relative;
-        }
-        .close-btn { position: absolute; top: 20px; right: 20px; color: var(--accent-red); font-family: var(--font-mono); font-weight: bold; }
-        
-        .res-list { margin: 20px 0; border-left: 1px solid var(--border); padding-left: 20px; }
-        .res-item { margin-bottom: 10px; font-family: var(--font-mono); font-size: 0.85rem; }
-        .res-note { color: var(--accent-orange); margin-left: 10px; }
-        
-        .analysis-block { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 4px; margin-top: 20px; }
-        .analysis-block h4 { color: var(--accent-red); margin-bottom: 10px; font-size: 0.8rem; letter-spacing: 2px; }
-
-        @media (max-width: 768px) { .skill-card { grid-column: span 12; } }
-    </style>
-</head>
-<body>
-
-<nav>
-    <div class="container nav-flex">
-        <div class="logo">SAWICKI<span>.</span>SYSTEMS</div>
-        <div class="ue-tag" style="color:var(--text-dim)">DEPT_INFO_RT_S1</div>
-    </div>
-</nav>
-
-<main class="container">
-    <header>
-        <h1>Audit de <span class="gradient-txt">Performance.</span></h1>
-        <p style="color:var(--text-dim); margin-top: 20px; max-width: 600px;">Analyse technique basée sur les métriques académiques du Semestre 1. Cliquez sur chaque pôle pour inspecter les données sources.</p>
-    </header>
-
-    <section class="skills-grid">
-        
-        <!-- UE 1.3 : LE POINT FORT -->
-        <article class="skill-card full-width" onclick="openModal('ue13')">
-            <span class="rank">RANG: 34/57</span>
-            <span class="ue-tag">UE 1.3 — DÉVELOPPEMENT & SYSTÈMES</span>
-            <h2>Ingénierie Logicielle & Data</h2>
-            <div class="score-bar"><div class="score-fill" style="width: 71%"></div></div>
-            <p style="color:var(--text-dim)">Domaine d'excellence : Algorithmique avancée et traitement automatisé de données.</p>
-        </article>
-
-        <!-- UE 1.2 : MATHS ET SIGNAL -->
-        <article class="skill-card" onclick="openModal('ue12')">
-            <span class="rank">RANG: 42/57</span>
-            <span class="ue-tag">UE 1.2 — PHYSIQUE & MATHS</span>
-            <h2>Sciences du Signal</h2>
-            <div class="score-bar"><div class="score-fill" style="width: 53%"></div></div>
-            <p style="color:var(--text-dim)">Solide base mathématique appliquée au traitement du signal.</p>
-        </article>
-
-        <!-- UE 1.1 : RÉSEAUX -->
-        <article class="skill-card" onclick="openModal('ue11')">
-            <span class="rank">RANG: 52/57</span>
-            <span class="ue-tag">UE 1.1 — INFRASTRUCTURES</span>
-            <h2>Administration Réseaux</h2>
-            <div class="score-bar"><div class="score-fill" style="width: 48%"></div></div>
-            <p style="color:var(--text-dim)">Fondamentaux de commutation et routage en cours de consolidation.</p>
-        </article>
-
-    </section>
-</main>
-
-<!-- FENÊTRES MODALES -->
-<div id="modal-container" class="modal" onclick="closeModal()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <span class="close-btn" onclick="closeModal()">[X] FERMER_SESSION</span>
-        <div id="modal-body"></div>
-    </div>
-</div>
-
 <script>
-    const data = {
+    const auditData = {
         ue13: {
-            title: " Créer des outils et applications informatiques pour les RT",
-            moyenne: "14.20",
-            ressources: [
-                {id: "R1.07", n: "Fondamentaux de la prog.", v: "16.90"},
-                {id: "R1.08", n: "Bases des Systèmes d'Exploitation", v: "15.00"},
-                {id: "SAÉ 1.5", n: "Traitement de données (PROJET)", v: "18.00"},
-                {id: "SAÉ 1.4", n: "Portfolio Web", v: "16.50"}
-            ],
-            bilan: "Profil de développeur confirmé. La note de 18.00 en SAÉ 1.5 démontre une aptitude supérieure à manipuler des flux de données et à structurer des algorithmes complexes. Expertise en environnement UNIX validée (15.00). Points d'attention : Technologies Web pures (R1.09) à renforcer."
+            title: "INGÉNIERIE LOGICIELLE & SYSTÈMES",
+            summary: "ANALYSE_S1 : Expertise dominante confirmée. Capacité critique de résolution algorithmique et maîtrise des environnements POSIX.",
+            items: [
+                {status: "high", res: "SAÉ 1.5 - Traitement de données", desc: "Expertise majeure. Capacité à concevoir un pipeline complet d'analyse, du parsing de fichiers bruts à la génération de statistiques visuelles automatisées."},
+                {status: "high", res: "R1.07 - Fondamentaux de la Programmation", desc: "Maîtrise avancée des structures de contrôle, de la gestion mémoire et de l'optimisation algorithmique."},
+                {status: "high", res: "R1.08 - Systèmes d'Exploitation", desc: "Compétence solide en environnement Linux. Scripting Bash et gestion des processus système."},
+                {status: "mid", res: "R1.09 - Technologies Web", desc: "Acquisition des bases HTML/CSS. Axe de développement identifié sur les frameworks dynamiques."}
+            ]
         },
         ue12: {
-            title: "Sciences du Signal & Mathématiques",
-            moyenne: "10.54",
-            ressources: [
-                {id: "R1.13", n: "Mathématiques du signal", v: "16.50"},
-                {id: "R1.14", n: "Mathématiques des transmissions", v: "14.33"},
-                {id: "R1.05", n: "Supports de transmission", v: "11.50"}
-            ],
-            bilan: "Capacité analytique mathématique très élevée (Top 10% en Maths Signal). Cette rigueur permet une compréhension profonde de la couche physique des réseaux, malgré des résultats plus hétérogènes en électronique pure."
+            title: "SCIENCES APPLIQUÉES & MATHÉMATIQUES",
+            summary: "ANALYSE_S1 : Rigueur analytique élevée. Utilisation de l'abstraction mathématique pour la résolution de problématiques de transmission.",
+            items: [
+                {status: "high", res: "R1.13 - Mathématiques du Signal", desc: "Excellente maîtrise des outils de transformation et d'analyse spectrale. Capacité de modélisation supérieure."},
+                {status: "high", res: "R1.14 - Mathématiques des Transmissions", desc: "Compréhension fine des probabilités et calculs appliqués aux flux de données numériques."},
+                {status: "mid", res: "R1.05 - Supports de Transmission", desc: "Connaissance opérationnelle des médias physiques (fibre, cuivre, hertzien) et de leurs contraintes de propagation."}
+            ]
         },
         ue11: {
-            title: "Administration Réseaux & Services",
-            moyenne: "09.55",
-            ressources: [
-                {id: "R1.01", n: "Initiation Réseaux", v: "03.31"},
-                {id: "R1.03", n: "Équipements actifs", v: "05.00"},
-                {id: "R1.06", n: "Arch. des systèmes", v: "09.75"}
-            ],
-            bilan: "Phase d'apprentissage technique. Si les concepts théoriques d'architecture sont compris, l'implémentation pratique sur équipements actifs (Cisco/Juniper) constitue l'axe de progression majeur pour le S2."
+            title: "RÉSEAUX & INFRASTRUCTURES",
+            summary: "ANALYSE_S1 : Capacité opérationnelle de déploiement. Maintenance et sécurisation des flux de données en environnement LAN.",
+            items: [
+                {status: "mid", res: "R1.03 - Réseaux Locaux & Équipements", desc: "Compétence opérationnelle sur la configuration de switchs et la segmentation de réseaux (VLAN)."},
+                {status: "mid", res: "R1.06 - Architecture des Systèmes", desc: "Compréhension des interactions matérielles et logicielles au sein des infrastructures numériques."},
+                {status: "mid", res: "R1.01 - Initiation aux Réseaux", desc: "Maîtrise des protocoles fondamentaux du modèle OSI et de l'adressage IP."}
+            ]
         }
     };
 
-    function openModal(ue) {
+    // --- EFFET DE DECRYPTAGE (SCRAMBLE) ---
+    class TextScrambler {
+        constructor(el) {
+            this.el = el;
+            this.chars = '!<>-_\\/[]{}—=+*^?#________';
+            this.update = this.update.bind(this);
+        }
+        setText(newText) {
+            const oldText = this.el.innerText;
+            const length = Math.max(oldText.length, newText.length);
+            const promise = new Promise((resolve) => this.resolve = resolve);
+            this.queue = [];
+            for (let i = 0; i < length; i++) {
+                const from = oldText[i] || '';
+                const to = newText[i] || '';
+                const start = Math.floor(Math.random() * 40);
+                const end = start + Math.floor(Math.random() * 40);
+                this.queue.push({ from, to, start, end });
+            }
+            cancelAnimationFrame(this.frameRequest);
+            this.frame = 0;
+            this.update();
+            return promise;
+        }
+        update() {
+            let output = '';
+            let complete = 0;
+            for (let i = 0, n = this.queue.length; i < n; i++) {
+                let { from, to, start, end, char } = this.queue[i];
+                if (this.frame >= end) {
+                    complete++;
+                    output += to;
+                } else if (this.frame >= start) {
+                    if (!char || Math.random() < 0.28) {
+                        char = this.chars[Math.floor(Math.random() * this.chars.length)];
+                        this.queue[i].char = char;
+                    }
+                    output += `<span class="decrypt-txt">${char}</span>`;
+                } else {
+                    output += from;
+                }
+            }
+            this.el.innerHTML = output;
+            if (complete === this.queue.length) {
+                this.resolve();
+            } else {
+                this.frameRequest = requestAnimationFrame(this.update);
+                this.frame++;
+            }
+        }
+    }
+
+    // --- LOGIQUE MODALE ---
+    function openAudit(ue) {
+        const modal = document.getElementById('modal-audit');
         const body = document.getElementById('modal-body');
-        const content = data[ue];
+        const data = auditData[ue];
         
-        let resHtml = content.ressources.map(r => `
-            <div class="res-item">
-                > ${r.id} | ${r.n} <span class="res-note">${r.v}/20</span>
-            </div>
-        `).join('');
+        // Reset and show modal
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
 
+        // Construction du squelette
         body.innerHTML = `
-            <h2 style="color:var(--accent-red)">${content.title}</h2>
-            <p style="font-family:var(--font-mono); margin-bottom: 30px;">MOYENNE_GLOBALE: ${content.moyenne}/20</p>
-            
-            <div class="analysis-block">
-                <h4>DATA_LOG / RESSOURCES</h4>
-                <div class="res-list">${resHtml}</div>
-            </div>
-
-            <div class="analysis-block">
-                <h4>SYNTHÈSE_EXPERTISE</h4>
-                <p style="line-height:1.6; font-size:0.95rem;">${content.bilan}</p>
-            </div>
+            <p class="ue-tag" id="modal-tag">// INITIALISATION_AUDIT...</p>
+            <h2 id="modal-title" style="font-size:2.5rem; line-height:1; margin-bottom:20px;"></h2>
+            <p id="modal-summary" style="font-size:1.1rem; color:var(--text-main); margin-bottom:30px; border-bottom:1px solid var(--border); padding-bottom:30px;"></p>
+            <div class="audit-section" id="audit-items-container"></div>
         `;
-        document.getElementById('modal-container').style.display = 'flex';
+
+        // Animation du titre et du résumé
+        const scramblerTitle = new TextScrambler(document.getElementById('modal-title'));
+        const scramblerSummary = new TextScrambler(document.getElementById('modal-summary'));
+        
+        scramblerTitle.setText(data.title);
+        setTimeout(() => scramblerSummary.setText(data.summary), 300);
+
+        // Animation "Stagger" des items
+        const container = document.getElementById('audit-items-container');
+        data.items.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = 'audit-item';
+            div.innerHTML = `
+                <span class="status-tag ${item.status === 'high' ? 'status-high' : 'status-mid'}">
+                    ${item.status === 'high' ? 'NIVEAU_AVANCÉ' : 'ACQUIS_OPÉRATIONNEL'}
+                </span>
+                <span class="res-name">> ${item.res}</span>
+                <span class="res-desc">${item.desc}</span>
+            `;
+            container.appendChild(div);
+            
+            // Apparition décalée
+            setTimeout(() => {
+                div.classList.add('show');
+            }, 600 + (index * 150));
+        });
     }
 
-    function closeModal() {
-        document.getElementById('modal-container').style.display = 'none';
+    function closeAudit() {
+        document.getElementById('modal-audit').style.display = 'none';
+        document.body.style.overflow = 'auto';
     }
+
+    // --- EFFET DE SURVOL DES CARTES ---
+    document.querySelectorAll('.skill-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            const title = card.querySelector('h2');
+            const originalText = title.innerText;
+            const scrambler = new TextScrambler(title);
+            scrambler.setText(originalText);
+        });
+    });
 </script>
-
-</body>
-</html>
