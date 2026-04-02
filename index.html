@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Julien Sawicki | Portfolio Ingénierie R&T</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,71 +15,57 @@
             <div class="nav-links">
                 <a href="#cv">Parcours</a>
                 <a href="#competences">Expertise & Notes</a>
-                <a href="#contact" class="btn-nav">Me contacter</a>
+                <a href="#contact" class="btn-nav">Contact</a>
             </div>
         </div>
     </nav>
 
     <header class="header">
         <div class="container">
-            <div class="badge-container">
+            <div class="badge-row">
                 <span class="badge">Disponibilité 2026</span>
-                <span class="badge-tech">BUT R&T @ IUT Béthune</span>
+                <span class="badge-outline">BUT R&T @ IUT Béthune</span>
             </div>
-            <h1>Architecture & <br><span class="gradient-text">Développement Réseaux.</span></h1>
-            <p class="subtitle">Analyse rigoureuse, logique mathématique et passion pour l'automatisation des infrastructures numériques.</p>
+            <h1>Profil Technique en <br><span class="gradient-text">Réseaux & Télécoms.</span></h1>
+            <p class="subtitle">Analyse rigoureuse de données, développement logiciel et mathématiques du signal. Étudiant en Bachelor Universitaire de Technologie.</p>
         </div>
     </header>
 
-    <section id="cv" class="section">
-        <div class="container">
-            <h2 class="section-title">Parcours Académique</h2>
-            <div class="cv-grid">
-                <div class="cv-card">
-                    <span class="cv-year">2025 — 2028</span>
-                    <h3>BUT Réseaux et Télécommunications</h3>
-                    <p class="cv-location">IUT de Béthune</p>
-                    <p class="cv-desc">Spécialisation en administration systèmes, virtualisation et cybersécurité.</p>
-                </div>
-                <div class="cv-card">
-                    <span class="cv-year">2018 — 2025</span>
-                    <h3>Baccalauréat Général</h3>
-                    <p class="cv-location">Cité Scolaire Louis Pasteur, Somain</p>
-                    <p class="cv-desc">Dominante scientifique. Développement d'une solide base en mathématiques et physique.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="competences" class="section bg-light">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Analyse des Compétences</h2>
-                <p class="instruction">Détails des ressources (R) et situations d'apprentissage (SAÉ) par UE.</p>
-            </div>
-
+            <h2 class="section-tag">Bilan de Compétences</h2>
+            
             <div class="skills-stack">
-                
+
                 <!-- UE 11 -->
                 <div class="skill-card" onclick="toggleSkill(this)">
                     <div class="skill-header">
-                        <div class="ue-info">
-                            <span class="ue-tag">UE 1.1</span>
-                            <h3>Administrer les réseaux et l’Internet</h3>
+                        <div class="ue-meta">
+                            <span class="ue-id">UE11</span>
+                            <h3>Administrer les réseaux et l'Internet</h3>
                         </div>
-                        <div class="ue-score">
-                            <span class="label">Moyenne</span>
-                            <span class="value">09.55</span>
+                        <div class="ue-stats">
+                            <div class="stat">
+                                <span class="stat-label">Moyenne</span>
+                                <span class="stat-value">09.55</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Rang</span>
+                                <span class="stat-value">52/57</span>
+                            </div>
                         </div>
                     </div>
                     <div class="skill-body">
-                        <div class="inner-content">
-                            <p class="bilan">Phase d'appropriation des infrastructures. Un focus particulier est mis sur la compréhension théorique avant la pratique intensive.</p>
-                            <div class="resource-list">
-                                <div class="res-item"><span>R1.01 Initiation Réseaux</span><strong>03.31</strong></div>
-                                <div class="res-item"><span>R1.03 Réseaux Locaux</span><strong>05.00</strong></div>
-                                <div class="res-item highlight"><span>R1.10 Anglais Tech</span><strong>12.79</strong></div>
-                            </div>
+                        <div class="skill-content">
+                            <p class="summary"><strong>Bilan :</strong> Phase d'initiation aux logiques d'administration. Bien que les résultats techniques soient en cours de consolidation, l'approche théorique est activement travaillée.</p>
+                            <table class="resource-table">
+                                <thead><tr><th>Ressource</th><th>Note</th><th>Coef</th></tr></thead>
+                                <tbody>
+                                    <tr><td>R1.01 Initiation aux réseaux</td><td class="note-low">03.31</td><td>4</td></tr>
+                                    <tr><td>R1.03 Réseaux locaux & équipements</td><td class="note-low">05.00</td><td>2</td></tr>
+                                    <tr><td>R1.11 Éléments de Culture & Com.</td><td>10.17</td><td>5</td></tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -87,35 +73,44 @@
                 <!-- UE 12 -->
                 <div class="skill-card" onclick="toggleSkill(this)">
                     <div class="skill-header">
-                        <div class="ue-info">
-                            <span class="ue-tag">UE 1.2</span>
+                        <div class="ue-meta">
+                            <span class="ue-id highlight">UE12</span>
                             <h3>Connecter les entreprises et les usagers</h3>
                         </div>
-                        <div class="ue-score">
-                            <span class="label">Moyenne</span>
-                            <span class="value">10.54</span>
+                        <div class="ue-stats">
+                            <div class="stat">
+                                <span class="stat-label">Moyenne</span>
+                                <span class="stat-value">10.54</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Rang</span>
+                                <span class="stat-value">42/57</span>
+                            </div>
                         </div>
                     </div>
                     <div class="skill-body">
-                        <div class="inner-content">
-                            <div class="stats-showcase">
-                                <div class="stat-box">
-                                    <span class="stat-label">Maths Signal</span>
-                                    <span class="stat-val">16.50</span>
-                                    <div class="mini-bar"><div style="width: 82.5%"></div></div>
+                        <div class="skill-content">
+                            <div class="top-scores">
+                                <div class="score-card">
+                                    <span>Mathématiques du Signal</span>
+                                    <strong>16.50</strong>
                                 </div>
-                                <div class="stat-box">
-                                    <span class="stat-label">Maths Transmissions</span>
-                                    <span class="stat-val">14.33</span>
-                                    <div class="mini-bar"><div style="width: 71%"></div></div>
+                                <div class="score-card">
+                                    <span>Maths des Transmissions</span>
+                                    <strong>14.33</strong>
                                 </div>
                             </div>
-                            <p class="bilan">Profil à forte capacité d'abstraction. Les mathématiques appliquées au signal sont un point d'appui majeur pour la compréhension des supports physiques.</p>
-                            <div class="resource-list">
-                                <div class="res-item"><span>R1.04 Électronique Analogique</span><strong>09.44</strong></div>
-                                <div class="res-item"><span>R1.05 Supports Transmission</span><strong>11.50</strong></div>
-                                <div class="res-item"><span>SAÉ 1.3 Dispositif Transmission</span><strong>09.40</strong></div>
-                            </div>
+                            <p class="summary"><strong>Bilan :</strong> Excellente aptitude en mathématiques appliquées. La compréhension des supports physiques (R1.05) et du signal est le socle de mon profil ingénierie.</p>
+                            <table class="resource-table">
+                                <thead><tr><th>Ressource</th><th>Note</th><th>Coef</th></tr></thead>
+                                <tbody>
+                                    <tr class="high"><td>R1.13 Mathématiques du signal</td><td>16.50</td><td>9</td></tr>
+                                    <tr class="high"><td>R1.14 Mathématiques des transmissions</td><td>14.33</td><td>9</td></tr>
+                                    <tr><td>R1.05 Supports de transmission</td><td>11.50</td><td>8</td></tr>
+                                    <tr><td>R1.04 Électronique analogique</td><td>09.44</td><td>8</td></tr>
+                                    <tr><td>SAÉ13 Découvrir un disp. de transmission</td><td>09.40</td><td>33</td></tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -123,61 +118,55 @@
                 <!-- UE 13 -->
                 <div class="skill-card" onclick="toggleSkill(this)">
                     <div class="skill-header">
-                        <div class="ue-info">
-                            <span class="ue-tag gold">UE 1.3</span>
-                            <h3>Créer des outils et applications informatiques</h3>
+                        <div class="ue-meta">
+                            <span class="ue-id excellence">UE13</span>
+                            <h3>Créer des outils et applications RT</h3>
                         </div>
-                        <div class="ue-score">
-                            <span class="label">Moyenne</span>
-                            <span class="value high">14.20</span>
+                        <div class="ue-stats">
+                            <div class="stat">
+                                <span class="stat-label">Moyenne</span>
+                                <span class="stat-value excellence-text">14.20</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Rang</span>
+                                <span class="stat-value">34/57</span>
+                            </div>
                         </div>
                     </div>
                     <div class="skill-body">
-                        <div class="inner-content">
-                            <div class="stats-showcase">
-                                <div class="stat-box">
-                                    <span class="stat-label">Programmation (R1.07)</span>
-                                    <span class="stat-val">16.90</span>
-                                    <div class="mini-bar"><div style="width: 84.5%; background: #22c55e"></div></div>
+                        <div class="skill-content">
+                            <div class="top-scores green">
+                                <div class="score-card">
+                                    <span>SAÉ Traitement de données</span>
+                                    <strong>18.00</strong>
                                 </div>
-                                <div class="stat-box">
-                                    <span class="stat-label">SAÉ Données (SAÉ15)</span>
-                                    <span class="stat-val">18.00</span>
-                                    <div class="mini-bar"><div style="width: 90%; background: #22c55e"></div></div>
+                                <div class="score-card">
+                                    <span>Programmation (R1.07)</span>
+                                    <strong>16.90</strong>
                                 </div>
                             </div>
-                            <p class="bilan"><strong>Pôle d'excellence.</strong> Maîtrise avancée de l'algorithmie et de l'automatisation. Capacité prouvée à livrer des outils de traitement de données performants.</p>
-                            <div class="resource-list">
-                                <div class="res-item"><span>R1.08 Systèmes d'Exploitation</span><strong>15.00</strong></div>
-                                <div class="res-item"><span>SAÉ 1.4 Se présenter sur le Web</span><strong>16.50</strong></div>
-                                <div class="res-item"><span>R1.06 Architecture Numérique</span><strong>09.75</strong></div>
-                            </div>
+                            <p class="summary"><strong>Bilan :</strong> Domaine de prédilection. Maîtrise avancée de l'algorithmie et des systèmes d'exploitation. Capacité démontrée à automatiser et traiter des données complexes.</p>
+                            <table class="resource-table">
+                                <thead><tr><th>Ressource</th><th>Note</th><th>Coef</th></tr></thead>
+                                <tbody>
+                                    <tr class="high"><td>SAÉ15 Traitement de données</td><td>18.00</td><td>28</td></tr>
+                                    <tr class="high"><td>R1.07 Fondamentaux de programmation</td><td>16.90</td><td>19</td></tr>
+                                    <tr class="high"><td>SAÉ14 Se présenter sur Internet</td><td>16.50</td><td>8</td></tr>
+                                    <tr class="high"><td>R1.08 Bases des Systèmes d'Exploitation</td><td>15.00</td><td>8</td></tr>
+                                    <tr><td>R1.10 Anglais Technique</td><td>12.79</td><td>5</td></tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h2>Travaillons <br>ensemble.</h2>
-                    <p>Disponible pour des projets de développement outils RT ou des stages d'ingénierie.</p>
-                </div>
-                <div class="contact-links">
-                    <a href="mailto:juliensawicki@gmail.com" class="c-link">juliensawicki@gmail.com</a>
-                    <a href="tel:+33767374425" class="c-link">07 67 37 44 25</a>
-                </div>
             </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>© 2026 Julien Sawicki — Propulsé par la rigueur et le code.</p>
+            <p>© 2026 Julien Sawicki — Ingénierie Réseaux & Télécoms</p>
         </div>
     </footer>
 
