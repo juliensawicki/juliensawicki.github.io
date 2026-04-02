@@ -3,40 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julien Sawicki - Portfolio</title>
-    <!-- Police Google Fonts : Inter pour un rendu très net et professionnel -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Julien Sawicki | Ingénierie R&T</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Navigation minimaliste -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Julien Sawicki.</div>
+            <div class="logo">JS.</div>
             <div class="nav-links">
                 <a href="#cv">Parcours</a>
                 <a href="#competences">Expertise</a>
-                <a href="#contact">Contact</a>
+                <a href="#contact" class="btn-nav">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- En-tête épuré -->
     <header class="header">
         <div class="container">
-            <h1>Profil technique en <br>Réseaux & Télécommunications.</h1>
+            <div class="badge">Disponibilité 2026</div>
+            <h1>Profil technique en <br><span class="gradient-text">Réseaux & Télécoms.</span></h1>
             <p class="subtitle">Spécialisé en développement d'outils, traitement de données et déploiement d'infrastructures. Étudiant à l'IUT de Béthune.</p>
         </div>
     </header>
 
-    <!-- Section CV -->
     <section id="cv" class="section">
         <div class="container">
             <h2 class="section-title">Curriculum Vitae</h2>
             
             <div class="cv-grid">
-                <!-- Formation -->
                 <div class="cv-column">
                     <h3 class="column-title">Formation</h3>
                     <div class="cv-item">
@@ -55,19 +51,20 @@
                     </div>
                 </div>
 
-                <!-- Profil & Atouts -->
                 <div class="cv-column">
                     <h3 class="column-title">Profil & Langues</h3>
                     <div class="cv-item">
+                        <div class="cv-date">Niveau C1</div>
                         <div class="cv-content">
-                            <h4>Anglais Professionnel (Niveau C1)</h4>
-                            <p>Excellente maîtrise de l'anglais technique et de communication, indispensable pour la documentation et les standards internationaux.</p>
+                            <h4>Anglais Professionnel</h4>
+                            <p>Excellente maîtrise de l'anglais technique et de communication, indispensable pour la documentation internationale.</p>
                         </div>
                     </div>
                     <div class="cv-item">
+                        <div class="cv-date">Soft Skills</div>
                         <div class="cv-content">
-                            <h4>Savoir-être (Soft Skills)</h4>
-                            <p>Aisance en communication professionnelle et rigueur mathématique.</p>
+                            <h4>Savoir-être</h4>
+                            <p>Aisance en communication professionnelle, logique d'analyse et rigueur mathématique.</p>
                         </div>
                     </div>
                 </div>
@@ -75,28 +72,29 @@
         </div>
     </section>
 
-    <!-- Section Compétences avec Accordéon au clic -->
     <section id="competences" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Analyse des Compétences</h2>
-            <p class="instruction">Cliquez sur une compétence pour consulter le bilan détaillé.</p>
+            <div class="section-header">
+                <h2 class="section-title">Analyse des Compétences</h2>
+                <p class="instruction">Sélectionnez une compétence pour consulter le bilan détaillé.</p>
+            </div>
 
             <div class="skills-container">
                 
-                <!-- Compétence 1 -->
                 <div class="skill-card" onclick="toggleSkill(this)">
                     <div class="skill-header">
                         <h3>Administrer les réseaux et l'Internet</h3>
+                        <div class="status-indicator"></div>
                     </div>
                     <div class="skill-body">
                         <div class="skill-content-inner">
                             <p class="bilan-text"><strong>Bilan analytique :</strong> Je suis actuellement dans une phase d'acquisition des logiques fondamentales liées aux architectures systèmes. Si l'approche théorique des réseaux locaux et de la configuration des équipements actifs représente un défi que je relève activement, je m'appuie sur une méthode de travail rigoureuse pour structurer mes connaissances. Mon objectif à court terme est de consolider ces bases techniques pour gagner en autonomie sur l'administration d'infrastructures pures.</p>
                             <div class="points-grid">
-                                <div class="point-col">
+                                <div class="point-col strong">
                                     <span class="point-label">Points forts</span>
                                     <p>Compréhension de l'architecture des systèmes numériques et rigueur d'apprentissage.</p>
                                 </div>
-                                <div class="point-col">
+                                <div class="point-col improvement">
                                     <span class="point-label">Axes d'amélioration</span>
                                     <p>Maîtrise pratique de l'initiation aux réseaux et configuration des équipements locaux.</p>
                                 </div>
@@ -105,20 +103,20 @@
                     </div>
                 </div>
 
-                <!-- Compétence 2 -->
                 <div class="skill-card" onclick="toggleSkill(this)">
                     <div class="skill-header">
                         <h3>Connecter les entreprises et les usagers</h3>
+                        <div class="status-indicator"></div>
                     </div>
                     <div class="skill-body">
                         <div class="skill-content-inner">
                             <p class="bilan-text"><strong>Bilan analytique :</strong> C'est un domaine où ma logique scientifique s'exprime pleinement. Mes excellents résultats en mathématiques appliquées (signal et transmission) me permettent de comprendre très rapidement la théorie derrière le traitement des données. J'assimile facilement les principes des supports de transmission. L'application pratique sur l'électronique analogique et les dispositifs matériels est un axe sur lequel je concentre actuellement mes efforts pratiques.</p>
                             <div class="points-grid">
-                                <div class="point-col">
+                                <div class="point-col strong">
                                     <span class="point-label">Points forts</span>
-                                    <p>Excellente capacité d'abstraction mathématique (signaux et transmissions), compréhension des supports physiques, et communication technique en anglais.</p>
+                                    <p>Excellente capacité d'abstraction mathématique, compréhension des supports physiques, et communication technique.</p>
                                 </div>
-                                <div class="point-col">
+                                <div class="point-col improvement">
                                     <span class="point-label">Axes d'amélioration</span>
                                     <p>Manipulation pratique des composants en électronique analogique et gestion globale de projet.</p>
                                 </div>
@@ -127,20 +125,20 @@
                     </div>
                 </div>
 
-                <!-- Compétence 3 -->
                 <div class="skill-card" onclick="toggleSkill(this)">
                     <div class="skill-header">
                         <h3>Créer des outils et applications pour les RT</h3>
+                        <div class="status-indicator"></div>
                     </div>
                     <div class="skill-body">
                         <div class="skill-content-inner">
-                            <p class="bilan-text"><strong>Bilan analytique :</strong> Il s'agit de mon domaine d'excellence. Je démontre une forte appétence et de grandes facilités pour le développement logiciel et l'algorithmie. Je maîtrise les fondamentaux de la programmation, la manipulation des systèmes d'exploitation et excelle dans le traitement des données de manière automatisée. Si la théorie brute des technologies Web a pu demander un ajustement, ma capacité à livrer des projets concrets et fonctionnels (comme des portfolios et des scripts de traitement) prouve mon efficacité opérationnelle.</p>
+                            <p class="bilan-text"><strong>Bilan analytique :</strong> Il s'agit de mon domaine d'excellence. Je démontre une forte appétence et de grandes facilités pour le développement logiciel et l'algorithmie. Je maîtrise les fondamentaux de la programmation, la manipulation des systèmes d'exploitation et excelle dans le traitement des données de manière automatisée. Si la théorie brute des technologies Web a pu demander un ajustement, ma capacité à livrer des projets concrets prouve mon efficacité opérationnelle.</p>
                             <div class="points-grid">
-                                <div class="point-col">
+                                <div class="point-col strong">
                                     <span class="point-label">Points forts</span>
-                                    <p>Haut niveau en programmation, administration des OS, traitement de données complexes et réalisation de projets concrets.</p>
+                                    <p>Haut niveau en programmation, administration des OS, traitement de données complexes et réalisation de projets.</p>
                                 </div>
-                                <div class="point-col">
+                                <div class="point-col improvement">
                                     <span class="point-label">Axes d'amélioration</span>
                                     <p>Approfondissement de la théorie stricte des standards Web en amont du développement.</p>
                                 </div>
@@ -153,12 +151,11 @@
         </div>
     </section>
 
-    <!-- Section Contact -->
     <section id="contact" class="section">
         <div class="container">
-            <div class="contact-wrapper">
-                <h2>Me contacter</h2>
-                <p>Disponible pour échanger sur mon profil ou pour de futures opportunités.</p>
+            <div class="contact-card">
+                <h2>Prêt à collaborer ?</h2>
+                <p>Je suis disponible pour échanger sur mon profil, mes compétences ou pour de futures opportunités professionnelles.</p>
                 <div class="contact-details">
                     <a href="mailto:juliensawicki@gmail.com" class="contact-link">juliensawicki@gmail.com</a>
                     <a href="tel:+33767374425" class="contact-link">07 67 37 44 25</a>
@@ -169,21 +166,18 @@
 
     <footer>
         <div class="container">
-            <p>© 2026 Julien Sawicki. Portfolio professionnel.</p>
+            <p>© 2026 Julien Sawicki. Tous droits réservés.</p>
         </div>
     </footer>
 
     <script>
-        // Script pour ouvrir/fermer les cartes de compétences au clic
         function toggleSkill(element) {
             const isActive = element.classList.contains('active');
             
-            // Ferme toutes les cartes
             document.querySelectorAll('.skill-card').forEach(card => {
                 card.classList.remove('active');
             });
 
-            // Ouvre la carte cliquée si elle n'était pas déjà ouverte
             if (!isActive) {
                 element.classList.add('active');
             }
