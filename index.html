@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio professionnel de Julien Sawicki, étudiant en BUT Réseaux et Télécommunications à l'IUT de Béthune.">
-    <title>Julien Sawicki | Portfolio Professionnel</title>
+    <title>Julien Sawicki | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,81 +13,48 @@
 
 <nav class="navbar">
     <div class="container">
-        <a href="#home" class="logo">Julien Sawicki</a>
+        <a href="#home" class="logo">JS<span>.</span></a>
         <ul class="nav-links">
-            <li><a href="#presentation">Présentation</a></li>
-            <li><a href="#cv">CV</a></li>
+            <li><a href="#presentation">Profil</a></li>
+            <li><a href="#cv">Parcours</a></li>
             <li><a href="#competences">Compétences</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#mentions">Mentions</a></li>
         </ul>
     </div>
 </nav>
 
 <section id="home" class="hero">
-    <h1>Julien Sawicki</h1>
-    <p>Étudiant de 18 ans en BUT Réseaux et Télécommunications à l’IUT de Béthune. Passionné par la Cybersécurité et la musique.</p>
-</section>
-
-<section id="presentation" class="section">
-    <div class="container">
-        <h2>Présentation</h2>
-        <div class="presentation-content">
-            <div class="info-item">
-                <i class="fas fa-user-graduate"></i>
-                <p><strong>Formation :</strong> BUT Réseaux et Télécoms</p>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-map-marked-alt"></i>
-                <p><strong>Localisation :</strong> Hornaing, France</p>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-language"></i>
-                <p><strong>Langues :</strong> Français (natif), Anglais (C1)</p>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-music"></i>
-                <p><strong>Passion :</strong> Musique (piano)</p>
-            </div>
-        </div>
+    <div class="hero-content">
+        <h1>Julien Sawicki</h1>
+        <p class="subtitle">Étudiant en Réseaux & Télécommunications</p>
+        <p class="hero-desc">Passionné par les infrastructures numériques, la programmation et la musique.</p>
     </div>
 </section>
 
-<section id="cv" class="section">
+<section id="cv" class="section gray-bg">
     <div class="container">
-        <h2>Mon Parcours (CV)</h2>
-        <div class="cv-container">
-            <div class="cv-title">
+        <h2 class="section-title">Parcours Professionnel</h2>
+        <div class="cv-card">
+            <div class="cv-header">
                 <h3>Julien Sawicki</h3>
-                <p>Futur expert en Cybersécurité</p>
+                <p>Formation BUT R&T | IUT de Béthune</p>
             </div>
-
-            <div class="cv-section">
-                <h4><i class="fas fa-graduation-cap"></i> Formations</h4>
-                <div class="cv-content">
+            
+            <div class="cv-grid">
+                <div class="cv-col">
+                    <h4><i class="fas fa-graduation-cap"></i> Études</h4>
                     <div class="cv-item">
-                        <h5>BUT Réseaux et Télécommunications</h5>
-                        <p>IUT de Béthune (2025 - 2028)</p>
+                        <span>2025 - 2028</span>
+                        <p><strong>BUT Réseaux et Télécommunications</strong><br>IUT de Béthune</p>
                     </div>
                     <div class="cv-item">
-                        <h5>Baccalauréat Général</h5>
-                        <p>Cité Scolaire Louis Pasteur de Somain (2018 - 2025)</p>
+                        <span>2018 - 2025</span>
+                        <p><strong>Baccalauréat Général</strong><br>Cité Scolaire L. Pasteur, Somain</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="cv-section">
-                <h4><i class="fas fa-briefcase"></i> Expériences</h4>
-                <div class="cv-content">
-                    <div class="cv-item">
-                        <h5>Stage d'observation (2nd)</h5>
-                        <p>Fermes Bauduin (Janvier 2023) - Gestion & Clientèle</p>
-                    </div>
-                    <div class="cv-item">
-                        <h5>Stage d'observation (3e)</h5>
-                        <p>Centre Équestre d'Escaudain (Décembre 2021) - Gestion & Clientèle</p>
-                    </div>
+                <div class="cv-col">
+                    <h4><i class="fas fa-star"></i> Atouts Académiques</h4>
+                    <p>Excellents résultats en : <strong>Mathématiques, Anglais (C1), Communication et Programmation.</strong></p>
                 </div>
             </div>
         </div>
@@ -98,132 +63,104 @@
 
 <section id="competences" class="section">
     <div class="container">
-        <h2>Compétences Académiques</h2>
-        <div class="skills-grid">
-            
-            <!-- UE 11 -->
-            <div class="skill-item">
-                <h3>Administrer les réseaux (UE11)</h3>
-                <div class="progress-container">
-                    <div class="progress-label"><span>Progression</span><span>40%</span></div>
-                    <div class="progress-bar"><div class="progress" data-percent="40%"></div></div>
+        <h2 class="section-title">Compétences BUT R&T</h2>
+        <p class="instruction">Cliquez sur une compétence pour voir les détails (points forts/faibles).</p>
+        
+        <div class="skills-stack">
+            <!-- Compétence 1 -->
+            <details class="skill-detail">
+                <summary>
+                    <div class="skill-summary-content">
+                        <h3>Administrer les réseaux et l'Internet</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </summary>
+                <div class="skill-expanded">
+                    <div class="grid-2">
+                        <div class="point-box plus">
+                            <h5><i class="fas fa-plus-circle"></i> Points forts</h5>
+                            <p>Bonne compréhension de l'architecture système et logique de programmation appliquée.</p>
+                        </div>
+                        <div class="point-box minus">
+                            <h5><i class="fas fa-minus-circle"></i> Difficultés</h5>
+                            <p>Approfondissement nécessaire sur les protocoles de routage complexes et l'administration pure.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="ue-details">
-                    <span class="badge">R1.01 Initiation réseaux (Coef 4)</span>
-                    <span class="badge">R1.03 Réseaux locaux (Coef 2)</span>
-                    <span class="badge">R1.06 Architecture systèmes (Coef 5)</span>
-                </div>
-            </div>
+            </details>
 
-            <!-- UE 12 -->
-            <div class="skill-item">
-                <h3>Connecter les entreprises (UE12)</h3>
-                <div class="progress-container">
-                    <div class="progress-label"><span>Progression</span><span>30%</span></div>
-                    <div class="progress-bar"><div class="progress" data-percent="30%"></div></div>
+            <!-- Compétence 2 -->
+            <details class="skill-detail">
+                <summary>
+                    <div class="skill-summary-content">
+                        <h3>Connecter les entreprises et les usagers</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </summary>
+                <div class="skill-expanded">
+                    <div class="grid-2">
+                        <div class="point-box plus">
+                            <h5><i class="fas fa-plus-circle"></i> Points forts</h5>
+                            <p>Capacité à analyser les besoins clients grâce à de bonnes bases en communication.</p>
+                        </div>
+                        <div class="point-box minus">
+                            <h5><i class="fas fa-minus-circle"></i> Difficultés</h5>
+                            <p>Notions d'électronique et supports de transmission physique encore en cours d'acquisition.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="ue-details">
-                    <span class="badge">R1.04 Électronique (Coef 8)</span>
-                    <span class="badge">R1.05 Supports transmission (Coef 8)</span>
-                    <span class="badge">R1.13 Maths du signal (Coef 9)</span>
-                    <span class="badge">R1.14 Maths transmissions (Coef 9)</span>
-                    <span class="badge">SAÉ13 Découverte transmission (Coef 33)</span>
-                </div>
-            </div>
+            </details>
 
-            <!-- UE 13 -->
-            <div class="skill-item">
-                <h3>Outils & Applications (UE13)</h3>
-                <div class="progress-container">
-                    <div class="progress-label"><span>Progression</span><span>35%</span></div>
-                    <div class="progress-bar"><div class="progress" data-percent="35%"></div></div>
+            <!-- Compétence 3 -->
+            <details class="skill-detail">
+                <summary>
+                    <div class="skill-summary-content">
+                        <h3>Créer des outils et applications informatiques</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </summary>
+                <div class="skill-expanded">
+                    <div class="grid-2">
+                        <div class="point-box plus">
+                            <h5><i class="fas fa-plus-circle"></i> Points forts</h5>
+                            <p>Très bons résultats en programmation (Python) et en développement Web.</p>
+                        </div>
+                        <div class="point-box minus">
+                            <h5><i class="fas fa-minus-circle"></i> Difficultés</h5>
+                            <p>Optimisation algorithmique avancée pour les gros volumes de données.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="ue-details">
-                    <span class="badge">R1.07 Programmation Python (Coef 19)</span>
-                    <span class="badge">R1.08 Bases OS (Coef 8)</span>
-                    <span class="badge">R1.09 Technologies Web (Coef 4)</span>
-                    <span class="badge">SAÉ14 Portfolio Web (Coef 8)</span>
-                    <span class="badge">SAÉ15 Traitement de données (Coef 28)</span>
-                </div>
-            </div>
-
-            <!-- Transverses -->
-            <div class="skill-item">
-                <h3>Compétences Transverses</h3>
-                <div class="ue-details">
-                    <span class="badge">R1.10 Anglais (Coef 5)</span>
-                    <span class="badge">R1.11 Communication (Coef 5)</span>
-                    <span class="badge">R1.12 PPP (Coef 2)</span>
-                    <span class="badge">R1.15 Gestion de projet (Coef 2)</span>
-                </div>
-            </div>
-
+            </details>
         </div>
     </div>
 </section>
 
-<section id="portfolio" class="section">
-    <div class="container">
-        <h2>Projets (SAÉ)</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item" onclick="alert('Vous visualisez actuellement ce projet !')">
-                <h3>SAÉ 1.04 - Portfolio</h3>
-                <p>Conception et développement d'un site web professionnel en HTML/CSS.</p>
+<section id="contact" class="section gray-bg">
+    <div class="container text-center">
+        <h2 class="section-title">Me Contacter</h2>
+        <div class="contact-card">
+            <div class="contact-info">
+                <div class="c-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>07 67 37 44 25</p>
+                </div>
+                <div class="c-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>juliensawicki@gmail.com</p>
+                </div>
             </div>
-            <div class="portfolio-item" onclick="alert('Bientôt disponible : Analyse et automatisation via Python.')">
-                <h3>SAÉ 1.05 - Scripting</h3>
-                <p>Traitement de données et automatisation de tâches réseaux en Python.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/julien-sawicki-2a675631a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/juliensawicki" target="_blank"><i class="fab fa-github"></i></a>
             </div>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="section">
-    <div class="container">
-        <h2>Me Contacter</h2>
-        <div class="contact-grid">
-            <a href="mailto:juliensawicki@gmail.com" class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <p>Email</p>
-            </a>
-            <a href="https://www.linkedin.com/in/julien-sawicki-2a675631a/" class="contact-item" target="_blank">
-                <i class="fab fa-linkedin"></i>
-                <p>LinkedIn</p>
-            </a>
-            <a href="https://github.com/juliensawicki" class="contact-item" target="_blank">
-                <i class="fab fa-github"></i>
-                <p>GitHub</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<section id="mentions" class="section">
-    <div class="container">
-        <h2>Mentions légales</h2>
-        <div class="mentions-content">
-            <h3>Éditeur du site</h3>
-            <p>Julien Sawicki, étudiant en BUT R&T à l'IUT de Béthune.</p>
-            <h3>Hébergement</h3>
-            <p>Ce site est hébergé par GitHub Pages.</p>
-            <h3>Données personnelles</h3>
-            <p>Aucun cookie tiers n'est utilisé. Ce site ne collecte aucune donnée à votre insu.</p>
         </div>
     </div>
 </section>
 
 <footer class="footer">
-    <p>© 2026 Julien Sawicki | Tous droits réservés</p>
+    <p>© 2026 Julien Sawicki | <a href="#mentions">Mentions légales</a></p>
 </footer>
 
-<script>
-    // Animation des barres de progression au chargement
-    document.querySelectorAll('.progress').forEach(bar => {
-        const percent = bar.getAttribute('data-percent');
-        setTimeout(() => {
-            bar.style.width = percent;
-        }, 300);
-    });
-</script>
 </body>
 </html>
