@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julien Sawicki | Portfolio Ingénierie R&T</title>
+    <title>Julien Sawicki | Expertise Ingénierie R&T</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +13,7 @@
         <div class="nav-container">
             <div class="logo">JS<span>.</span></div>
             <div class="nav-links">
-                <a href="#expertises">Expertises</a>
+                <a href="#expertises">Compétences</a>
                 <a href="#contact" class="btn-cta">Contact</a>
             </div>
         </div>
@@ -21,106 +21,113 @@
 
     <header class="hero">
         <div class="container">
-            <div class="badge-status">
-                <span class="dot"></span> Disponibilité Stage 2026
+            <div class="badge-tech">
+                <span class="pulse"></span> SYSTÈMES & RÉSEAUX // 2026
             </div>
-            <h1>Profil Technique <br><span class="gradient-text">Réseaux & Développement.</span></h1>
-            <p class="subtitle">Analyse de données complexes, modélisation de signaux et architecture logicielle. Étudiant en Bachelor Universitaire de Technologie.</p>
+            <h1>Ingénierie des <br><span class="gradient-text">Infrastructures Digitales.</span></h1>
+            <p class="subtitle">Analyse rigoureuse de flux, développement logiciel bas niveau et modélisation du signal. Une expertise technique centrée sur la performance et l'optimisation.</p>
         </div>
     </header>
 
     <section id="expertises" class="section">
         <div class="container">
-            <h2 class="section-label">// DOSSIER DE COMPÉTENCES</h2>
+            <h2 class="section-label">// ANALYSE DÉTAILLÉE DES COMPÉTENCES</h2>
 
             <div class="stack">
 
-                <!-- UE 13 : PROGRAMMATION -->
+                <!-- UE 13 : DEVELOPPEMENT & DATA -->
                 <div class="skill-card active" onclick="toggleCard(this)">
                     <div class="card-header">
                         <div class="header-main">
-                            <span class="ue-tag">UE 13</span>
-                            <h3>Ingénierie Logicielle & Traitement de Données</h3>
+                            <span class="ue-id">DOMAINE APPLICATIF</span>
+                            <h3>Développement & Traitement de Données</h3>
                         </div>
-                        <div class="status-indicator high">Expertise Confirmée</div>
+                        <div class="status-badge master">Expertise Avancée</div>
                     </div>
                     <div class="card-body">
-                        <div class="content-wrapper">
-                            <p class="analysis-text">Maîtrise avancée du cycle de développement logiciel. Capacité à concevoir des algorithmes performants et à automatiser l'analyse de flux de données massifs.</p>
-                            <table class="detail-table">
-                                <tr>
-                                    <td><strong>Programmation (C/Python)</strong></td>
-                                    <td>Conception de structures de données optimisées, maîtrise des paradigmes impératifs et résolution de problèmes complexes.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Analyse de Données (SAÉ)</strong></td>
-                                    <td>Extraction, nettoyage et traitement statistique de datasets techniques pour l'aide à la décision.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Systèmes & Scripting</strong></td>
-                                    <td>Administration d'environnements Linux et automatisation de tâches via scripting Shell (Bash).</td>
-                                </tr>
-                            </table>
+                        <div class="inner-content">
+                            <p class="summary-paragraph">Expertise centrale focalisée sur l'automatisation et l'exploitation de données techniques complexes. Capacité à structurer des solutions logicielles robustes pour les besoins réseaux.</p>
+                            
+                            <div class="expertise-grid">
+                                <div class="exp-item">
+                                    <span class="exp-title">Algorithmique & Programmation</span>
+                                    <p>Maîtrise avancée des structures de données et du développement système. Capacité à résoudre des problématiques complexes via une logique de code optimisée (C, Python).</p>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-title">Traitement de Données (SAÉ 15)</span>
+                                    <p>Extraction massive, nettoyage et analyse statistique de jeux de données. Conception de pipelines de traitement automatisés pour l'aide à la décision.</p>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-title">Administration Systèmes</span>
+                                    <p>Gestion avancée d'environnements Linux/Unix, automatisation par scripting Shell et compréhension profonde des hiérarchies systèmes.</p>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-title">Technologies Web</span>
+                                    <p>Déploiement d'interfaces techniques et compréhension des protocoles applicatifs web pour la présentation de données.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- UE 12 : SIGNAL -->
+                <!-- UE 12 : SIGNAL & TRANSMISSION -->
                 <div class="skill-card" onclick="toggleCard(this)">
                     <div class="card-header">
                         <div class="header-main">
-                            <span class="ue-tag">UE 12</span>
-                            <h3>Physique du Signal & Télécommunications</h3>
+                            <span class="ue-id">DOMAINE PHYSIQUE</span>
+                            <h3>Sciences du Signal & Télécommunications</h3>
                         </div>
-                        <div class="status-indicator medium">Maîtrise Théorique</div>
+                        <div class="status-badge expert">Maîtrise Théorique</div>
                     </div>
                     <div class="card-body">
-                        <div class="content-wrapper">
-                            <p class="analysis-text">Solide socle scientifique appliqué aux transmissions. Expertise dans la modélisation mathématique des signaux et l'étude des supports physiques.</p>
-                            <table class="detail-table">
-                                <tr>
-                                    <td><strong>Mathématiques du Signal</strong></td>
-                                    <td>Analyse fréquentielle, modélisation de signaux périodiques et traitement spectrale.</td>
+                        <div class="inner-content">
+                            <p class="summary-paragraph">Compréhension profonde des couches basses. Capacité à analyser et modéliser mathématiquement les supports physiques de transmission de l'information.</p>
+                            
+                            <div class="expertise-grid">
+                                <div class="exp-item">
+                                    <span class="exp-title">Mathématiques du Signal</span>
+                                    <p>Modélisation de signaux, analyse spectrale et traitement fréquentiel. Expertise dans l'application des outils mathématiques aux télécoms.</p>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-title">Supports de Transmission</span>
+                                    <p>Étude des caractéristiques physiques des médias (cuivre, fibre, hertzien). Analyse des affaiblissements et calculs de bilans de liaison.</p>
                                 </tr>
-                                <tr>
-                                    <td><strong>Supports de Transmission</strong></td>
-                                    <td>Étude des médias (Fibre, Cuivre, Hertzien) et calcul des bilans de liaison de niveau physique.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Électronique Analogique</strong></td>
-                                    <td>Compréhension des circuits de filtrage, d'amplification et de modulation du signal.</td>
-                                </tr>
-                            </table>
+                                <div class="exp-item">
+                                    <span class="exp-title">Électronique Analogique</span>
+                                    <p>Analyse des circuits de traitement du signal, filtrage, amplification et adaptation d'impédance.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- UE 11 : RESEAUX -->
+                <!-- UE 11 : RESEAUX & CYBER -->
                 <div class="skill-card" onclick="toggleCard(this)">
                     <div class="card-header">
                         <div class="header-main">
-                            <span class="ue-tag">UE 11</span>
-                            <h3>Infrastructures Réseaux & Services</h3>
+                            <span class="ue-id">DOMAINE INFRASTRUCTURE</span>
+                            <h3>Infrastructures Réseaux & Cybersécurité</h3>
                         </div>
-                        <div class="status-indicator low">En Consolidation</div>
+                        <div class="status-badge core">Socle Technique</div>
                     </div>
                     <div class="card-body">
-                        <div class="content-wrapper">
-                            <p class="analysis-text">Appropriation des architectures réseaux industrielles. Focus sur la compréhension des protocoles de routage et la sécurisation des flux.</p>
-                            <table class="detail-table">
-                                <tr>
-                                    <td><strong>Modèle OSI & TCP/IP</strong></td>
-                                    <td>Maîtrise des couches protocolaires et de l'adressage IPv4/IPv6 pour les réseaux locaux.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Cybersécurité</strong></td>
-                                    <td>Sensibilisation à l'hygiène informatique, aux vecteurs d'attaque et à la protection des actifs numériques.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Anglais Technique</strong></td>
-                                    <td>Capacité à exploiter des documentations techniques internationales et à communiquer en environnement pro.</td>
-                                </tr>
-                            </table>
+                        <div class="inner-content">
+                            <p class="summary-paragraph">Architecture des systèmes de communication et mise en place de politiques de sécurité. Focus sur la fiabilité et l'intégrité des flux de données.</p>
+                            
+                            <div class="expertise-grid">
+                                <div class="exp-item">
+                                    <span class="exp-title">Protocoles Réseaux</span>
+                                    <p>Étude et déploiement du modèle OSI et de la pile TCP/IP. Maîtrise de l'adressage et de la configuration d'équipements actifs de niveau 2 et 3.</p>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-title">Hygiène Informatique & Cyber</span>
+                                    <p>Application des standards de sécurité numérique, analyse des vulnérabilités et protection proactive des infrastructures.</p>
+                                </div>
+                                <div class="exp-item">
+                                    <span class="exp-title">Communication Technique</span>
+                                    <p>Maîtrise de l'anglais technique pour l'exploitation de documentations internationales et la gestion de projets en équipe.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -131,14 +138,14 @@
 
     <footer class="footer">
         <div class="container">
-            <p>© 2026 Julien Sawicki — Futur Ingénieur Réseaux & Télécoms</p>
+            <p>© 2026 Julien Sawicki — Ingénieur Réseaux & Télécoms</p>
         </div>
     </footer>
 
     <script>
         function toggleCard(element) {
             const isActive = element.classList.contains('active');
-            document.querySelectorAll('.skill-card').forEach(card => card.classList.remove('active'));
+            document.querySelectorAll('.skill-card').forEach(c => c.classList.remove('active'));
             if (!isActive) element.classList.add('active');
         }
     </script>
