@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio RT - Compétences</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Portfolio RT - Compétences Dynamiques</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg: #0b0b0f;
-            --card: #12121a;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a25;
             --accent: #ff3b5c;
+            --accent-secondary: #00d4ff;
             --green: #00ff88;
             --orange: #ffb020;
             --red: #ff4d4d;
-            --text: #fff;
-            --dim: #888;
-            --border: #222;
+            --text: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-dim: #888888;
+            --border: #2a2a3a;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
         * {
@@ -26,306 +32,554 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg);
+            background: var(--bg-primary);
             color: var(--text);
             line-height: 1.6;
-            padding: 20px;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        h1 {
+        /* Header */
+        header {
             text-align: center;
-            font-size: 2.5rem;
-            margin: 20px 0 40px;
-            color: var(--text);
+            margin-bottom: 50px;
+            position: relative;
         }
 
-        h2 {
-            color: var(--text);
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 10px;
-        }
-
-        h3 {
-            color: var(--green);
+        header h1 {
+            font-size: 3rem;
             margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .grid {
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        header::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* Grid des compétences */
+        .competences-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            gap: 25px;
+            margin-top: 30px;
         }
 
-        .card {
-            background: var(--card);
+        /* Cartes des compétences */
+        .competence-card {
+            background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 25px;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px var(--shadow);
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        .competence-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s;
         }
 
-        .summary {
-            color: var(--dim);
+        .competence-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .competence-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px var(--shadow);
+            border-color: var(--accent-secondary);
+        }
+
+        .competence-card h2 {
+            color: var(--text);
             margin-bottom: 15px;
-            line-height: 1.5;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .competence-list {
-            margin-top: 15px;
+        .competence-card h2 i {
+            color: var(--accent-secondary);
         }
 
-        .competence-item {
-            padding: 10px;
-            border-bottom: 1px solid var(--border);
+        .competence-card .summary {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
 
-        .competence-item:last-child {
-            border-bottom: none;
+        .competence-card .status-overview {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
         }
 
-        .status {
-            font-size: 0.7rem;
-            padding: 3px 8px;
-            border-radius: 15px;
-            margin-bottom: 5px;
-            display: inline-block;
+        .status-badge {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
             font-weight: 600;
             text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        .ok { color: var(--green); border: 1px solid var(--green); }
-        .mid { color: var(--orange); border: 1px solid var(--orange); }
-        .no { color: var(--red); border: 1px solid var(--red); }
-
-        .res {
-            font-size: 0.85rem;
-            color: var(--dim);
-            margin-top: 5px;
+        .status-badge i {
+            font-size: 0.7rem;
         }
 
-        .bilan {
-            margin-top: 15px;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            border-left: 4px solid var(--green);
-        }
-
-        .bilan h4 {
-            margin-bottom: 8px;
+        .ok {
+            background: rgba(0, 255, 136, 0.15);
             color: var(--green);
-            font-size: 1rem;
+            border: 1px solid var(--green);
         }
 
-        .bilan p {
-            color: var(--dim);
-            line-height: 1.5;
-            font-size: 0.95rem;
+        .mid {
+            background: rgba(255, 176, 32, 0.15);
+            color: var(--orange);
+            border: 1px solid var(--orange);
+        }
+
+        .no {
+            background: rgba(255, 77, 77, 0.15);
+            color: var(--red);
+            border: 1px solid var(--red);
+        }
+
+        .competence-card .progress-bar {
+            height: 4px;
+            background: var(--bg-tertiary);
+            border-radius: 2px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .competence-card .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            border-radius: 2px;
+            width: 60%; /* À adapter selon la progression */
         }
 
         /* Modal */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1000;
+            z-index: 2000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            overflow: auto;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .modal-content {
-            background-color: var(--card);
-            margin: 5% auto;
-            padding: 30px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 800px;
+            background: var(--bg-secondary);
+            margin: 3% auto;
+            padding: 0;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 20px 40px var(--shadow);
             border: 1px solid var(--border);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-            animation: modalopen 0.3s;
+            animation: slideIn 0.3s ease-out;
         }
 
-        @keyframes modalopen {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 25px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-tertiary);
+        }
+
+        .modal-header h2 {
+            color: var(--text);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-header h2 i {
+            color: var(--accent-secondary);
         }
 
         .close {
-            color: var(--dim);
-            float: right;
+            color: var(--text-dim);
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
-            transition: color 0.3s;
+            transition: all 0.2s;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
 
         .close:hover {
             color: var(--text);
+            background: var(--glass);
         }
 
-        .resource-list {
-            margin-top: 20px;
+        .modal-body {
+            padding: 25px;
+            max-height: calc(90vh - 120px);
+            overflow-y: auto;
         }
 
-        .resource-item {
-            padding: 10px;
-            margin-bottom: 10px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 5px;
-            border-left: 3px solid var(--accent);
+        /* Onglets dans la modal */
+        .tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
         }
 
-        .resource-item h5 {
-            color: var(--text);
-            margin-bottom: 5px;
+        .tab {
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--text-secondary);
+            border: none;
+            cursor: pointer;
             font-size: 1rem;
+            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
         }
 
-        .resource-item p {
-            color: var(--dim);
+        .tab.active {
+            color: var(--accent-secondary);
+            border-bottom-color: var(--accent-secondary);
+        }
+
+        .tab:hover {
+            color: var(--text);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeInContent 0.3s;
+        }
+
+        @keyframes fadeInContent {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Contenu des onglets */
+        .bilan-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .bilan-content h3 {
+            color: var(--green);
+            margin-bottom: 15px;
+        }
+
+        .ressources-content {
+            display: grid;
+            gap: 15px;
+        }
+
+        .ressource-item {
+            background: var(--bg-tertiary);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-secondary);
+            transition: all 0.2s;
+        }
+
+        .ressource-item:hover {
+            background: var(--glass);
+            transform: translateX(5px);
+        }
+
+        .ressource-item h4 {
+            color: var(--text);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ressource-item h4 i {
+            color: var(--accent-secondary);
+        }
+
+        .ressource-item .bilan-ressource {
+            color: var(--text-dim);
             font-size: 0.9rem;
+            margin-top: 8px;
+            padding-left: 20px;
+            position: relative;
         }
 
-        .niveau {
-            margin-top: 20px;
+        .ressource-item .bilan-ressource::before {
+            content: "»";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
         }
 
-        .niveau h4 {
+        .niveaux-content {
+            display: grid;
+            gap: 20px;
+        }
+
+        .niveau-section {
+            background: var(--bg-tertiary);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .niveau-section h4 {
             color: var(--orange);
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .niveau-item {
-            margin-bottom: 10px;
+        .niveau-section h4 i {
+            color: var(--accent-secondary);
+        }
+
+        .niveau-section ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .niveau-section li {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            position: relative;
             padding-left: 15px;
-            color: var(--dim);
         }
 
-        .niveau-item:before {
-            content: "• ";
+        .niveau-section li::before {
+            content: "•";
             color: var(--accent);
+            position: absolute;
+            left: 0;
         }
 
+        /* Scrollbar personnalisée */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        /* Effet de glow pour les cartes */
+        .competence-card::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 59, 92, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .competence-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Animation pour les badges */
+        .status-badge {
+            transition: transform 0.2s;
+        }
+
+        .competence-card:hover .status-badge {
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr;
+            .container {
+                padding: 20px 15px;
             }
-            h1 {
+
+            header h1 {
                 font-size: 2rem;
             }
+
+            .competences-grid {
+                grid-template-columns: 1fr;
+            }
+
             .modal-content {
-                width: 90%;
-                margin: 10% auto;
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .modal-header h2 {
+                font-size: 1.4rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Portfolio RT - Compétences</h1>
+        <header>
+            <h1><i class="fas fa-network-wired"></i> Portfolio RT - Compétences</h1>
+            <p>BUT Réseaux et Télécommunications | Parcours Cybersécurité</p>
+        </header>
 
-        <div class="grid">
-            <!-- CARD: ADMINISTRER LES RÉSEAUX -->
-            <div class="card" onclick="showDetails('adminReseaux')">
-                <h2>Administrer les réseaux et l'Internet</h2>
+        <div class="competences-grid">
+            <!-- Carte: Administrer les réseaux -->
+            <div class="competence-card" onclick="openModal('adminReseaux')">
+                <h2><i class="fas fa-server"></i> Administrer les réseaux</h2>
                 <div class="summary">
-                    Compétence en cours d'acquisition. Bonne compréhension des architectures réseau et des systèmes d'exploitation.
+                    Compétence en cours d'acquisition avec une bonne maîtrise théorique des architectures réseau et des systèmes d'exploitation.
                 </div>
-                <div class="bilan">
-                    <h4>Bilan</h4>
-                    <p>Base théorique solide. À renforcer : configuration pratique des équipements réseau (switch, VLAN) et diagnostic.</p>
+                <div class="status-overview">
+                    <span class="status-badge ok"><i class="fas fa-check-circle"></i> 2 Acquis</span>
+                    <span class="status-badge mid"><i class="fas fa-clock"></i> 1 En cours</span>
+                    <span class="status-badge no"><i class="fas fa-times-circle"></i> 2 Non acquis</span>
                 </div>
-                <div class="competence-list">
-                    <div class="competence-item">
-                        <span class="status mid">En cours</span>
-                        AC11.02 - Comprendre l’architecture des réseaux
-                    </div>
-                    <div class="competence-item">
-                        <span class="status ok">Acquis</span>
-                        AC11.04 - Systèmes d’exploitation
-                    </div>
-                    <div class="competence-item">
-                        <span class="status no">Non acquis</span>
-                        AC11.03 - Configurer réseau local
-                    </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;"></div>
                 </div>
             </div>
 
-            <!-- CARD: CONNECTER LES ENTREPRISES -->
-            <div class="card" onclick="showDetails('connecterEntreprises')">
-                <h2>Connecter les entreprises et les usagers</h2>
+            <!-- Carte: Connecter les entreprises -->
+            <div class="competence-card" onclick="openModal('connecterEntreprises')">
+                <h2><i class="fas fa-link"></i> Connecter les entreprises</h2>
                 <div class="summary">
-                    Compétence globalement acquise sur le plan théorique. Excellente maîtrise des mathématiques du signal.
+                    Excellente maîtrise théorique des mathématiques du signal et des transmissions. Profil scientifique solide.
                 </div>
-                <div class="bilan">
-                    <h4>Bilan</h4>
-                    <p>Profil scientifique solide. À améliorer : déploiement pratique de solutions réseau.</p>
+                <div class="status-overview">
+                    <span class="status-badge ok"><i class="fas fa-check-circle"></i> 2 Acquis</span>
+                    <span class="status-badge mid"><i class="fas fa-clock"></i> 1 En cours</span>
+                    <span class="status-badge no"><i class="fas fa-times-circle"></i> 1 Non acquis</span>
                 </div>
-                <div class="competence-list">
-                    <div class="competence-item">
-                        <span class="status ok">Acquis</span>
-                        AC12.01 - Analyse de signaux
-                    </div>
-                    <div class="competence-item">
-                        <span class="status ok">Acquis</span>
-                        AC12.02 - Modélisation transmissions
-                    </div>
-                    <div class="competence-item">
-                        <span class="status mid">En cours</span>
-                        AC12.03 - Supports transmission
-                    </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%;"></div>
                 </div>
             </div>
 
-            <!-- CARD: PROGRAMMER -->
-            <div class="card" onclick="showDetails('programmer')">
-                <h2>Créer des outils et applications informatiques</h2>
+            <!-- Carte: Programmer -->
+            <div class="competence-card" onclick="openModal('programmer')">
+                <h2><i class="fas fa-code"></i> Programmer</h2>
                 <div class="summary">
                     Compétence fortement maîtrisée. Excellente capacité en programmation et traitement de données.
                 </div>
-                <div class="bilan">
-                    <h4>Bilan</h4>
-                    <p>Capacité à concevoir des solutions efficaces. À améliorer : développement Web.</p>
+                <div class="status-overview">
+                    <span class="status-badge ok"><i class="fas fa-check-circle"></i> 3 Acquis</span>
+                    <span class="status-badge mid"><i class="fas fa-clock"></i> 1 En cours</span>
                 </div>
-                <div class="competence-list">
-                    <div class="competence-item">
-                        <span class="status ok">Acquis</span>
-                        AC13.02 - Programmation
-                    </div>
-                    <div class="competence-item">
-                        <span class="status ok">Acquis</span>
-                        AC13.03 - Algorithmique
-                    </div>
-                    <div class="competence-item">
-                        <span class="status mid">En cours</span>
-                        AC13.04 - Web
-                    </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 85%;"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal pour afficher les détails -->
-    <div id="detailsModal" class="modal">
+    <!-- Modal -->
+    <div id="competenceModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modalBody"></div>
+            <div class="modal-header">
+                <h2 id="modalTitle"><i class="fas fa-server"></i> Compétence</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('bilan')">Bilan</button>
+                    <button class="tab" onclick="switchTab('ressources')">Ressources</button>
+                    <button class="tab" onclick="switchTab('niveaux')">Niveaux</button>
+                </div>
+
+                <div id="bilan" class="tab-content active">
+                    <div class="bilan-content">
+                        <h3><i class="fas fa-chart-line"></i> Bilan général</h3>
+                        <p id="bilanText"></p>
+                        <h3 style="margin-top: 20px;"><i class="fas fa-briefcase"></i> Situations professionnelles</h3>
+                        <ul id="situationsList" style="padding-left: 20px; color: var(--text-secondary);"></ul>
+                    </div>
+                </div>
+
+                <div id="ressources" class="tab-content">
+                    <div class="ressources-content" id="ressourcesContent">
+                        <!-- Les ressources seront ajoutées dynamiquement -->
+                    </div>
+                </div>
+
+                <div id="niveaux" class="tab-content">
+                    <div class="niveaux-content" id="niveauxContent">
+                        <!-- Les niveaux seront ajoutés dynamiquement -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -334,23 +588,29 @@
         const competences = {
             adminReseaux: {
                 title: "Administrer les réseaux et l'Internet",
-                bilan: "Base théorique solide. À renforcer : configuration pratique des équipements réseau (switch, VLAN) et diagnostic.",
+                icon: "fa-server",
+                bilan: "Base théorique solide avec une bonne compréhension des architectures réseau et des systèmes d'exploitation (notamment Linux). Cependant, les compétences pratiques en configuration d'équipements réseau (switch, VLAN) et en diagnostic restent à renforcer pour atteindre un niveau professionnel.",
+                situations: [
+                    "Conception et administration de l’infrastructure du réseau informatique d’une entreprise",
+                    "Installation et administration des services réseau informatique d’une entreprise",
+                    "Déploiement et administration des solutions fixes pour les clients d’un opérateur de télécommunication"
+                ],
                 ressources: [
-                    { code: "R1.01", nom: "Initiation aux réseaux informatiques" },
-                    { code: "R1.02", nom: "Principes et architecture des réseaux" },
-                    { code: "R1.03", nom: "Réseaux locaux et équipements actifs" },
-                    { code: "R1.04", nom: "Fondamentaux de l'électronique analogique" },
-                    { code: "R1.06", nom: "Architecture des systèmes numériques et informatiques" },
-                    { code: "R1.08", nom: "Bases des systèmes d'exploitation" },
-                    { code: "SAÉ11", nom: "Sensibilisation à l'hygiène informatique et à la cybersécurité" },
-                    { code: "SAÉ12", nom: "S'initier aux réseaux informatiques" }
+                    { code: "R1.01", nom: "Initiation aux réseaux informatiques", bilan: "Bonne compréhension des concepts de base des réseaux." },
+                    { code: "R1.02", nom: "Principes et architecture des réseaux", bilan: "Maîtrise des principes fondamentaux des architectures réseau." },
+                    { code: "R1.03", nom: "Réseaux locaux et équipements actifs", bilan: "À renforcer : configuration pratique des équipements." },
+                    { code: "R1.04", nom: "Fondamentaux de l'électronique analogique", bilan: "Bases solides en électronique pour comprendre les équipements réseau." },
+                    { code: "R1.06", nom: "Architecture des systèmes numériques", bilan: "Excellente compréhension des systèmes numériques." },
+                    { code: "R1.08", nom: "Bases des systèmes d'exploitation", bilan: "Très bonne maîtrise des systèmes d'exploitation, notamment Linux." },
+                    { code: "SAÉ11", nom: "Sensibilisation à l'hygiène informatique", bilan: "Bonne sensibilisation aux enjeux de la cybersécurité." },
+                    { code: "SAÉ12", nom: "S'initier aux réseaux informatiques", bilan: "Premières mises en pratique des concepts réseau." }
                 ],
                 niveaux: {
                     "Niveau 1 - Assister l’administrateur du réseau": [
                         "AC11.01 | Maîtriser les lois fondamentales de l’électricité afin d’intervenir sur des équipements de réseaux et télécommunications",
                         "AC11.02 | Comprendre l'architecture et les fondements des systèmes numériques, les principes du codage de l'information, des communications et de l'Internet",
                         "AC11.03 | Configurer les fonctions de base du réseau local",
-                        "AC11.04 | Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et l'administration des réseaux et services fournis",
+                        "AC11.04 | Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci",
                         "AC11.05 | Identifier les dysfonctionnements du réseau local et savoir les signaler",
                         "AC11.06 | Installer un poste client, expliquer la procédure mise en place"
                     ],
@@ -370,21 +630,23 @@
                         "AC31.05 | Communiquer avec les acteurs du projet",
                         "AC31.06 | Gérer le projet et les différentes étapes de sa mise en œuvre en respectant les délais"
                     ]
-                },
-                situations: [
-                    "Conception et administration de l’infrastructure du réseau informatique d’une entreprise",
-                    "Installation et administration des services réseau informatique d’une entreprise",
-                    "Déploiement et administration des solutions fixes pour les clients d’un opérateur de télécommunication"
-                ]
+                }
             },
             connecterEntreprises: {
                 title: "Connecter les entreprises et les usagers",
-                bilan: "Profil scientifique solide. À améliorer : déploiement pratique de solutions réseau.",
+                icon: "fa-link",
+                bilan: "Profil scientifique solide avec une excellente maîtrise des mathématiques du signal et des transmissions. La partie pratique (déploiement réel de solutions réseau) reste à développer pour compléter le profil.",
+                situations: [
+                    "Déploiement des supports et systèmes de transmission",
+                    "Mise en service et administration des équipements d’accès fixe ou mobile d’un opérateur de télécommunications",
+                    "Déploiement et administration des accès sans fil pour l'entreprise",
+                    "Déploiement des systèmes de communications"
+                ],
                 ressources: [
-                    { code: "R1.05", nom: "Supports de transmission pour les réseaux locaux" },
-                    { code: "R1.13", nom: "Mathématiques du signal" },
-                    { code: "R1.14", nom: "Mathématiques des transmissions" },
-                    { code: "SAÉ13", nom: "Découvrir un dispositif de transmission" }
+                    { code: "R1.05", nom: "Supports de transmission pour les réseaux locaux", bilan: "Bonne compréhension des supports physiques des réseaux." },
+                    { code: "R1.13", nom: "Mathématiques du signal", bilan: "Excellente maîtrise des concepts mathématiques appliqués aux signaux." },
+                    { code: "R1.14", nom: "Mathématiques des transmissions", bilan: "Très bonne compréhension des principes de transmission des données." },
+                    { code: "SAÉ13", nom: "Découvrir un dispositif de transmission", bilan: "Premières mises en pratique des concepts de transmission." }
                 ],
                 niveaux: {
                     "Niveau 1 - Découvrir les transmissions et la ToIP": [
@@ -408,23 +670,23 @@
                         "AC32.04 | Permettre aux collaborateurs de se connecter de manière sécurisée au système d’information de l’entreprise",
                         "AC32.05 | Collaborer en mode projet en français et en anglais"
                     ]
-                },
-                situations: [
-                    "Déploiement des supports et systèmes de transmission",
-                    "Mise en service et administration des équipements d’accès fixe ou mobile d’un opérateur de télécommunications",
-                    "Déploiement et administration des accès sans fil pour l'entreprise",
-                    "Déploiement des systèmes de communications"
-                ]
+                }
             },
             programmer: {
-                title: "Créer des outils et applications informatiques pour les RT",
-                bilan: "Capacité à concevoir des solutions efficaces. À améliorer : développement Web.",
+                title: "Créer des outils et applications informatiques",
+                icon: "fa-code",
+                bilan: "Compétence fortement maîtrisée avec une excellente capacité en programmation et en traitement de données. Capacité à concevoir des solutions efficaces et à automatiser des tâches. Le développement Web reste un point à améliorer pour compléter le profil.",
+                situations: [
+                    "Conception, déploiement et maintenance du système d’information d’une entreprise",
+                    "Automatisation du déploiement et de la maintenance des outils logiciels",
+                    "Développement d’outils informatiques à usage interne d'une équipe"
+                ],
                 ressources: [
-                    { code: "R1.07", nom: "Fondamentaux de la programmation" },
-                    { code: "R1.08", nom: "Bases des systèmes d'exploitation" },
-                    { code: "R1.09", nom: "Introduction aux technologies Web" },
-                    { code: "SAÉ14", nom: "Se présenter sur Internet" },
-                    { code: "SAÉ15", nom: "Traitement de données" }
+                    { code: "R1.07", nom: "Fondamentaux de la programmation", bilan: "Excellente maîtrise des concepts de programmation." },
+                    { code: "R1.08", nom: "Bases des systèmes d'exploitation", bilan: "Très bonne compréhension des systèmes pour le développement." },
+                    { code: "R1.09", nom: "Introduction aux technologies Web", bilan: "À renforcer : développement Web avancé." },
+                    { code: "SAÉ14", nom: "Se présenter sur Internet", bilan: "Bonne mise en pratique des bases du Web." },
+                    { code: "SAÉ15", nom: "Traitement de données", bilan: "Excellente maîtrise du traitement des données." }
                 ],
                 niveaux: {
                     "Niveau 1 - S’intégrer dans un service informatique": [
@@ -432,86 +694,88 @@
                         "AC13.02 | Lire, exécuter, corriger et modifier un programme",
                         "AC13.03 | Traduire un algorithme, dans un langage et pour un environnement donné",
                         "AC13.04 | Connaître l’architecture et les technologies d’un site Web",
-                        "AC13.05 | Choisir les mécanismes de gestion de données adaptés au développement de l’outil et argumenter ses choix",
+                        "AC13.05 | Choisir les mécanismes de gestion de données adaptés au développement de l’outil",
                         "AC13.06 | S’intégrer dans un environnement propice au développement et au travail collaboratif"
                     ],
                     "Niveau 2 - Développer une application R&T": [
                         "AC23.01 | Automatiser l’administration système avec des scripts",
-                        "AC23.02 | Développer une application à partir d’un cahier des charges donné, pour le Web ou les périphériques mobiles",
+                        "AC23.02 | Développer une application à partir d’un cahier des charges donné",
                         "AC23.03 | Utiliser un protocole réseau pour programmer une application client/serveur",
                         "AC23.04 | Installer, administrer un système de gestion de données",
                         "AC23.05 | Accéder à un ensemble de données depuis une application et/ou un site web"
                     ],
-                    "Niveau 3 - Piloter un projet de développement d’une application R&T": [
-                        "AC33.01 | Élaborer les spécifications techniques et le cahier des charges d’une application informatique",
+                    "Niveau 3 - Piloter un projet de développement": [
+                        "AC33.01 | Élaborer les spécifications techniques et le cahier des charges",
                         "AC33.02 | Mettre en place un environnement de travail collaboratif",
                         "AC33.03 | Participer à la formation des utilisateurs",
                         "AC33.04 | Déployer et maintenir une solution informatique",
-                        "AC33.05 | S’informer sur les évolutions et les nouveautés technologiques",
+                        "AC33.05 | S’informer sur les évolutions technologiques",
                         "AC33.06 | Sécuriser l'environnement numérique d'une application"
                     ]
-                },
-                situations: [
-                    "Conception, déploiement et maintenance du système d’information d’une entreprise",
-                    "Automatisation du déploiement et de la maintenance des outils logiciels",
-                    "Développement d’outils informatiques à usage interne d'une équipe"
-                ]
+                }
             }
         };
 
-        // Fonction pour afficher les détails d'une compétence
-        function showDetails(competenceKey) {
-            const data = competences[competenceKey];
-            let html = `
-                <h2>${data.title}</h2>
-                <div class="bilan">
-                    <h4>Bilan constructif</h4>
-                    <p>${data.bilan}</p>
+        // Variables globales pour la modal
+        let currentCompetence = null;
+
+        // Ouvrir la modal avec la compétence sélectionnée
+        function openModal(competenceKey) {
+            currentCompetence = competences[competenceKey];
+            document.getElementById('modalTitle').innerHTML = `<i class="fas ${currentCompetence.icon}"></i> ${currentCompetence.title}`;
+            document.getElementById('bilanText').textContent = currentCompetence.bilan;
+
+            // Remplir les situations professionnelles
+            const situationsList = document.getElementById('situationsList');
+            situationsList.innerHTML = currentCompetence.situations.map(situation => `<li>${situation}</li>`).join('');
+
+            // Remplir les ressources
+            const ressourcesContent = document.getElementById('ressourcesContent');
+            ressourcesContent.innerHTML = currentCompetence.ressources.map(resource => `
+                <div class="ressource-item">
+                    <h4><i class="fas fa-file-alt"></i> ${resource.code} - ${resource.nom}</h4>
+                    <div class="bilan-ressource">${resource.bilan}</div>
                 </div>
+            `).join('');
 
-                <h3>Situations professionnelles</h3>
-                <ul>
-                    ${data.situations.map(situation => `<li class="niveau-item">${situation}</li>`).join('')}
-                </ul>
-            `;
-
-            // Ajouter les niveaux et apprentissages critiques
-            html += `<h3>Niveaux et Apprentissages Critiques</h3>`;
-            for (const [niveau, acs] of Object.entries(data.niveaux)) {
-                html += `
-                    <div class="niveau">
-                        <h4>${niveau}</h4>
-                        <ul>
-                            ${acs.map(ac => `<li class="niveau-item">${ac}</li>`).join('')}
-                        </ul>
-                    </div>
-                `;
-            }
-
-            // Ajouter les ressources
-            html += `
-                <h3>Ressources associées</h3>
-                <div class="resource-list">
-                    ${data.ressources.map(resource => `
-                        <div class="resource-item">
-                            <h5>${resource.code} - ${resource.nom}</h5>
-                        </div>
-                    `).join('')}
+            // Remplir les niveaux
+            const niveauxContent = document.getElementById('niveauxContent');
+            niveauxContent.innerHTML = Object.entries(currentCompetence.niveaux).map(([niveau, acs]) => `
+                <div class="niveau-section">
+                    <h4><i class="fas fa-level-up-alt"></i> ${niveau}</h4>
+                    <ul>
+                        ${acs.map(ac => `<li>${ac}</li>`).join('')}
+                    </ul>
                 </div>
-            `;
+            `).join('');
 
-            document.getElementById('modalBody').innerHTML = html;
-            document.getElementById('detailsModal').style.display = 'block';
+            // Afficher la modal
+            document.getElementById('competenceModal').style.display = 'block';
         }
 
         // Fermer la modal
         function closeModal() {
-            document.getElementById('detailsModal').style.display = 'none';
+            document.getElementById('competenceModal').style.display = 'none';
+        }
+
+        // Changer d'onglet dans la modal
+        function switchTab(tabName) {
+            // Masquer tous les onglets
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Afficher l'onglet sélectionné
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
         }
 
         // Fermer la modal en cliquant en dehors
         window.onclick = function(event) {
-            const modal = document.getElementById('detailsModal');
+            const modal = document.getElementById('competenceModal');
             if (event.target === modal) {
                 modal.style.display = 'none';
             }
