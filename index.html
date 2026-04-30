@@ -45,7 +45,6 @@
             padding: 40px 20px;
         }
 
-        /* Header */
         header {
             text-align: center;
             margin-bottom: 50px;
@@ -76,7 +75,6 @@
             border-radius: 2px;
         }
 
-        /* Grid des compétences */
         .competences-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -84,7 +82,6 @@
             margin-top: 30px;
         }
 
-        /* Cartes des compétences */
         .competence-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
@@ -117,6 +114,24 @@
             transform: translateY(-8px);
             box-shadow: 0 12px 20px var(--shadow);
             border-color: var(--accent-secondary);
+        }
+
+        .competence-card::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 59, 92, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .competence-card:hover::after {
+            opacity: 1;
         }
 
         .competence-card h2 {
@@ -154,10 +169,11 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            transition: transform 0.2s;
         }
 
-        .status-badge i {
-            font-size: 0.7rem;
+        .competence-card:hover .status-badge {
+            transform: scale(1.05);
         }
 
         .ok {
@@ -190,10 +206,8 @@
             height: 100%;
             background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
             border-radius: 2px;
-            width: 60%; /* À adapter selon la progression */
         }
 
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -277,7 +291,6 @@
             overflow-y: auto;
         }
 
-        /* Onglets dans la modal */
         .tabs {
             display: flex;
             gap: 5px;
@@ -319,7 +332,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Contenu des onglets */
         .bilan-content {
             color: var(--text-secondary);
             line-height: 1.8;
@@ -328,6 +340,13 @@
         .bilan-content h3 {
             color: var(--green);
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bilan-content h3 i {
+            color: var(--accent-secondary);
         }
 
         .ressources-content {
@@ -417,7 +436,6 @@
             left: 0;
         }
 
-        /* Scrollbar personnalisée */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -435,35 +453,6 @@
             background: var(--accent);
         }
 
-        /* Effet de glow pour les cartes */
-        .competence-card::after {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 59, 92, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .competence-card:hover::after {
-            opacity: 1;
-        }
-
-        /* Animation pour les badges */
-        .status-badge {
-            transition: transform 0.2s;
-        }
-
-        .competence-card:hover .status-badge {
-            transform: scale(1.05);
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
             .container {
                 padding: 20px 15px;
@@ -554,9 +543,9 @@
             </div>
             <div class="modal-body">
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('bilan')">Bilan</button>
-                    <button class="tab" onclick="switchTab('ressources')">Ressources</button>
-                    <button class="tab" onclick="switchTab('niveaux')">Niveaux</button>
+                    <button class="tab active" onclick="switchTab(event, 'bilan')">Bilan</button>
+                    <button class="tab" onclick="switchTab(event, 'ressources')">Ressources</button>
+                    <button class="tab" onclick="switchTab(event, 'niveaux')">Niveaux</button>
                 </div>
 
                 <div id="bilan" class="tab-content active">
@@ -569,15 +558,11 @@
                 </div>
 
                 <div id="ressources" class="tab-content">
-                    <div class="ressources-content" id="ressourcesContent">
-                        <!-- Les ressources seront ajoutées dynamiquement -->
-                    </div>
+                    <div class="ressources-content" id="ressourcesContent"></div>
                 </div>
 
                 <div id="niveaux" class="tab-content">
-                    <div class="niveaux-content" id="niveauxContent">
-                        <!-- Les niveaux seront ajoutés dynamiquement -->
-                    </div>
+                    <div class="niveaux-content" id="niveauxContent"></div>
                 </div>
             </div>
         </div>
@@ -716,16 +701,16 @@
             }
         };
 
-        // Variables globales pour la modal
+        // Variables globales
         let currentCompetence = null;
 
-        // Ouvrir la modal avec la compétence sélectionnée
+        // Ouvrir la modal
         function openModal(competenceKey) {
             currentCompetence = competences[competenceKey];
             document.getElementById('modalTitle').innerHTML = `<i class="fas ${currentCompetence.icon}"></i> ${currentCompetence.title}`;
             document.getElementById('bilanText').textContent = currentCompetence.bilan;
 
-            // Remplir les situations professionnelles
+            // Remplir les situations
             const situationsList = document.getElementById('situationsList');
             situationsList.innerHTML = currentCompetence.situations.map(situation => `<li>${situation}</li>`).join('');
 
@@ -758,19 +743,23 @@
             document.getElementById('competenceModal').style.display = 'none';
         }
 
-        // Changer d'onglet dans la modal
-        function switchTab(tabName) {
+        // Changer d'onglet
+        function switchTab(event, tabName) {
             // Masquer tous les onglets
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+
+            // Retirer la classe active de tous les boutons
+            const tabs = document.getElementsByClassName('tab');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
 
             // Afficher l'onglet sélectionné
             document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
+            event.currentTarget.classList.add('active');
         }
 
         // Fermer la modal en cliquant en dehors
