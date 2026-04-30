@@ -1,224 +1,521 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio RT - Compétences</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio RT - Compétences</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0b0f;
+            --card: #12121a;
+            --accent: #ff3b5c;
+            --green: #00ff88;
+            --orange: #ffb020;
+            --red: #ff4d4d;
+            --text: #fff;
+            --dim: #888;
+            --border: #222;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-:root {
-    --bg:#0b0b0f;
-    --card:#12121a;
-    --accent:#ff3b5c;
-    --green:#00ff88;
-    --orange:#ffb020;
-    --red:#ff4d4d;
-    --text:#fff;
-    --dim:#888;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+        }
 
-body {
-    margin:0;
-    font-family:Inter;
-    background:var(--bg);
-    color:var(--text);
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.container { max-width:1200px; margin:auto; padding:40px; }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 20px 0 40px;
+            color: var(--text);
+        }
 
-h1 {
-    font-size:3rem;
-    margin-bottom:40px;
-}
+        h2 {
+            color: var(--text);
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
 
-.grid {
-    display:grid;
-    grid-template-columns:1fr;
-    gap:30px;
-}
+        h3 {
+            color: var(--green);
+            margin-bottom: 10px;
+        }
 
-.card {
-    background:var(--card);
-    padding:30px;
-    border-radius:10px;
-    border:1px solid #222;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-h2 { margin-bottom:10px; }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-.summary {
-    color:var(--dim);
-    margin-bottom:20px;
-    line-height:1.5;
-}
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
 
-.ac {
-    margin-top:20px;
-}
+        .summary {
+            color: var(--dim);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
 
-.ac-item {
-    padding:15px;
-    border-bottom:1px solid #222;
-}
+        .competence-list {
+            margin-top: 15px;
+        }
 
-.status {
-    font-size:0.7rem;
-    padding:3px 10px;
-    border-radius:20px;
-    margin-bottom:5px;
-    display:inline-block;
-}
+        .competence-item {
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+        }
 
-.ok { color:var(--green); border:1px solid var(--green);}
-.mid { color:var(--orange); border:1px solid var(--orange);}
-.no { color:var(--red); border:1px solid var(--red);}
+        .competence-item:last-child {
+            border-bottom: none;
+        }
 
-.res {
-    font-size:0.9rem;
-    color:var(--dim);
-}
-</style>
+        .status {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 15px;
+            margin-bottom: 5px;
+            display: inline-block;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .ok { color: var(--green); border: 1px solid var(--green); }
+        .mid { color: var(--orange); border: 1px solid var(--orange); }
+        .no { color: var(--red); border: 1px solid var(--red); }
+
+        .res {
+            font-size: 0.85rem;
+            color: var(--dim);
+            margin-top: 5px;
+        }
+
+        .bilan {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border-left: 4px solid var(--green);
+        }
+
+        .bilan h4 {
+            margin-bottom: 8px;
+            color: var(--green);
+            font-size: 1rem;
+        }
+
+        .bilan p {
+            color: var(--dim);
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: var(--card);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            border: 1px solid var(--border);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            animation: modalopen 0.3s;
+        }
+
+        @keyframes modalopen {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close {
+            color: var(--dim);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: var(--text);
+        }
+
+        .resource-list {
+            margin-top: 20px;
+        }
+
+        .resource-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 5px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .resource-item h5 {
+            color: var(--text);
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .resource-item p {
+            color: var(--dim);
+            font-size: 0.9rem;
+        }
+
+        .niveau {
+            margin-top: 20px;
+        }
+
+        .niveau h4 {
+            color: var(--orange);
+            margin-bottom: 10px;
+        }
+
+        .niveau-item {
+            margin-bottom: 10px;
+            padding-left: 15px;
+            color: var(--dim);
+        }
+
+        .niveau-item:before {
+            content: "• ";
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .modal-content {
+                width: 90%;
+                margin: 10% auto;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <div class="container">
+        <h1>Portfolio RT - Compétences</h1>
 
-<div class="container">
+        <div class="grid">
+            <!-- CARD: ADMINISTRER LES RÉSEAUX -->
+            <div class="card" onclick="showDetails('adminReseaux')">
+                <h2>Administrer les réseaux et l'Internet</h2>
+                <div class="summary">
+                    Compétence en cours d'acquisition. Bonne compréhension des architectures réseau et des systèmes d'exploitation.
+                </div>
+                <div class="bilan">
+                    <h4>Bilan</h4>
+                    <p>Base théorique solide. À renforcer : configuration pratique des équipements réseau (switch, VLAN) et diagnostic.</p>
+                </div>
+                <div class="competence-list">
+                    <div class="competence-item">
+                        <span class="status mid">En cours</span>
+                        AC11.02 - Comprendre l’architecture des réseaux
+                    </div>
+                    <div class="competence-item">
+                        <span class="status ok">Acquis</span>
+                        AC11.04 - Systèmes d’exploitation
+                    </div>
+                    <div class="competence-item">
+                        <span class="status no">Non acquis</span>
+                        AC11.03 - Configurer réseau local
+                    </div>
+                </div>
+            </div>
 
-<h1>Audit des Compétences BUT RT</h1>
+            <!-- CARD: CONNECTER LES ENTREPRISES -->
+            <div class="card" onclick="showDetails('connecterEntreprises')">
+                <h2>Connecter les entreprises et les usagers</h2>
+                <div class="summary">
+                    Compétence globalement acquise sur le plan théorique. Excellente maîtrise des mathématiques du signal.
+                </div>
+                <div class="bilan">
+                    <h4>Bilan</h4>
+                    <p>Profil scientifique solide. À améliorer : déploiement pratique de solutions réseau.</p>
+                </div>
+                <div class="competence-list">
+                    <div class="competence-item">
+                        <span class="status ok">Acquis</span>
+                        AC12.01 - Analyse de signaux
+                    </div>
+                    <div class="competence-item">
+                        <span class="status ok">Acquis</span>
+                        AC12.02 - Modélisation transmissions
+                    </div>
+                    <div class="competence-item">
+                        <span class="status mid">En cours</span>
+                        AC12.03 - Supports transmission
+                    </div>
+                </div>
+            </div>
 
-<div class="grid">
+            <!-- CARD: PROGRAMMER -->
+            <div class="card" onclick="showDetails('programmer')">
+                <h2>Créer des outils et applications informatiques</h2>
+                <div class="summary">
+                    Compétence fortement maîtrisée. Excellente capacité en programmation et traitement de données.
+                </div>
+                <div class="bilan">
+                    <h4>Bilan</h4>
+                    <p>Capacité à concevoir des solutions efficaces. À améliorer : développement Web.</p>
+                </div>
+                <div class="competence-list">
+                    <div class="competence-item">
+                        <span class="status ok">Acquis</span>
+                        AC13.02 - Programmation
+                    </div>
+                    <div class="competence-item">
+                        <span class="status ok">Acquis</span>
+                        AC13.03 - Algorithmique
+                    </div>
+                    <div class="competence-item">
+                        <span class="status mid">En cours</span>
+                        AC13.04 - Web
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!-- ADMINISTRER -->
-<div class="card">
-<h2>Administrer les réseaux</h2>
+    <!-- Modal pour afficher les détails -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
 
-<div class="summary">
-Compétence en cours d’acquisition. L’étudiant possède une compréhension correcte des architectures réseau et une très bonne maîtrise des systèmes d’exploitation (Linux). Cependant, les compétences pratiques en configuration d’équipements réseau (switch, VLAN) et en diagnostic restent insuffisantes. Le profil montre une base théorique solide mais nécessite un renforcement opérationnel pour atteindre les attentes professionnelles.
-</div>
+    <script>
+        // Données des compétences
+        const competences = {
+            adminReseaux: {
+                title: "Administrer les réseaux et l'Internet",
+                bilan: "Base théorique solide. À renforcer : configuration pratique des équipements réseau (switch, VLAN) et diagnostic.",
+                ressources: [
+                    { code: "R1.01", nom: "Initiation aux réseaux informatiques" },
+                    { code: "R1.02", nom: "Principes et architecture des réseaux" },
+                    { code: "R1.03", nom: "Réseaux locaux et équipements actifs" },
+                    { code: "R1.04", nom: "Fondamentaux de l'électronique analogique" },
+                    { code: "R1.06", nom: "Architecture des systèmes numériques et informatiques" },
+                    { code: "R1.08", nom: "Bases des systèmes d'exploitation" },
+                    { code: "SAÉ11", nom: "Sensibilisation à l'hygiène informatique et à la cybersécurité" },
+                    { code: "SAÉ12", nom: "S'initier aux réseaux informatiques" }
+                ],
+                niveaux: {
+                    "Niveau 1 - Assister l’administrateur du réseau": [
+                        "AC11.01 | Maîtriser les lois fondamentales de l’électricité afin d’intervenir sur des équipements de réseaux et télécommunications",
+                        "AC11.02 | Comprendre l'architecture et les fondements des systèmes numériques, les principes du codage de l'information, des communications et de l'Internet",
+                        "AC11.03 | Configurer les fonctions de base du réseau local",
+                        "AC11.04 | Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et l'administration des réseaux et services fournis",
+                        "AC11.05 | Identifier les dysfonctionnements du réseau local et savoir les signaler",
+                        "AC11.06 | Installer un poste client, expliquer la procédure mise en place"
+                    ],
+                    "Niveau 2 - Administrer un réseau": [
+                        "AC21.01 | Configurer et dépanner le routage dynamique dans un réseau",
+                        "AC21.02 | Configurer et expliquer une politique simple de QoS et les fonctions de base de la sécurité d’un réseau",
+                        "AC21.03 | Déployer des postes clients et des solutions virtualisées adaptées à une situation donnée",
+                        "AC21.04 | Déployer des services réseaux avancés",
+                        "AC21.05 | Identifier les réseaux opérateurs et l’architecture d’Internet",
+                        "AC21.06 | Travailler en équipe pour développer ses compétences professionnelles"
+                    ],
+                    "Niveau 3 - Concevoir un réseau": [
+                        "AC31.01 | Concevoir un projet de réseau informatique d’une entreprise en intégrant les problématiques de haute disponibilité, de QoS, de sécurité et de supervision",
+                        "AC31.02 | Réaliser la documentation technique de ce projet",
+                        "AC31.03 | Réaliser une maquette de démonstration du projet",
+                        "AC31.04 | Défendre/argumenter un projet",
+                        "AC31.05 | Communiquer avec les acteurs du projet",
+                        "AC31.06 | Gérer le projet et les différentes étapes de sa mise en œuvre en respectant les délais"
+                    ]
+                },
+                situations: [
+                    "Conception et administration de l’infrastructure du réseau informatique d’une entreprise",
+                    "Installation et administration des services réseau informatique d’une entreprise",
+                    "Déploiement et administration des solutions fixes pour les clients d’un opérateur de télécommunication"
+                ]
+            },
+            connecterEntreprises: {
+                title: "Connecter les entreprises et les usagers",
+                bilan: "Profil scientifique solide. À améliorer : déploiement pratique de solutions réseau.",
+                ressources: [
+                    { code: "R1.05", nom: "Supports de transmission pour les réseaux locaux" },
+                    { code: "R1.13", nom: "Mathématiques du signal" },
+                    { code: "R1.14", nom: "Mathématiques des transmissions" },
+                    { code: "SAÉ13", nom: "Découvrir un dispositif de transmission" }
+                ],
+                niveaux: {
+                    "Niveau 1 - Découvrir les transmissions et la ToIP": [
+                        "AC12.01 | Mesurer, analyser et commenter les signaux",
+                        "AC12.02 | Caractériser des systèmes de transmissions élémentaires et découvrir la modélisation mathématique de leur fonctionnement",
+                        "AC12.03 | Déployer des supports de transmission",
+                        "AC12.04 | Connecter les systèmes de ToIP",
+                        "AC12.05 | Communiquer avec un tiers (client, collaborateur...) et adapter son discours et sa langue à son interlocuteur"
+                    ],
+                    "Niveau 2 - Maîtriser les composantes des solutions de connexion": [
+                        "AC22.01 | Déployer et caractériser des systèmes de transmissions complexes",
+                        "AC22.02 | Mettre en place un accès distant sécurisé",
+                        "AC22.03 | Mettre en place une connexion multi-site via un réseau opérateur",
+                        "AC22.04 | Déployer des réseaux d’accès des opérateurs",
+                        "AC22.05 | Capacité à questionner un cahier des charges RT"
+                    ],
+                    "Niveau 3 - Déployer une solution de connexion ou de communication sur IP": [
+                        "AC32.01 | Déployer un système de communication pour l’entreprise",
+                        "AC32.02 | Déployer un réseau d’accès sans fil pour le réseau d’entreprise en intégrant les enjeux de la sécurité",
+                        "AC32.03 | Déployer un réseau d’accès fixe ou mobile pour un opérateur de télécommunications en intégrant la sécurité",
+                        "AC32.04 | Permettre aux collaborateurs de se connecter de manière sécurisée au système d’information de l’entreprise",
+                        "AC32.05 | Collaborer en mode projet en français et en anglais"
+                    ]
+                },
+                situations: [
+                    "Déploiement des supports et systèmes de transmission",
+                    "Mise en service et administration des équipements d’accès fixe ou mobile d’un opérateur de télécommunications",
+                    "Déploiement et administration des accès sans fil pour l'entreprise",
+                    "Déploiement des systèmes de communications"
+                ]
+            },
+            programmer: {
+                title: "Créer des outils et applications informatiques pour les RT",
+                bilan: "Capacité à concevoir des solutions efficaces. À améliorer : développement Web.",
+                ressources: [
+                    { code: "R1.07", nom: "Fondamentaux de la programmation" },
+                    { code: "R1.08", nom: "Bases des systèmes d'exploitation" },
+                    { code: "R1.09", nom: "Introduction aux technologies Web" },
+                    { code: "SAÉ14", nom: "Se présenter sur Internet" },
+                    { code: "SAÉ15", nom: "Traitement de données" }
+                ],
+                niveaux: {
+                    "Niveau 1 - S’intégrer dans un service informatique": [
+                        "AC13.01 | Utiliser un système informatique et ses outils",
+                        "AC13.02 | Lire, exécuter, corriger et modifier un programme",
+                        "AC13.03 | Traduire un algorithme, dans un langage et pour un environnement donné",
+                        "AC13.04 | Connaître l’architecture et les technologies d’un site Web",
+                        "AC13.05 | Choisir les mécanismes de gestion de données adaptés au développement de l’outil et argumenter ses choix",
+                        "AC13.06 | S’intégrer dans un environnement propice au développement et au travail collaboratif"
+                    ],
+                    "Niveau 2 - Développer une application R&T": [
+                        "AC23.01 | Automatiser l’administration système avec des scripts",
+                        "AC23.02 | Développer une application à partir d’un cahier des charges donné, pour le Web ou les périphériques mobiles",
+                        "AC23.03 | Utiliser un protocole réseau pour programmer une application client/serveur",
+                        "AC23.04 | Installer, administrer un système de gestion de données",
+                        "AC23.05 | Accéder à un ensemble de données depuis une application et/ou un site web"
+                    ],
+                    "Niveau 3 - Piloter un projet de développement d’une application R&T": [
+                        "AC33.01 | Élaborer les spécifications techniques et le cahier des charges d’une application informatique",
+                        "AC33.02 | Mettre en place un environnement de travail collaboratif",
+                        "AC33.03 | Participer à la formation des utilisateurs",
+                        "AC33.04 | Déployer et maintenir une solution informatique",
+                        "AC33.05 | S’informer sur les évolutions et les nouveautés technologiques",
+                        "AC33.06 | Sécuriser l'environnement numérique d'une application"
+                    ]
+                },
+                situations: [
+                    "Conception, déploiement et maintenance du système d’information d’une entreprise",
+                    "Automatisation du déploiement et de la maintenance des outils logiciels",
+                    "Développement d’outils informatiques à usage interne d'une équipe"
+                ]
+            }
+        };
 
-<div class="ac">
+        // Fonction pour afficher les détails d'une compétence
+        function showDetails(competenceKey) {
+            const data = competences[competenceKey];
+            let html = `
+                <h2>${data.title}</h2>
+                <div class="bilan">
+                    <h4>Bilan constructif</h4>
+                    <p>${data.bilan}</p>
+                </div>
 
-<div class="ac-item">
-<span class="status mid">EN_COURS</span>
-AC11.02 - Comprendre l’architecture des réseaux  
-<div class="res">R1.02 (9) / R1.06 (9.75)</div>
-</div>
+                <h3>Situations professionnelles</h3>
+                <ul>
+                    ${data.situations.map(situation => `<li class="niveau-item">${situation}</li>`).join('')}
+                </ul>
+            `;
 
-<div class="ac-item">
-<span class="status ok">ACQUIS</span>
-AC11.04 - Systèmes d’exploitation  
-<div class="res">R1.08 (15)</div>
-</div>
+            // Ajouter les niveaux et apprentissages critiques
+            html += `<h3>Niveaux et Apprentissages Critiques</h3>`;
+            for (const [niveau, acs] of Object.entries(data.niveaux)) {
+                html += `
+                    <div class="niveau">
+                        <h4>${niveau}</h4>
+                        <ul>
+                            ${acs.map(ac => `<li class="niveau-item">${ac}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
 
-<div class="ac-item">
-<span class="status no">NON_ACQUIS</span>
-AC11.03 - Configurer réseau local  
-<div class="res">R1.03 (5) / SAÉ12 (10)</div>
-</div>
+            // Ajouter les ressources
+            html += `
+                <h3>Ressources associées</h3>
+                <div class="resource-list">
+                    ${data.ressources.map(resource => `
+                        <div class="resource-item">
+                            <h5>${resource.code} - ${resource.nom}</h5>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
 
-<div class="ac-item">
-<span class="status no">NON_ACQUIS</span>
-AC11.05 - Diagnostic réseau  
-<div class="res">SAÉ11 (9)</div>
-</div>
+            document.getElementById('modalBody').innerHTML = html;
+            document.getElementById('detailsModal').style.display = 'block';
+        }
 
-</div>
-</div>
+        // Fermer la modal
+        function closeModal() {
+            document.getElementById('detailsModal').style.display = 'none';
+        }
 
-<!-- CONNECTER -->
-<div class="card">
-<h2>Connecter les entreprises</h2>
-
-<div class="summary">
-Compétence globalement acquise sur le plan théorique. L’étudiant présente une excellente maîtrise des mathématiques du signal et des transmissions, lui permettant de comprendre en profondeur les mécanismes de communication. La partie pratique (déploiement réel de solutions réseau) reste cependant en retrait. Profil scientifique solide avec potentiel technique élevé.
-</div>
-
-<div class="ac">
-
-<div class="ac-item">
-<span class="status ok">ACQUIS</span>
-AC12.01 - Analyse de signaux  
-<div class="res">R1.13 (16.5)</div>
-</div>
-
-<div class="ac-item">
-<span class="status ok">ACQUIS</span>
-AC12.02 - Modélisation transmissions  
-<div class="res">R1.14 (14.33)</div>
-</div>
-
-<div class="ac-item">
-<span class="status mid">EN_COURS</span>
-AC12.03 - Supports transmission  
-<div class="res">R1.05 (11.5)</div>
-</div>
-
-<div class="ac-item">
-<span class="status no">NON_ACQUIS</span>
-AC12.04 - ToIP / mise en service  
-<div class="res">Non évalué concrètement</div>
-</div>
-
-</div>
-</div>
-
-<!-- PROGRAMMER -->
-<div class="card">
-<h2>Programmer</h2>
-
-<div class="summary">
-Compétence fortement maîtrisée. L’étudiant se distingue par une excellente capacité en programmation et en traitement de données. Il est capable de concevoir des solutions efficaces, d’automatiser des tâches et de manipuler des données complexes. Les systèmes sont bien maîtrisés. Le développement Web reste un point faible à améliorer pour compléter le profil.
-</div>
-
-<div class="ac">
-
-<div class="ac-item">
-<span class="status ok">ACQUIS</span>
-AC13.02 - Programmation  
-<div class="res">R1.07 (16.9)</div>
-</div>
-
-<div class="ac-item">Programmer
-Compétence fortement maîtrisée. L’étudiant se distingue par une excellente capacité en programmation et en traitement de données. Il est capable de concevoir des solutions efficaces, d’automatiser des tâches et de manipuler des données complexes. Les systèmes sont bien maîtrisés. Le développement Web reste un point faible à améliorer pour compléter le profil.
-ACQUIS AC13.02 - Programmation
-R1.07 (16.9)
-ACQUIS AC13.03 - Algorithmique
-SAÉ15 (18)
-ACQUIS AC13.01 - Outils informatiques
-Global UE13 (14.20)
-EN_COURS AC13.04 - Web
-R1.09 (4)
-ACQUIS AC13.06 - Travail collaboratif 
-<span class="status ok">ACQUIS</span>
-AC13.03 - Algorithmique  
-<div class="res">SAÉ15 (18)</div>
-</div>
-
-<div class="ac-item">
-<span class="status ok">ACQUIS</span>
-AC13.01 - Outils informatiques  
-<div class="res">Global UE13 (14.20)</div>
-</div>
-
-<div class="ac-item">
-<span class="status mid">EN_COURS</span>
-AC13.04 - Web  
-<div class="res">R1.09 (4)</div>
-</div>
-
-<div class="ac-item">
-<span class="status ok">ACQUIS</span>
-AC13.06 - Travail collaboratif  
-<div class="res">SAÉ14 (16.5)</div>
-</div>
-
-</div>
-</div>
-
-</div>
-</div>
-
+        // Fermer la modal en cliquant en dehors
+        window.onclick = function(event) {
+            const modal = document.getElementById('detailsModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+    </script>
 </body>
 </html>
